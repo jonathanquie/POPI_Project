@@ -1,0 +1,54 @@
+|-------------------|
+|	Types de Soins 	|
+|-------------------|
+
+|---------------|
+|Table 			|
+|---------------|
+|Soins visages	|
+|Soins corps	|
+|Epilations		|
+|Ongles			|
+|Maquillage		|
+|Produits		|
+|---------------|
+
+Pour chaque table diviser avec le nombre de services associés
+> Id du service
+> Nom du service
+> Prix de vente
+> Cout de revient (approximatif)
+
+|---------------|
+|Table 			|
+|---------------|
+|Charges		|
+|---------------|
+
+Pour le moment, loyer uniquement :
+> Id
+> Nom
+> Montant
+
+|---------------|
+|Table 			|
+|---------------|
+|Journées		|
+|---------------|
+
+Indication, par jour :
+> Id
+> Date
+> CA
+> Prix revient
+> Charges
+> Résultat
+
+
+Process d'une nouvelle journée :
+> Combien de servcices ?
+    => Enregistrement du nombre
+> Service par service, saisir la catégorie puis le nom
+    => Si introuvable ==> erreur
+> Récupérer le prix et le cout
+> Créer la journée dans la BDD

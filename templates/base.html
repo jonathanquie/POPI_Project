@@ -1,0 +1,108 @@
+{% load staticfiles %}
+<!DOCTYPE html>
+<html lang="fr">
+<head>
+    <link rel="stylesheet" href="{% static 'css/bootstrap.css' %}">
+    <link rel="stylesheet" href="{% static 'js/bootstrap.js' %}">
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.1.1/jquery.min.js"></script>
+    <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js"></script>
+   <title>{% block title %}POPI's Website{% endblock %}</title>
+</head>
+<body>
+
+
+
+
+<!-- BARRE DU HAUT DE L'ECRAN -->
+<nav class="navbar navbar-inverse">
+  <div class="container-fluid">
+    <!-- Brand and toggle get grouped for better mobile display -->
+    <div class="navbar-header">
+      <button type="button" class="navbar-toggle collapsed" data-toggle="collapse" data-target="#bs-example-navbar-collapse-1" aria-expanded="false">
+        <span class="sr-only">Toggle navigation</span>
+        <span class="icon-bar"></span>
+        <span class="icon-bar"></span>
+        <span class="icon-bar"></span>
+      </button>
+      <a class="navbar-brand" href="#">POPI</a>
+    </div>
+
+    <!-- Collect the nav links, forms, and other content for toggling -->
+    <div class="collapse navbar-collapse" id="bs-example-navbar-collapse-1">
+      <ul class="nav navbar-nav">
+        <li class="active"><a href="/institut/accueil">Accueil <span class="sr-only">(current)</span></a></li>
+        <li><a href="/institut/View">Voir tous les services, produits et charges</a></li>
+
+
+
+          <li class="dropdown">
+          <a class="dropdown-toggle" data-toggle="dropdown" role="button" aria-haspopup="true" aria-expanded="false">Voir <span class="caret"></span></a>
+          <ul class="dropdown-menu">
+            <li><a href="/institut/view/1">Soins corps</a></li>
+            <li><a href="/institut/view/2">Soins visage</a></li>
+            <li><a href="/institut/view/3">Epilations</a></li>
+            <li><a href="/institut/view/4">Ongles</a></li>
+            <li><a href="/institut/view/5">Maquillage</a></li>
+            <li role="separator" class="divider"></li>
+            <li><a href="/institut/view/6">Produits</a></li>
+            <li role="separator" class="divider"></li>
+            <li><a href="/institut/view/7">Charges</a></li>
+              <li role="separator" class="divider"></li>
+            <li><a href="/institut/view/8">Journées</a></li>
+          </ul>
+        </li>
+
+
+
+
+        <li class="dropdown">
+          <a class="dropdown-toggle" data-toggle="dropdown" role="button" aria-haspopup="true" aria-expanded="false">Ajouter <span class="caret"></span></a>
+          <ul class="dropdown-menu">
+            <li><a href="/institut/add/1">Soins corps</a></li>
+            <li><a href="/institut/add/2">Soins visage</a></li>
+            <li><a href="/institut/add/3">Epilations</a></li>
+            <li><a href="/institut/add/4">Ongles</a></li>
+            <li><a href="/institut/add/5">Maquillage</a></li>
+            <li role="separator" class="divider"></li>
+            <li><a href="/institut/add/6">Produits</a></li>
+            <li role="separator" class="divider"></li>
+            <li><a href="/institut/add/7">Charges</a></li>
+          </ul>
+        </li>
+
+
+
+        <li class="dropdown">
+          <a class="dropdown-toggle" data-toggle="dropdown" role="button" aria-haspopup="true" aria-expanded="false">Supprimer <span class="caret"></span></a>
+          <ul class="dropdown-menu">
+            <li><a href="#">Soins corps</a></li>
+            <li><a href="#">Soins visage</a></li>
+            <li><a href="#">Epilations</a></li>
+            <li><a href="#">Ongles</a></li>
+            <li><a href="#">Maquillage</a></li>
+            <li role="separator" class="divider"></li>
+            <li><a href="#">Produits</a></li>
+            <li role="separator" class="divider"></li>
+            <li><a href="#">Charges</a></li>
+          </ul>
+        </li>
+
+        <li><a href="#">Nouvelle journée</a></li>
+
+      </ul>
+
+
+      <ul class="nav navbar-nav navbar-right">
+        <li><a href="/institut/about">About</a></li>
+      </ul>
+    </div><!-- /.navbar-collapse -->
+  </div><!-- /.container-fluid -->
+</nav>
+
+
+   <section id="content">
+       {% block content %}{% endblock %}
+   </section>
+<footer>&copy; POPI</footer>
+</body>
+</html>

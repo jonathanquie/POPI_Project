@@ -1,0 +1,259 @@
+{% extends "base.html" %}
+{% block title %}POPI's Website{% endblock %}
+
+{% block content %}
+    <h1>Bienvenue sur mon site</h1>
+    <p>Page pour voir tous les services et produits</p>
+
+    <table class="table table-bordered table-striped">
+        <caption>
+            <h2>Soins du corps</h2>
+        </caption>
+        <thead>
+            <tr class="success">
+                <th style="width:20%;">Nom du soin</th>
+                <th style="width:20%;">Prix de vente</th>
+                <th style="width:20%;">Coût de revient</th>
+            </tr>
+        </thead>
+    <tbody>
+        {% for view_soins_corps in tous_soins_corps %}
+        <tr>
+            <td>{{ view_soins_corps.name }}</td>
+            <td>{{ view_soins_corps.price }}</td>
+            <td>{{ view_soins_corps.cost }}</td>
+        </tr>
+        {% empty %}
+            <tr class = "danger">
+            <td><i>Aucun soin corps disponible.</i></td>
+            <td>-</td>
+            <td>-</td>
+        </tr>
+        {% endfor %}
+    </tbody>
+    </table>
+
+
+
+
+    <table class="table table-bordered table-striped">
+        <caption>
+            <h2>Soins du visage</h2>
+        </caption>
+        <thead>
+            <tr class="success">
+                <th style="width:20%;">Nom du soin</th>
+                <th style="width:20%;">Prix de vente</th>
+                <th style="width:20%;">Coût de revient</th>
+            </tr>
+        </thead>
+    <tbody>
+        {% for view_soins_visage in tous_soins_visages %}
+        <tr>
+            <td>{{ view_soins_visage.name }}</td>
+            <td>{{ view_soins_visage.price }}</td>
+            <td>{{ view_soins_visage.cost }}</td>
+        </tr>
+        {% empty %}
+            <tr class = "danger">
+            <td><i>Aucun soin visage disponible.</i></td>
+            <td>-</td>
+            <td>-</td>
+        </tr>
+        {% endfor %}
+    </tbody>
+    </table>
+
+
+
+
+    <table class="table table-bordered table-striped">
+        <caption>
+            <h2>Epilations</h2>
+        </caption>
+        <thead>
+            <tr class="success">
+                <th style="width:20%;">Nom de l'épilation</th>
+                <th style="width:20%;">Prix de vente</th>
+                <th style="width:20%;">Coût de revient</th>
+            </tr>
+        </thead>
+    <tbody>
+        {% for view_epilations in tous_epilations %}
+        <tr>
+            <td>{{ view_epilations.name }}</td>
+            <td>{{ view_epilations.price }}</td>
+            <td>{{ view_epilations.cost }}</td>
+        </tr>
+        {% empty %}
+        <tr class = "danger">
+            <td><i>Aucune épilation disponible.</i></td>
+            <td>-</td>
+            <td>-</td>
+        </tr>
+
+        {% endfor %}
+    </tbody>
+    </table>
+
+
+
+    <table class="table table-bordered table-striped">
+        <caption>
+            <h2>Ongles</h2>
+        </caption>
+        <thead>
+            <tr class="success">
+                <th style="width:20%;">Nom du service</th>
+                <th style="width:20%;">Prix de vente</th>
+                <th style="width:20%;">Coût de revient</th>
+            </tr>
+        </thead>
+    <tbody>
+        {% for view_ongles in tous_ongles %}
+        <tr>
+            <td>{{ view_ongles.name }}</td>
+            <td>{{ view_ongles.price }}</td>
+            <td>{{ view_ongles.cost }}</td>
+        </tr>
+        {% empty %}
+        <tr class = "danger">
+            <td><i>Aucun serices "ongles" disponible.</i></td>
+            <td>-</td>
+            <td>-</td>
+        </tr>
+
+        {% endfor %}
+    </tbody>
+    </table>
+
+
+
+    <table class="table table-bordered table-striped">
+        <caption>
+            <h2>Maquillage</h2>
+        </caption>
+        <thead>
+            <tr class="success">
+                <th style="width:20%;">Nom du service</th>
+                <th style="width:20%;">Prix de vente</th>
+                <th style="width:20%;">Coût de revient</th>
+            </tr>
+        </thead>
+    <tbody>
+        {% for view_maquillage in tous_maquillages %}
+        <tr>
+            <td>{{ view_maquillage.name }}</td>
+            <td>{{ view_maquillage.price }}</td>
+            <td>{{ view_maquillage.cost }}</td>
+        </tr>
+        {% empty %}
+        <tr class = "danger">
+            <td><i>Aucun serices "maquillage" disponible.</i></td>
+            <td>-</td>
+            <td>-</td>
+        </tr>
+
+        {% endfor %}
+    </tbody>
+    </table>
+
+
+     <table class="table table-bordered table-striped">
+        <caption>
+            <h2>Produits</h2>
+        </caption>
+        <thead>
+            <tr class="success">
+                <th style="width:20%;">Nom du produit</th>
+                <th style="width:20%;">Prix de vente</th>
+                <th style="width:20%;">Coût de revient</th>
+            </tr>
+        </thead>
+    <tbody>
+        {% for view_produits in tous_produits %}
+        <tr>
+            <td>{{ view_produits.name }}</td>
+            <td>{{ view_produits.price }}</td>
+            <td>{{ view_produits.cost }}</td>
+        </tr>
+        {% empty %}
+        <tr class = "danger">
+            <td><i>Aucun produit disponible.</i></td>
+            <td>-</td>
+            <td>-</td>
+        </tr>
+
+        {% endfor %}
+    </tbody>
+    </table>
+
+
+    <table class="table table-bordered table-striped">
+        <caption>
+            <h2>Charges</h2>
+        </caption>
+        <thead>
+            <tr class="default">
+                <th style="width:20%;">Nom de la charge</th>
+                <th style="width:20%;">Coût de la charge</th>
+            </tr>
+        </thead>
+    <tbody>
+        {% for view_charges in tous_charges %}
+        <tr class="info">
+            <td>{{ view_charges.name }}</td>
+            <td>{{ view_charges.cost }}</td>
+        </tr>
+        {% empty %}
+        <tr class = "danger">
+            <td><i>Aucune charge disponible.</i></td>
+            <td>-</td>
+        </tr>
+
+        {% endfor %}
+    </tbody>
+    </table>
+
+
+
+    <table class="table table-bordered table-striped table-condensed">
+        <caption>
+            <h2>Journées éffectuées</h2>
+        </caption>
+        <thead>
+            <tr class="default">
+                <th style="width:20%;">Date</th>
+                <th style="width:20%;">Chiffre d'affaire</th>
+                <th style="width:20%;">Charges</th>
+                <th style="width:20%;">Résultat net</th>
+            </tr>
+        </thead>
+    <tbody>
+        {% for view_journees in tous_journees %}
+        <tr class="info">
+            <td>{{ view_journees.date }}</td>
+            <td>{{ view_journees.ca }}</td>
+            <td>{{ view_journees.costs }}</td>
+            <td>{{ view_journees.result }}</td>
+        </tr>
+        {% empty %}
+        <tr class = "danger">
+            <td><i>Aucune journée disponible.</i></td>
+            <td>-</td>
+            <td>-</td>
+            <td>-</td>
+        </tr>
+
+        {% endfor %}
+    </tbody>
+    </table>
+
+
+
+
+{% endblock %}
+
+
+
+
