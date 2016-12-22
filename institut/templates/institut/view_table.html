@@ -5,6 +5,7 @@
     {% if id == '1' %}
         <table class="table table-bordered table-inverse">
             <caption>
+                <h3>-</h3>
                 <h2>Soins du corps</h2>
             </caption>
             <thead>
@@ -36,6 +37,7 @@
     {% elif id == '2' %}
         <table class="table table-bordered table-inverse">
             <caption>
+                <h3>-</h3>
                 <h2>Soins du visage</h2>
             </caption>
             <thead>
@@ -67,6 +69,7 @@
     {% elif id == '3' %}
         <table class="table table-bordered table-inverse">
             <caption>
+                <h3>-</h3>
                 <h2>Epilations</h2>
             </caption>
             <thead>
@@ -98,6 +101,7 @@
     {% elif id == '4' %}
         <table class="table table-bordered table-inverse">
             <caption>
+                <h3>-</h3>
                 <h2>Ongles</h2>
             </caption>
             <thead>
@@ -129,6 +133,7 @@
     {% elif id == '5' %}
         <table class="table table-bordered table-inverse">
             <caption>
+                <h3>-</h3>
                 <h2>Maquillage</h2>
             </caption>
             <thead>
@@ -160,6 +165,7 @@
     {% elif id == '6' %}
          <table class="table table-bordered table-inverse">
             <caption>
+                <h3>-</h3>
                 <h2>Produits</h2>
             </caption>
             <thead>
@@ -191,6 +197,7 @@
     {% elif id == '7' %}
         <table class="table table-bordered table-inverse">
             <caption>
+                <h3>-</h3>
                 <h2>Charges</h2>
             </caption>
             <thead>
@@ -219,6 +226,7 @@
     {% else %}
         <table class="table table-bordered table-inverse">
             <caption>
+                <h3>-</h3>
                 <h2>Journées éffectuées</h2>
             </caption>
             <thead>
@@ -238,11 +246,11 @@
                 <td>{{ view_journees.result }}</td>
             </tr>
             {% empty %}
-            <tr class = "danger">
-                <td><i><font color =#b52222>Aucune journée disponible.</i></td>
-                <td><font color =#b52222>-</color></td>
-                <td><font color =#b52222>-</color></td>
-                <td><font color =#b52222>-</color></td>
+            <tr class = "">
+                <td><i><font color =#b52222>Aucune journée disponible.</font></i></td>
+                <td><font color =#b52222>-</font></td>
+                <td><font color =#b52222>-</font></td>
+                <td><font color =#b52222>-</font></td>
             </tr>
 
             {% endfor %}
