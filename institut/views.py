@@ -2,7 +2,7 @@ from django.http import HttpResponse, Http404
 from django.shortcuts import render
 from datetime import datetime
 from institut.models import Epilations, Charges, Ongles, Soins_Corps, Soins_Visages, Maquillage, Produits, Journees
-from .forms import New_soin_corps
+from .forms import New_soin_corps, New_charge, New_epilation, New_maquillage, New_ongles, New_produit, New_soin_visage
 
 def home(request):
     return render(request, 'institut/accueil.html')
@@ -79,8 +79,11 @@ def new(request):
 def about(request):
     return render(request, 'institut/about.html')
 
-def new_soin_corps(request, id_article):
+
+
+def new_soin_corps(request):
     form = New_soin_corps(request.POST or None)
+
     if form.is_valid():
         soin_corps_name = form.cleaned_data['soin_corps_name']
         soin_corps_price = form.cleaned_data['soin_corps_price']
@@ -88,5 +91,94 @@ def new_soin_corps(request, id_article):
 
         envoi = True
 
+        Soins_Corps(name=soin_corps_name, price=soin_corps_price, cost=soin_corps_cost).save()
 
-    return render(request, 'institut/add_table.html', {'id': id_article}, locals())
+    return render(request, 'institut/add_soin_corps.html', locals())
+
+
+def new_soin_visage(request):
+    form = New_soin_visage(request.POST or None)
+
+    if form.is_valid():
+        soin_visage_name = form.cleaned_data['soin_visage_name']
+        soin_visage_price = form.cleaned_data['soin_visage_price']
+        soin_visage_cost = form.cleaned_data['soin_visage_cost']
+
+        envoi = True
+
+        Soins_Visages(name=soin_visage_name, price=soin_visage_price, cost=soin_visage_cost).save()
+
+    return render(request, 'institut/add_soin_visage.html', locals())
+
+
+def new_epilation(request):
+    form = New_epilation(request.POST or None)
+
+    if form.is_valid():
+        epilation_name = form.cleaned_data['epilation_name']
+        epilation_price = form.cleaned_data['epilation_price']
+        epilation_cost = form.cleaned_data['epilation_cost']
+
+        envoi = True
+
+        Epilations(name=epilation_name, price=epilation_price, cost=epilation_cost).save()
+
+    return render(request, 'institut/add_epilation.html', locals())
+
+
+def new_ongles(request):
+    form = New_ongles(request.POST or None)
+
+    if form.is_valid():
+        ongles_name = form.cleaned_data['ongles_name']
+        ongles_price = form.cleaned_data['ongles_price']
+        ongles_cost = form.cleaned_data['ongles_cost']
+
+        envoi = True
+
+        Ongles(name=ongles_name, price=ongles_price, cost=ongles_cost).save()
+
+    return render(request, 'institut/add_ongles.html', locals())
+
+
+def new_maquillage(request):
+    form = New_maquillage(request.POST or None)
+
+    if form.is_valid():
+        maquillage_name = form.cleaned_data['maquillage_name']
+        maquillage_price = form.cleaned_data['maquillage_price']
+        maquillage_cost = form.cleaned_data['maquillage_cost']
+
+        envoi = True
+
+        Maquillage(name=maquillage_name, price=maquillage_price, cost=maquillage_cost).save()
+
+    return render(request, 'institut/add_maquillage.html', locals())
+
+
+def new_produit(request):
+    form = New_produit(request.POST or None)
+
+    if form.is_valid():
+        produit_name = form.cleaned_data['produit_name']
+        produit_price = form.cleaned_data['produit_price']
+        produit_cost = form.cleaned_data['produit_cost']
+
+        envoi = True
+
+        Produits(name=produit_name, price=produit_price, cost=produit_cost).save()
+
+    return render(request, 'institut/add_produit.html', locals())
+
+def new_charge(request):
+    form = New_charge(request.POST or None)
+
+    if form.is_valid():
+        charge_name = form.cleaned_data['charge_name']
+        charge_cost = form.cleaned_data['charge_cost']
+
+        envoi = True
+
+        Charges(name=charge_name, cost=charge_cost).save()
+
+    return render(request, 'institut/add_charge.html', locals())

@@ -1,0 +1,39 @@
+{% extends "base.html" %}
+{% block title %}POPI's Website{% endblock %}
+
+{% block content %}
+    <script type="text/javascript">
+    $(document).ready(function()
+    {
+        $("#id-popup3").modal("show");// affiche la popup au chargement de la page
+    });
+    </script>
+
+    <div class="modal fade" id="id-popup3" tabindex="-1" role="dialog" aria-labelledby="titrePopUp" aria-hidden="true">
+
+      <div class="modal-dialog">
+
+        <div class="modal-content">
+
+          <!-- le titre de la popup -->
+          <div class="modal-header">
+          <h4 class="modal-title" id="titrePopUp">Soin du corps
+          <!-- lla croix de fermeture de la popup -->
+          <button type="button" class="close" data-dismiss="modal" aria-hidden="true">&times;</button> </h4>
+          </div>
+
+          <!-- le contenu HTML de la popup -->
+            <div class="modal-body">Success !</div>
+
+          <!-- le pied de page de la popup -->
+          <div class="modal-footer">
+          <a href="/institut/accueil" class="btn btn-primary pull-left">Accueil</a>
+          </div>
+
+        </div>
+
+      </div>
+
+    </div>
+
+{% endblock %} 
