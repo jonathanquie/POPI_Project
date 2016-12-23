@@ -79,6 +79,9 @@ def new(request):
 def about(request):
     return render(request, 'institut/about.html')
 
+def contact(request):
+    return render(request, 'institut/contact.html')
+
 
 
 def new_soin_corps(request):
@@ -106,9 +109,10 @@ def new_soin_visage(request):
 
         envoi = True
 
+
         Soins_Visages(name=soin_visage_name, price=soin_visage_price, cost=soin_visage_cost).save()
 
-    return render(request, 'institut/add_soin_visage.html', locals())
+        return render(request, 'institut/add_soin_visage.html', locals())
 
 
 def new_epilation(request):

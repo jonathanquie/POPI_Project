@@ -64,16 +64,16 @@
         <li class="dropdown">
           <a class="dropdown-toggle" data-toggle="dropdown" role="button" aria-haspopup="true" aria-expanded="false">Ajouter <span class="caret"></span></a>
           <ul class="dropdown-menu">
-{#            <li><a href="/institut/add1">Soins corps</a></li>#}
+            <!--<li><a href="/institut/add1">Soins corps</a></li>-->
             <li><a data-toggle="modal" data-target="#id-popup2">Soins corps</a></li>
-            <li><a href="/institut/add2">Soins visage</a></li>
-            <li><a href="/institut/add3">Epilations</a></li>
-            <li><a href="/institut/add4">Ongles</a></li>
-            <li><a href="/institut/add5">Maquillage</a></li>
+            <li><a data-toggle="modal" data-target="#id-popup4">Soins visage</a></li>
+            <li><a data-toggle="modal" data-target="#id-popup6">Epilations</a></li>
+            <li><a data-toggle="modal" data-target="#id-popup8">Ongles</a></li>
+            <li><a data-toggle="modal" data-target="#id-popup10">Maquillage</a></li>
             <li role="separator" class="divider"></li>
-            <li><a href="/institut/add6">Produits</a></li>
+            <li><a data-toggle="modal" data-target="#id-popup12">Produits</a></li>
             <li role="separator" class="divider"></li>
-            <li><a href="/institut/add7">Charges</a></li>
+            <li><a data-toggle="modal" data-target="#id-popup14">Charges</a></li>
           </ul>
         </li>
 
@@ -100,11 +100,14 @@
 
 
       <ul class="nav navbar-nav navbar-right">
+        <li><a href="/institut/contact">Contacts</a></li>
         <li><a data-toggle="modal" data-target="#id-popup">About</a></li>
       </ul>
     </div><!-- /.navbar-collapse -->
   </div><!-- /.container-fluid -->
 </nav>
+
+<!-- POP UP A PROPOS -->
 
     <div class="modal fade" id="id-popup" tabindex="-1" role="dialog" aria-labelledby="titrePopUp" aria-hidden="true">
 
@@ -124,21 +127,18 @@
           <p class="lead">Le Lorem Ipsum est simplement du faux texte employé dans la composition et la mise en page avant impression. </p>
           <p>Le Lorem Ipsum est le faux texte standard de l'imprimerie depuis les années 1500, quand un peintre anonyme assembla ensemble des morceaux de texte pour réaliser un livre spécimen de polices de texte. Il n'a pas fait que survivre cinq siècles, mais s'est aussi adapté à la bureautique informatique, sans que son contenu n'en soit modifié. Il a été popularisé dans les années 1960 grâce à la vente de feuilles Letraset contenant des passages du Lorem Ipsum, et, plus récemment, par son inclusion dans des applications de mise en page de texte, comme Aldus PageMaker</p>
           </div>
-
           <!-- le pied de page de la popup -->
           <div class="modal-footer">
           <a href="/institut/accueil" class="btn btn-primary pull-left">Accueil</a>
           </div>
-
         </div>
-
       </div>
-
     </div>
 
+<!-- FIN POP UP A PROPOS -->
 
 
-
+<!-- POP UP SOIN CORPS -->
 
     <div class="modal fade" id="id-popup2" tabindex="-1" role="dialog" aria-labelledby="titrePopUp" aria-hidden="true">
 
@@ -173,7 +173,7 @@
                     <div class="form-group" >
                         <label for="soin_corps_name" class="col-lg-6 control-label"><font color ='black'>Nom du soin :</font></label>
                         <div class="col-sm-6">
-                            <input type="text" class="form-control" name="soin_corps_name;" id="soin_corps_name">
+                            <input type="text" class="form-control" name="soin_corps_name" id="soin_corps_name">
                         </div>
                     </div>
 
@@ -190,6 +190,74 @@
                             <input type="text" class="form-control" name="soin_corps_cost" id="soin_corps_cost">
                         </div>
                     </div>
+           </div>
+            </div>
+            <div class="modal-footer">
+                <input type="submit" value="Envoyer" class="btn btn-primary pull-left"/>
+                <a href="/institut/accueil" class="btn btn-primary pull-left">Retour</a>
+            </div>
+          </form>
+        </div>
+      </div>
+    </div>
+
+<!-- FIN POP UP SOIN CORPS -->
+
+
+
+
+<!-- POP UP SOIN VISAGE -->
+
+    <div class="modal fade" id="id-popup4" tabindex="-1" role="dialog" aria-labelledby="titrePopUp" aria-hidden="true">
+
+      <div class="modal-dialog">
+
+        <div class="modal-content">
+
+          <!-- le titre de la popup -->
+          <div class="modal-header">
+          <font color ='black'><h2 class="modal-title" id="titrePopUp">Soin du visage</font>
+          <!-- lla croix de fermeture de la popup -->
+          <button type="button" class="close" data-dismiss="modal" aria-hidden="true">&times;</button> </h2>
+          </div>
+
+          <!-- le contenu HTML de la popup -->
+          <form action="{% url "new_soin_visage" %}" method="post" class="form-horizontal" role="form">
+            {% csrf_token %}
+
+            {% comment %}<label><font color ='black'><h4>Nom du soin :</h4></font></label>
+            <input type="text" name="soin_visage_name"/>
+            <br /><br />
+            <label><h4><font color ='black'>Prix de vente du soin :</font></h4></label>
+            <input type="text" name="soin_visage_price" size="5"/>
+            <br /><br />
+            <label><h4><font color ='black'>Coût de revient du soin :</font></h4></label>
+            <input type="text" name="soin_visage_cost" size="5"/>{% endcomment %}
+
+            <div class='row'>
+
+                <div class="col-lg-10">
+
+                    <div class="form-group" >
+                        <label for="soin_visage_name" class="col-lg-6 control-label"><font color ='black'>Nom du soin :</font></label>
+                        <div class="col-sm-6">
+                            <input type="text" class="form-control" name="soin_visage_name" id="soin_visage_name">
+                        </div>
+                    </div>
+
+                    <div class="form-group">
+                        <label for="soin_visage_price" class="col-lg-6 control-label"><font color ='black'>Prix de vente du soin :</font></label>
+                        <div class="col-sm-3">
+                            <input type="text" class="form-control" name="soin_visage_price" id="soin_visage_price">
+                        </div>
+                    </div>
+
+                    <div class="form-group" >
+                        <label for="soin_visage_cost" class="col-lg-6 control-label"><font color ='black'>Coût de revient du soin :</font></label>
+                        <div class="col-sm-3 ">
+                            <input type="text" class="form-control" name="soin_visage_cost" id="soin_visage_cost">
+                        </div>
+                    </div>
 
 
 
@@ -203,14 +271,359 @@
             </div>
           </form>
             <!-- le pied de page de la popup -->
-
         </div>
-
       </div>
-
     </div>
 
+<!-- FIN POP UP SOIN VISAGE -->
 
+
+
+<!-- POP UP EPILATION -->
+
+    <div class="modal fade" id="id-popup6" tabindex="-1" role="dialog" aria-labelledby="titrePopUp" aria-hidden="true">
+
+      <div class="modal-dialog">
+
+        <div class="modal-content">
+
+          <!-- le titre de la popup -->
+          <div class="modal-header">
+          <font color ='black'><h2 class="modal-title" id="titrePopUp">Épilation</font>
+          <!-- lla croix de fermeture de la popup -->
+          <button type="button" class="close" data-dismiss="modal" aria-hidden="true">&times;</button> </h2>
+          </div>
+
+          <!-- le contenu HTML de la popup -->
+          <form action="{% url "new_epilation" %}" method="post" class="form-horizontal" role="form">
+            {% csrf_token %}
+
+            {% comment %}<label><font color ='black'><h4>Nom de l'épilation :</h4></font></label>
+            <input type="text" name="epilation_name"/>
+            <br /><br />
+            <label><h4><font color ='black'>Prix de vente de l'épilation :</font></h4></label>
+            <input type="text" name="epilation_price" size="5"/>
+            <br /><br />
+            <label><h4><font color ='black'>Coût de revient de l'épilation :</font></h4></label>
+            <input type="text" name="epilation_cost" size="5"/>{% endcomment %}
+
+            <div class='row'>
+
+                <div class="col-lg-10">
+
+                    <div class="form-group" >
+                        <label for="epilation_name" class="col-lg-6 control-label"><font color ='black'>Nom du soin :</font></label>
+                        <div class="col-sm-6">
+                            <input type="text" class="form-control" name="epilation_name" id="epilation_name">
+                        </div>
+                    </div>
+
+                    <div class="form-group">
+                        <label for="epilation_price" class="col-lg-6 control-label"><font color ='black'>Prix de vente du soin :</font></label>
+                        <div class="col-sm-3">
+                            <input type="text" class="form-control" name="epilation_price" id="epilation_price">
+                        </div>
+                    </div>
+
+                    <div class="form-group" >
+                        <label for="epilation_cost" class="col-lg-6 control-label"><font color ='black'>Coût de revient du soin :</font></label>
+                        <div class="col-sm-3 ">
+                            <input type="text" class="form-control" name="epilation_cost" id="epilation_cost">
+                        </div>
+                    </div>
+
+
+
+
+                </div>
+            </div>
+
+            <div class="modal-footer">
+                <input type="submit" value="Envoyer" class="btn btn-primary pull-left"/>
+                <a href="/institut/accueil" class="btn btn-primary pull-left">Retour</a>
+            </div>
+          </form>
+            <!-- le pied de page de la popup -->
+        </div>
+      </div>
+    </div>
+
+<!-- FIN POP UP EPILATION -->
+
+
+<!-- POP UP ONGLES -->
+
+    <div class="modal fade" id="id-popup8" tabindex="-1" role="dialog" aria-labelledby="titrePopUp" aria-hidden="true">
+
+      <div class="modal-dialog">
+
+        <div class="modal-content">
+
+          <!-- le titre de la popup -->
+          <div class="modal-header">
+          <font color ='black'><h2 class="modal-title" id="titrePopUp">Ongles</font>
+          <!-- lla croix de fermeture de la popup -->
+          <button type="button" class="close" data-dismiss="modal" aria-hidden="true">&times;</button> </h2>
+          </div>
+
+          <!-- le contenu HTML de la popup -->
+          <form action="{% url "new_ongles" %}" method="post" class="form-horizontal" role="form">
+            {% csrf_token %}
+
+            {% comment %}<label><font color ='black'><h4>Nom du service ongles :</h4></font></label>
+            <input type="text" name="ongles_name"/>
+            <br /><br />
+            <label><h4><font color ='black'>Prix de vente du service :</font></h4></label>
+            <input type="text" name="ongles_price" size="5"/>
+            <br /><br />
+            <label><h4><font color ='black'>Coût de revient du service :</font></h4></label>
+            <input type="text" name="ongles_cost" size="5"/>{% endcomment %}
+
+            <div class='row'>
+
+                <div class="col-lg-10">
+
+                    <div class="form-group" >
+                        <label for="ongles_name" class="col-lg-6 control-label"><font color ='black'>Nom du service :</font></label>
+                        <div class="col-sm-6">
+                            <input type="text" class="form-control" name="ongles_name" id="ongles_name">
+                        </div>
+                    </div>
+
+                    <div class="form-group">
+                        <label for="ongles_price" class="col-lg-6 control-label"><font color ='black'>Prix de vente du service :</font></label>
+                        <div class="col-sm-3">
+                            <input type="text" class="form-control" name="ongles_price" id="ongles_price">
+                        </div>
+                    </div>
+
+                    <div class="form-group" >
+                        <label for="ongles_cost" class="col-lg-6 control-label"><font color ='black'>Coût de revient du service :</font></label>
+                        <div class="col-sm-3 ">
+                            <input type="text" class="form-control" name="ongles_cost" id="ongles_cost">
+                        </div>
+                    </div>
+
+
+
+
+                </div>
+            </div>
+
+            <div class="modal-footer">
+                <input type="submit" value="Envoyer" class="btn btn-primary pull-left"/>
+                <a href="/institut/accueil" class="btn btn-primary pull-left">Retour</a>
+            </div>
+          </form>
+            <!-- le pied de page de la popup -->
+        </div>
+      </div>
+    </div>
+
+<!-- FIN POP UP ONGLES -->
+
+
+<!-- POP UP MAQUILLAGE -->
+
+    <div class="modal fade" id="id-popup10" tabindex="-1" role="dialog" aria-labelledby="titrePopUp" aria-hidden="true">
+
+      <div class="modal-dialog">
+
+        <div class="modal-content">
+
+          <!-- le titre de la popup -->
+          <div class="modal-header">
+          <font color ='black'><h2 class="modal-title" id="titrePopUp">Maquillage</font>
+          <!-- lla croix de fermeture de la popup -->
+          <button type="button" class="close" data-dismiss="modal" aria-hidden="true">&times;</button> </h2>
+          </div>
+
+          <!-- le contenu HTML de la popup -->
+          <form action="{% url "new_maquillage" %}" method="post" class="form-horizontal" role="form">
+            {% csrf_token %}
+
+            {% comment %}<label><font color ='black'><h4>Nom du service maquillage :</h4></font></label>
+            <input type="text" name="maquillage_name"/>
+            <br /><br />
+            <label><h4><font color ='black'>Prix de vente du service :</font></h4></label>
+            <input type="text" name="maquillage_price" size="5"/>
+            <br /><br />
+            <label><h4><font color ='black'>Coût de revient du service :</font></h4></label>
+            <input type="text" name="maquillage_cost" size="5"/>{% endcomment %}
+
+            <div class='row'>
+
+                <div class="col-lg-10">
+
+                    <div class="form-group" >
+                        <label for="maquillage_name" class="col-lg-6 control-label"><font color ='black'>Nom du service :</font></label>
+                        <div class="col-sm-6">
+                            <input type="text" class="form-control" name="maquillage_name" id="maquillage_name">
+                        </div>
+                    </div>
+
+                    <div class="form-group">
+                        <label for="maquillage_price" class="col-lg-6 control-label"><font color ='black'>Prix de vente du service :</font></label>
+                        <div class="col-sm-3">
+                            <input type="text" class="form-control" name="maquillage_price" id="maquillage_price">
+                        </div>
+                    </div>
+
+                    <div class="form-group" >
+                        <label for="maquillage_cost" class="col-lg-6 control-label"><font color ='black'>Coût de revient du service :</font></label>
+                        <div class="col-sm-3 ">
+                            <input type="text" class="form-control" name="maquillage_cost" id="maquillage_cost">
+                        </div>
+                    </div>
+
+
+
+
+                </div>
+            </div>
+
+            <div class="modal-footer">
+                <input type="submit" value="Envoyer" class="btn btn-primary pull-left"/>
+                <a href="/institut/accueil" class="btn btn-primary pull-left">Retour</a>
+            </div>
+          </form>
+            <!-- le pied de page de la popup -->
+        </div>
+      </div>
+    </div>
+
+<!-- FIN POP UP MAQUILLAGE -->
+
+
+<!-- POP UP PRODUITS -->
+
+    <div class="modal fade" id="id-popup12" tabindex="-1" role="dialog" aria-labelledby="titrePopUp" aria-hidden="true">
+
+      <div class="modal-dialog">
+
+        <div class="modal-content">
+
+          <!-- le titre de la popup -->
+          <div class="modal-header">
+          <font color ='black'><h2 class="modal-title" id="titrePopUp">Produits</font>
+          <!-- lla croix de fermeture de la popup -->
+          <button type="button" class="close" data-dismiss="modal" aria-hidden="true">&times;</button> </h2>
+          </div>
+
+          <!-- le contenu HTML de la popup -->
+          <form action="{% url "new_produit" %}" method="post" class="form-horizontal" role="form">
+            {% csrf_token %}
+
+            {% comment %}<label><font color ='black'><h4>Nom du produit :</h4></font></label>
+            <input type="text" name="produit_name"/>
+            <br /><br />
+            <label><h4><font color ='black'>Prix de vente du produit :</font></h4></label>
+            <input type="text" name="produit_price" size="5"/>
+            <br /><br />
+            <label><h4><font color ='black'>Coût de revient du produit :</font></h4></label>
+            <input type="text" name="produit_cost" size="5"/>{% endcomment %}
+
+            <div class='row'>
+
+                <div class="col-lg-10">
+
+                    <div class="form-group" >
+                        <label for="produit_name" class="col-lg-6 control-label"><font color ='black'>Nom du produit :</font></label>
+                        <div class="col-sm-6">
+                            <input type="text" class="form-control" name="produit_name" id="produit_name">
+                        </div>
+                    </div>
+
+                    <div class="form-group">
+                        <label for="produit_price" class="col-lg-6 control-label"><font color ='black'>Prix de vente du produit :</font></label>
+                        <div class="col-sm-3">
+                            <input type="text" class="form-control" name="produit_price" id="produit_price">
+                        </div>
+                    </div>
+
+                    <div class="form-group" >
+                        <label for="produit_cost" class="col-lg-6 control-label"><font color ='black'>Coût de revient du produit :</font></label>
+                        <div class="col-sm-3 ">
+                            <input type="text" class="form-control" name="produit_cost" id="produit_cost">
+                        </div>
+                    </div>
+
+
+
+
+                </div>
+            </div>
+
+            <div class="modal-footer">
+                <input type="submit" value="Envoyer" class="btn btn-primary pull-left"/>
+                <a href="/institut/accueil" class="btn btn-primary pull-left">Retour</a>
+            </div>
+          </form>
+            <!-- le pied de page de la popup -->
+        </div>
+      </div>
+    </div>
+
+<!-- FIN POP UP PRODUITS -->
+
+
+<!-- POP UP CHARGES -->
+
+    <div class="modal fade" id="id-popup14" tabindex="-1" role="dialog" aria-labelledby="titrePopUp" aria-hidden="true">
+
+      <div class="modal-dialog">
+
+        <div class="modal-content">
+
+          <!-- le titre de la popup -->
+          <div class="modal-header">
+          <font color ='black'><h2 class="modal-title" id="titrePopUp">Charges</font>
+          <!-- lla croix de fermeture de la popup -->
+          <button type="button" class="close" data-dismiss="modal" aria-hidden="true">&times;</button> </h2>
+          </div>
+
+          <!-- le contenu HTML de la popup -->
+          <form action="{% url "new_charge" %}" method="post" class="form-horizontal" role="form">
+            {% csrf_token %}
+
+            {% comment %}<label><font color ='black'><h4>Nom de la charge :</h4></font></label>
+            <input type="text" name="charge_name"/>
+            <br /><br />
+            <label><h4><font color ='black'>Coût de la charge :</font></h4></label>
+            <input type="text" name="charge_cost" size="5"/>{% endcomment %}
+
+            <div class='row'>
+
+                <div class="col-lg-10">
+
+                    <div class="form-group" >
+                        <label for="charge_name" class="col-lg-6 control-label"><font color ='black'>Nom de la charge :</font></label>
+                        <div class="col-sm-6">
+                            <input type="text" class="form-control" name="charge_name" id="charge_name">
+                        </div>
+                    </div>
+
+                    <div class="form-group">
+                        <label for="charge_cost" class="col-lg-6 control-label"><font color ='black'>Coût de la charge :</font></label>
+                        <div class="col-sm-3">
+                            <input type="text" class="form-control" name="charge_cost" id="charge_cost">
+                        </div>
+                    </div>
+
+                </div>
+            </div>
+
+            <div class="modal-footer">
+                <input type="submit" value="Envoyer" class="btn btn-primary pull-left"/>
+                <a href="/institut/accueil" class="btn btn-primary pull-left">Retour</a>
+            </div>
+          </form>
+            <!-- le pied de page de la popup -->
+        </div>
+      </div>
+    </div>
+
+<!-- FIN POP UP CHARGES -->
 
 
    <section id="content">

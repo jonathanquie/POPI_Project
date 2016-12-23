@@ -2,14 +2,38 @@
 {% block title %}POPI's Website{% endblock %}
 
 {% block content %}
-    <h1>Charges</h1>
+    <script type="text/javascript">
+    $(document).ready(function()
+    {
+        $("#id-popup15").modal("show");// affiche la popup au chargement de la page
+    });
+    </script>
 
-    {% if envoi %}Votre message a bien été envoyé !{% endif %}
+    <div class="modal fade" id="id-popup15" tabindex="-1" role="dialog" aria-labelledby="titrePopUp" aria-hidden="true">
 
-    <form action="{% url "new_charge" %}" method="post">
-        {% csrf_token %}
-        {{ form.as_p }}
-        <input type="submit" value="Submit" />
-    </form>
+      <div class="modal-dialog">
+
+        <div class="modal-content">
+
+          <!-- le titre de la popup -->
+          <div class="modal-header">
+          <h4 class="modal-title" id="titrePopUp">Charges
+          <!-- lla croix de fermeture de la popup -->
+          <button type="button" class="close" data-dismiss="modal" aria-hidden="true">&times;</button> </h4>
+          </div>
+
+          <!-- le contenu HTML de la popup -->
+            <div class="modal-body">Success !</div>
+
+          <!-- le pied de page de la popup -->
+          <div class="modal-footer">
+          <a href="/institut/accueil" class="btn btn-primary pull-left">Accueil</a>
+          </div>
+
+        </div>
+
+      </div>
+
+    </div>
 
 {% endblock %} 

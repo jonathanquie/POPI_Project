@@ -17,4 +17,5 @@ urlpatterns = [
     url(r'^Delete$', views.delete),
     url(r'^New$', views.new),
     url(r'^about$', views.about),
+    url(r'^contact$', views.contact),
 ]
