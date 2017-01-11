@@ -2,6 +2,289 @@
 {% block title %}Ma page d'accueil{% endblock %}
 
 {% block content %}
+
+    <font color =#2F2F2F><h1>-</h1></font>
     <h1>Bienvenue sur mon site</h1>
-    <p>Page pour supprimer un service ou produit</p>
-{% endblock %} 
+    <h4>Veuillez choisir un service, un produit, une charge ou une journée à supprimer :</h4>
+
+
+    <div class="dropdown">
+          <button class="btn btn-default dropdown-toggle" type="button" id="dropdownMenu1" data-toggle="dropdown" aria-haspopup="true"
+                  aria-expanded="true">
+            Service / Produit / Charge / Journée à supprimer
+            <span class="caret"></span>
+          </button>
+          <ul class="dropdown-menu" aria-labelledby="dropdownMenu1">
+            <li><a href="/institut/delete1">Soin corps</a></li>
+            <li><a href="/institut/delete2">Soin visage</a></li>
+            <li><a href="/institut/delete3">Epilation</a></li>
+            <li><a href="/institut/delete4">Ongles</a></li>
+            <li><a href="/institut/delete5">Maquillage</a></li>
+                <li role="separator" class="divider"></li>
+            <li><a href="/institut/delete6">Produit</a></li>
+                <li role="separator" class="divider"></li>
+            <li><a href="/institut/delete7">Charge</a></li>
+                <li role="separator" class="divider"></li>
+            <li><a href="/institut/delete8">Journée</a></li>
+          </ul>
+        </div>
+
+
+    {% if flag_SC %}
+
+    <form action="{% url "delete_soin_corps" %}" method="post">
+    {% csrf_token %}
+       <div class="col-md-8">
+            <div class="col-md-16">
+                 <h1>Soins du corps</h1>
+
+                <div class="funkyradio">
+
+                    {% for Visu_soins_corps in delete_SC %}
+                        <div class="funkyradio-default">
+                            <input type="radio" name="del_soins_corps_name" id="del_soins_corps_name" value="{{ Visu_soins_corps.name }}"/>
+                           <label for="del_soins_corps_name">{{ Visu_soins_corps.name }}</label>
+                        </div>
+                    {% empty %}
+                        <tr class = "danger">
+                            <td><i><font color =#b52222>Aucun soin corps disponible.</font></i></td>
+                        </tr>
+                    {% endfor %}
+                <a href="/institut/accueil" class="btn btn-primary pull-left">Accueil</a>
+                <input type="submit" value="Supprimer" class="btn btn-primary pull-left"/>
+
+
+                </div>
+
+            </div>
+        </div>
+    </form>
+
+    {% elif flag_SV %}
+
+    <form action="{% url "delete_soin_visage" %}" method="post">
+    {% csrf_token %}
+       <div class="col-md-8">
+            <div class="col-md-16">
+                 <h1>Soins du visage</h1>
+
+                <div class="funkyradio">
+
+                    {% for Visu_soins_visage in delete_SV %}
+                        <div class="funkyradio-default">
+                            <input type="radio" name="del_soins_visage_name" id="del_soins_visage_name" value="{{ Visu_soins_visage.name }}"/>
+                           <label for="del_soins_visage_name">{{ Visu_soins_visage.name }}</label>
+                        </div>
+                    {% empty %}
+                        <tr class = "danger">
+                            <td><i><font color =#b52222>Aucun soin visage disponible.</font></i></td>
+                        </tr>
+                    {% endfor %}
+                <a href="/institut/accueil" class="btn btn-primary pull-left">Accueil</a>
+                <input type="submit" value="Supprimer" class="btn btn-primary pull-left"/>
+
+
+                </div>
+
+            </div>
+        </div>
+    </form>
+
+
+    {% elif flag_E %}
+
+    <form action="{% url "delete_epilation" %}" method="post">
+    {% csrf_token %}
+       <div class="col-md-8">
+            <div class="col-md-16">
+                 <h1>Épilations</h1>
+
+                <div class="funkyradio">
+
+                    {% for Visu_epilation in delete_E %}
+                        <div class="funkyradio-default">
+                            <input type="radio" name="del_epilation_name" id="del_epilation_name" value="{{ Visu_epilation.name }}"/>
+                           <label for="del_epilation_name">{{ Visu_epilation.name }}</label>
+                        </div>
+                    {% empty %}
+                        <tr class = "danger">
+                            <td><i><font color =#b52222>Aucune épilation disponible.</font></i></td>
+                        </tr>
+                    {% endfor %}
+                <a href="/institut/accueil" class="btn btn-primary pull-left">Accueil</a>
+                <input type="submit" value="Supprimer" class="btn btn-primary pull-left"/>
+
+
+                </div>
+
+            </div>
+        </div>
+    </form>
+
+
+    {% elif flag_O %}
+
+    <form action="{% url "delete_ongles" %}" method="post">
+    {% csrf_token %}
+       <div class="col-md-8">
+            <div class="col-md-16">
+                 <h1>Ongles</h1>
+
+                <div class="funkyradio">
+
+                    {% for Visu_ongles in delete_O %}
+                        <div class="funkyradio-default">
+                            <input type="radio" name="del_ongles_name" id="del_ongles_name" value="{{ Visu_ongles.name }}"/>
+                           <label for="del_ongles_name">{{ Visu_ongles.name }}</label>
+                        </div>
+                    {% empty %}
+                        <tr class = "danger">
+                            <td><i><font color =#b52222>Aucun soin ongles disponible.</font></i></td>
+                        </tr>
+                    {% endfor %}
+                <a href="/institut/accueil" class="btn btn-primary pull-left">Accueil</a>
+                <input type="submit" value="Supprimer" class="btn btn-primary pull-left"/>
+
+
+                </div>
+
+            </div>
+        </div>
+    </form>
+
+
+    {% elif flag_M %}
+
+    <form action="{% url "delete_maquillage" %}" method="post">
+    {% csrf_token %}
+       <div class="col-md-8">
+            <div class="col-md-16">
+                 <h1>Maquillage</h1>
+
+                <div class="funkyradio">
+
+                    {% for Visu_maquillage in delete_M %}
+                        <div class="funkyradio-default">
+                            <input type="radio" name="del_maquillage_name" id="del_maquillage_name" value="{{ Visu_maquillage.name }}"/>
+                           <label for="del_maquillage_name">{{ Visu_maquillage.name }}</label>
+                        </div>
+                    {% empty %}
+                        <tr class = "danger">
+                            <td><i><font color =#b52222>Aucun soin maquillage disponible.</font></i></td>
+                        </tr>
+                    {% endfor %}
+                <a href="/institut/accueil" class="btn btn-primary pull-left">Accueil</a>
+                <input type="submit" value="Supprimer" class="btn btn-primary pull-left"/>
+
+
+                </div>
+
+            </div>
+        </div>
+    </form>
+
+
+    {% elif flag_P %}
+
+    <form action="{% url "delete_produit" %}" method="post">
+    {% csrf_token %}
+       <div class="col-md-8">
+            <div class="col-md-16">
+                 <h1>Produits</h1>
+
+                <div class="funkyradio">
+
+                    {% for Visu_produit in delete_P %}
+                        <div class="funkyradio-default">
+                            <input type="radio" name="del_produit_name" id="del_produit_name" value="{{ Visu_produit.name }}"/>
+                           <label for="del_produit_name">{{ Visu_produit.name }}</label>
+                        </div>
+                    {% empty %}
+                        <tr class = "danger">
+                            <td><i><font color =#b52222>Aucun produit disponible.</font></i></td>
+                        </tr>
+                    {% endfor %}
+                <a href="/institut/accueil" class="btn btn-primary pull-left">Accueil</a>
+                <input type="submit" value="Supprimer" class="btn btn-primary pull-left"/>
+
+
+                </div>
+
+            </div>
+        </div>
+    </form>
+
+
+    {% elif flag_C %}
+
+    <form action="{% url "delete_charge" %}" method="post">
+    {% csrf_token %}
+       <div class="col-md-8">
+            <div class="col-md-16">
+                 <h1>Charges</h1>
+
+                <div class="funkyradio">
+
+                    {% for Visu_charge in delete_C %}
+                        <div class="funkyradio-default">
+                            <input type="radio" name="del_charge_name" id="del_charge_name" value="{{ Visu_charge.name }}"/>
+                           <label for="del_charge_name">{{ Visu_charge.name }}</label>
+                        </div>
+                    {% empty %}
+                        <tr class = "danger">
+                            <td><i><font color =#b52222>Aucune charge disponible.</font></i></td>
+                        </tr>
+                    {% endfor %}
+                <a href="/institut/accueil" class="btn btn-primary pull-left">Accueil</a>
+                <input type="submit" value="Supprimer" class="btn btn-primary pull-left"/>
+
+
+                </div>
+
+            </div>
+        </div>
+    </form>
+
+
+    {% elif flag_J %}
+
+    <form action="{% url "delete_journee" %}" method="post">
+    {% csrf_token %}
+       <div class="col-md-8">
+            <div class="col-md-16">
+                 <h1>Journées</h1>
+
+                <div class="funkyradio">
+
+                    {% for Visu_journee in delete_J %}
+                        <div class="funkyradio-default">
+                            <input type="radio" name="del_journee_name" id="del_journee_name" value="{{ Visu_journee.name }}"/>
+                           <label for="del_journee_name">{{ Visu_journee.name }}</label>
+                        </div>
+                    {% empty %}
+                        <tr class = "danger">
+                            <td><i><font color =#b52222>Aucune journée disponible.</font></i></td>
+                        </tr>
+                    {% endfor %}
+                <a href="/institut/accueil" class="btn btn-primary pull-left">Accueil</a>
+                <input type="submit" value="Supprimer" class="btn btn-primary pull-left"/>
+
+
+                </div>
+
+            </div>
+        </div>
+    </form>
+
+    {% else %}
+        <h1> - </h1>
+
+    {% endif %}
+
+    <font color =#2F2F2F><h1>-</h1></font>
+    <font color =#2F2F2F><h1>-</h1></font>
+    <font color =#2F2F2F><h1>-</h1></font>
+    <font color =#2F2F2F><h1>-</h1></font>
+    <font color =#2F2F2F><h1>-</h1></font>
+
+{% endblock %}

@@ -33,3 +33,33 @@ class New_produit(forms.Form):
 class New_charge(forms.Form):
     charge_name = forms.CharField(label="Nom de la charge", max_length=100)
     charge_cost = forms.CharField(label="Coût de la charge")
+
+class Delete_soin_corps(forms.Form):
+    del_soins_corps_name = forms.CharField(label="Nom du soin", max_length=100)
+
+class Delete_soin_visage(forms.Form):
+    del_soins_visage_name = forms.CharField(label="Nom du soin", max_length=100)
+
+class Delete_epilation(forms.Form):
+    del_epilation_name = forms.CharField(label="Nom du soin", max_length=100)
+
+class Delete_ongles(forms.Form):
+    del_ongles_name = forms.CharField(label="Nom du soin", max_length=100)
+
+class Delete_maquillage(forms.Form):
+    del_maquillage_name = forms.CharField(label="Nom du soin", max_length=100)
+
+class Delete_produit(forms.Form):
+    del_produit_name = forms.CharField(label="Nom du soin", max_length=100)
+
+class Delete_charge(forms.Form):
+    del_charge_name = forms.CharField(label="Nom du soin", max_length=100)
+
+class Delete_journee(forms.Form):
+    del_journee_name = forms.CharField(label="Nom du soin", max_length=100)
+
+class New_Day(forms.Form):
+    datepicker = forms.CharField(label="Nouvelle journée")
+
+class New_Day_SC(forms.Form):
+    nb_SC = forms.IntegerField()

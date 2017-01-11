@@ -2,11 +2,33 @@
 <!DOCTYPE html>
 <html lang="fr">
 <head>
-    <link rel="stylesheet" href="{% static 'css/bootstrap.css' %}">
+    <!--<link rel="stylesheet" href="{% static 'css/bootstrap-datetimepicker.css' %}" media="screen">-->
+    <!--<link rel="stylesheet" href="{% static 'css/bootstrap-datetimepicker.min.css' %}">-->
+    <!--<link rel="stylesheet" href="{% static 'js/bootstrap-datetimepicker.min.js' %}">-->
+    <!--<link rel="stylesheet" href="{% static 'js/bootstrap-datetimepicker.js' %}">-->
     <link rel="stylesheet" href="{% static 'js/bootstrap.js' %}">
     <link rel="stylesheet" href="{% static 'css/font-awesome.min.css' %}">
     <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.1.1/jquery.min.js"></script>
     <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js"></script>
+    <link rel="stylesheet" href="{% static 'css/bootstrap.css' %}" media="screen">
+
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+
+    <!--<link rel="stylesheet" href="{% static 'css/jquery-ui.css' %}">-->
+    <link rel="stylesheet" href="//code.jquery.com/ui/1.12.1/themes/base/jquery-ui.css">
+    <!--<script src="../static/js/jquery-1-12-4.js"></script>-->
+    <script src="https://code.jquery.com/jquery-1.12.4.js"></script>
+    <!--<script src="../static/js/jquery-ui.js"></script>-->
+    <script src="https://code.jquery.com/ui/1.12.1/jquery-ui.js"></script>
+
+    <script>
+    $( function() {
+    $( "#datepicker" ).datepicker({ dateFormat: 'dd-mm-yy' });
+    } );
+    </script>
+
+
     <title>{% block title %}POPI's Website{% endblock %}</title>
 </head>
 <body>
@@ -38,6 +60,7 @@
       <ul class="nav navbar-nav">
         <li class="active"><a href="/institut/accueil">Accueil <span class="sr-only">(current)</span></a></li>
         <li><a href="/institut/View">Voir tous les services, produits et charges</a></li>
+
 
 
 
@@ -77,24 +100,9 @@
           </ul>
         </li>
 
+        <li><a href="/institut/delete">Supprimer</a></li>
 
-
-        <li class="dropdown">
-          <a class="dropdown-toggle" data-toggle="dropdown" role="button" aria-haspopup="true" aria-expanded="false">Supprimer <span class="caret"></span></a>
-          <ul class="dropdown-menu">
-            <li><a href="#">Soins corps</a></li>
-            <li><a href="#">Soins visage</a></li>
-            <li><a href="#">Epilations</a></li>
-            <li><a href="#">Ongles</a></li>
-            <li><a href="#">Maquillage</a></li>
-            <li role="separator" class="divider"></li>
-            <li><a href="#">Produits</a></li>
-            <li role="separator" class="divider"></li>
-            <li><a href="#">Charges</a></li>
-          </ul>
-        </li>
-
-        <li><a href="#">Nouvelle journée</a></li>
+        <li><a href="/institut/newday">Nouvelle journée</a></li>
 
       </ul>
 

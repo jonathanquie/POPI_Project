@@ -612,6 +612,7 @@ th {
 }
 .glyphicon-calendar:before {
   content: "\e109";
+  size
 }
 .glyphicon-random:before {
   content: "\e110";
@@ -6516,6 +6517,12 @@ button.close {
   display: block;
   margin-right: auto;
   margin-left: auto;
+}
+
+.center{
+width: 150px;
+  margin: 40px auto;
+
 }
 .pull-right {
   float: right !important;

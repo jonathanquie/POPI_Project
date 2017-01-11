@@ -2,6 +2,300 @@
 {% block title %}Ma page d'accueil{% endblock %}
 
 {% block content %}
+    <h1><font color="#2F2F2F">-</font></h1>
     <h1>Bienvenue sur mon site</h1>
     <p>Page pour ajouter une nouvelle journée</p>
+
+
+    <form action="{% url "newday2" %}" method="post">
+    {% csrf_token %}
+
+        <p><label for="datepicker">Date : </label>
+        <font color="black"><input type="text" name="datepicker" id="datepicker" value="{{ date }}"/></font></p>
+        <input type="submit" value="Sélectionner" class="btn btn-primary pull-left"/>
+    </form>
+
+    <font color =#2F2F2F><h1>-</h1></font>
+
+    {% if flag_date_selectionnee %}
+    <form action="{% url "newday3" %}" method="post" id="myForm">
+    {% csrf_token %}
+
+        <h1>Soins du corps</h1>
+        {% for view_soins_corps in tous_soins_corps %}
+        <div>
+            <label>{{ view_soins_corps.name }} : </label>
+            <font color="black"><select name="nb_SC">
+                <option id="0">0</option>
+                <option id="1">1</option>
+                <option id="2">2</option>
+                <option id="3">3</option>
+                <option id="4">4</option>
+                <option id="5">5</option>
+                <option id="6">6</option>
+                <option id="7">7</option>
+                <option id="8">8</option>
+                <option id="9">9</option>
+            </select></font>
+
+        </div>
+
+        {% empty %}
+            <tr class = "danger">
+                <td><i><font color =#b52222>Aucun soin corps disponible.</font></i></td>
+            </tr>
+        {% endfor %}
+        <div id="nb_SC"></div>
+
+
+        <h1>Soins du visage</h1>
+        {% for view_soins_visage in tous_soins_visages %}
+        <div>
+            <label>{{ view_soins_visage.name }} : </label>
+            <font color="black"><select name="nb_SV">
+                <option>0</option>
+                <option>1</option>
+                <option>2</option>
+                <option>3</option>
+                <option>4</option>
+                <option>5</option>
+                <option>6</option>
+                <option>7</option>
+                <option>8</option>
+                <option>9</option>
+            </select></font>
+        </div>
+        {% empty %}
+            <tr class = "danger">
+                <td><i><font color =#b52222>Aucun soin visage disponible.</font></i></td>
+            </tr>
+        {% endfor %}
+        <div id="nb_SV"></div>
+
+
+        <h1>Épilations</h1>
+        {% for view_epilations in tous_epilations %}
+        <div>
+            <label>{{ view_epilations.name }} : </label>
+            <font color="black"><select name="nb_E">
+                <option>0</option>
+                <option>1</option>
+                <option>2</option>
+                <option>3</option>
+                <option>4</option>
+                <option>5</option>
+                <option>6</option>
+                <option>7</option>
+                <option>8</option>
+                <option>9</option>
+            </select></font>
+        </div>
+        {% empty %}
+            <tr class = "danger">
+                <td><i><font color =#b52222>Aucune épilation disponible.</font></i></td>
+            </tr>
+        {% endfor %}
+        <div id="nb_E"></div>
+
+
+        <h1>Ongles</h1>
+        {% for view_ongles in tous_ongles %}
+        <div>
+            <label>{{ view_ongles.name }} : </label>
+            <font color="black"><select name="nb_O">
+                <option>0</option>
+                <option>1</option>
+                <option>2</option>
+                <option>3</option>
+                <option>4</option>
+                <option>5</option>
+                <option>6</option>
+                <option>7</option>
+                <option>8</option>
+                <option>9</option>
+            </select></font>
+        </div>
+        {% empty %}
+            <tr class = "danger">
+                <td><i><font color =#b52222>Aucun service ongles disponible.</font></i></td>
+            </tr>
+        {% endfor %}
+        <div id="nb_O"></div>
+
+
+        <h1>Maquillage</h1>
+        {% for view_maquillage in tous_maquillages %}
+        <div>
+            <label>{{ view_maquillage.name }} : </label>
+            <font color="black"><select name="nb_M">
+                <option>0</option>
+                <option>1</option>
+                <option>2</option>
+                <option>3</option>
+                <option>4</option>
+                <option>5</option>
+                <option>6</option>
+                <option>7</option>
+                <option>8</option>
+                <option>9</option>
+            </select></font>
+        </div>
+        {% empty %}
+            <tr class = "danger">
+                <td><i><font color =#b52222>Aucun service maquillage disponible.</font></i></td>
+            </tr>
+        {% endfor %}
+        <div id="nb_M"></div>
+
+
+
+        <h1>Produits</h1>
+        {% for view_produits in tous_produits %}
+        <div>
+            <label>{{ view_produits.name }} : </label>
+            <font color="black"><select name="nb_P">
+                <option>0</option>
+                <option>1</option>
+                <option>2</option>
+                <option>3</option>
+                <option>4</option>
+                <option>5</option>
+                <option>6</option>
+                <option>7</option>
+                <option>8</option>
+                <option>9</option>
+            </select></font>
+        </div>
+        {% empty %}
+            <tr class = "danger">
+                <td><i><font color =#b52222>Aucun produit disponible.</font></i></td>
+            </tr>
+        {% endfor %}
+        <div id="nb_P"></div>
+
+    <font color =#2F2F2F><h4>-</h4></font>
+    <input type="button" onclick="myFunction()" value="Sélectionner" class="btn btn-primary pull-left"/>
+    </form>
+    {% endif %}
+
+    <font color =#2F2F2F><h1>-</h1></font>
+    <font color =#2F2F2F><h1>-</h1></font>
+    <font color =#2F2F2F><h1>-</h1></font>
+    <font color =#2F2F2F><h1>-</h1></font>
+    <font color =#2F2F2F><h1>-</h1></font>
+
+    <script type="text/javascript">
+        var nb_SC=[];
+        var nb_SV=[];
+        var nb_E=[];
+        var nb_O=[];
+        var nb_M=[];
+        var nb_P=[];
+
+        $(function () {
+            var $select = $('[name="nb_SC"]');
+
+            $select.on('change', function () {
+                for (var i = 0, len = $select.length; i < len; i++) {
+                    nb_SC[i] = parseInt($select.eq(i).val());
+                }
+                $('#nb_SC').text('nb_SC1 = ' + nb_SC[0] + ' nb_SC2 = ' + nb_SC[1]);
+                return nb_SC;
+
+            }).eq(0).trigger('change');
+        });
+
+
+        $(function () {
+            var $select = $('[name="nb_SV"]');
+
+            $select.on('change', function () {
+                for (var i = 0, len = $select.length; i < len; i++) {
+                    nb_SV[i] = parseInt($select.eq(i).val());
+                }
+                $('#nb_SV').text('nb_SV1 = ' + nb_SV[0] + ' nb_SV2 = ' + nb_SV[1]);
+
+            }).eq(0).trigger('change');
+        });
+
+
+
+        $(function () {
+            var $select = $('[name="nb_E"]');
+
+            $select.on('change', function () {
+                for (var i = 0, len = $select.length; i < len; i++) {
+                    nb_E[i] = parseInt($select.eq(i).val());
+                }
+                $('#nb_E').text('nb_E1 = ' + nb_E[0] + ' nb_E2 = ' + nb_E[1] + ' nb_E3 = ' + nb_E[2] + ' nb_E4 = ' + nb_E[3] + ' nb_E5 = ' + nb_E[4] + ' nb_E6 = ' + nb_E[5]);
+
+            }).eq(0).trigger('change');
+        });
+
+
+        $(function () {
+            var $select = $('[name="nb_O"]');
+
+            $select.on('change', function () {
+                for (var i = 0, len = $select.length; i < len; i++) {
+                    nb_O[i] = parseInt($select.eq(i).val());
+                }
+                $('#nb_O').text('nb_O1 = ' + nb_O[0] + ' nb_O2 = ' + nb_O[1]);
+
+            }).eq(0).trigger('change');
+        });
+
+
+        $(function () {
+            var $select = $('[name="nb_M"]');
+
+            $select.on('change', function () {
+                for (var i = 0, len = $select.length; i < len; i++) {
+                    nb_M[i] = parseInt($select.eq(i).val());
+                }
+                $('#nb_M').text('nb_M1 = ' + nb_M[0] + ' nb_M2 = ' + nb_M[1] + ' nb_M3 = ' + nb_M[2]);
+
+            }).eq(0).trigger('change');
+        });
+
+
+        $(function () {
+            var $select = $('[name="nb_P"]');
+
+            $select.on('change', function () {
+                for (var i = 0, len = $select.length; i < len; i++) {
+                    nb_P[i] = parseInt($select.eq(i).val());
+                }
+                $('#nb_P').text('nb_P1 = ' + nb_P[0] + ' nb_P2 = ' + nb_P[1] + ' nb_P3 = ' + nb_P[2]);
+
+            }).eq(0).trigger('change');
+        });
+        function myFunction() {
+            var myForm = document.getElementById('myForm').submit();
+            alert("Formulaire bien envoyé !");
+
+            alert("nb_SC = " + nb_SC + "\nnb_SV = " + nb_SV + "\nnb_E = " + nb_E + "\nnb_O = " + nb_O + "\nnb_M = " + nb_M + "\nnb_P = " + nb_P);
+
+            setCookie("nb_SC", nb_SC);
+            setCookie("nb_SV", nb_SV);
+            setCookie("nb_E", nb_E);
+            setCookie("nb_O", nb_O);
+            setCookie("nb_M", nb_M);
+            setCookie("nb_P", nb_P);
+        }
+
+        function setCookie(sName, sValue) {
+            var today = new Date(), expires = new Date();
+            expires.setTime(today.getTime() + (365*24*60*60*1000));
+            document.cookie = sName + "=" + encodeURIComponent(sValue) + ";expires=" + expires.toGMTString();
+
+            //alert("cookie envoyé")
+        }
+
+
+
+
+    </script>
+
+
 {% endblock %} 

@@ -15,6 +15,14 @@ class Charges(models.Model):
         """
         return self.name
 
+    def get_id(name):
+
+        test = Charges.objects.get(name=name)
+
+        print(test.name, test.id)
+
+        return test.id
+
 class Epilations(models.Model):
     id = models.IntegerField(auto_created=True, primary_key=True)
     name = models.CharField(max_length=42)
@@ -29,6 +37,14 @@ class Epilations(models.Model):
         nous traiterons plus tard et dans l'administration
         """
         return self.name
+
+    def get_id(name):
+
+        test = Epilations.objects.get(name=name)
+
+        print(test.name, test.id)
+
+        return test.id
 
 class Maquillage(models.Model):
     id = models.IntegerField(auto_created=True, primary_key=True)
@@ -45,6 +61,14 @@ class Maquillage(models.Model):
         """
         return self.name
 
+    def get_id(name):
+
+        test = Maquillage.objects.get(name=name)
+
+        print(test.name, test.id)
+
+        return test.id
+
 class Ongles(models.Model):
     id = models.IntegerField(auto_created=True, primary_key=True)
     name = models.CharField(max_length=42)
@@ -59,6 +83,14 @@ class Ongles(models.Model):
         nous traiterons plus tard et dans l'administration
         """
         return self.name
+
+    def get_id(name):
+
+        test = Ongles.objects.get(name=name)
+
+        print(test.name, test.id)
+
+        return test.id
 
 class Produits(models.Model):
     id = models.IntegerField(auto_created=True, primary_key=True)
@@ -75,6 +107,14 @@ class Produits(models.Model):
         """
         return self.name
 
+    def get_id(name):
+
+        test = Produits.objects.get(name=name)
+
+        print(test.name, test.id)
+
+        return test.id
+
 class Soins_Corps(models.Model):
     id = models.IntegerField(auto_created=True, primary_key=True)
     name = models.CharField(max_length=42)
@@ -89,6 +129,14 @@ class Soins_Corps(models.Model):
         nous traiterons plus tard et dans l'administration
         """
         return self.name
+
+    def get_id(name):
+
+        test = Soins_Corps.objects.get(name=name)
+
+        print(test.name, test.id)
+
+        return test.id
 
 class Soins_Visages(models.Model):
     id = models.IntegerField(auto_created=True, primary_key=True)
@@ -105,6 +153,14 @@ class Soins_Visages(models.Model):
         """
         return self.name
 
+    def get_id(name):
+
+        test = Soins_Visages.objects.get(name=name)
+
+        print(test.name, test.id)
+
+        return test.id
+
 class Journees(models.Model):
     id = models.IntegerField(auto_created=True, primary_key=True)
     jour = models.DateTimeField(auto_now_add=True, auto_now=False, verbose_name="Date de la journée")
@@ -120,3 +176,11 @@ class Journees(models.Model):
         nous traiterons plus tard et dans l'administration
         """
         return self.jour
+
+    def get_id(name):
+
+        test = Journees.objects.get(name=name)
+
+        print(test.name, test.id)
+
+        return test.id
