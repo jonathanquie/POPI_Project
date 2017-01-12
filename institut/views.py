@@ -3,6 +3,7 @@ from django.shortcuts import render
 from datetime import datetime
 from institut.models import Epilations, Charges, Ongles, Soins_Corps, Soins_Visages, Maquillage, Produits, Journees
 from .forms import *
+from sys import getsizeof
 
 def home(request):
     return render(request, 'institut/accueil.html')
@@ -347,8 +348,27 @@ def newday2(request):
                    'flag_date_selectionnee': flag_date_selectionnee})
 
 def newday3(request):
-    test = request.COOKIES.get('nb_SC')
-    print(test)
+    i=0
+    SC=[]
+
+    SC_tmp = request.COOKIES.get('nb_SC')
+    SV_tmp = request.COOKIES.get('nb_SV')
+    E_tmp = request.COOKIES.get('nb_E')
+    O_tmp = request.COOKIES.get('nb_O')
+    M_tmp = request.COOKIES.get('nb_M')
+    P_tmp = request.COOKIES.get('nb_P')
+
+    while i < len(SC_tmp):
+        SC[i]=SC_tmp[i+3*i]
+        i+=1
+
+    print(len(SV_tmp))
+    print(SV_tmp)
+
+    print(len(E_tmp))
+    print(E_tmp)
+
+    #print("SC = ",SC, " SV = ",SV, " E = ",E," O = ",O," M = ",M," P = ",P)
 
     form = New_Day_SC(request.POST or None)
 
