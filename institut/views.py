@@ -347,6 +347,9 @@ def newday2(request):
                    'flag_date_selectionnee': flag_date_selectionnee})
 
 def newday3(request):
+    test = request.COOKIES.get('nb_SC')
+    print(test)
+
     form = New_Day_SC(request.POST or None)
 
     if form.is_valid():
