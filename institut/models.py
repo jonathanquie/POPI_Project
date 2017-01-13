@@ -166,6 +166,7 @@ class Journees(models.Model):
     jour = models.DateTimeField(auto_now_add=True, auto_now=False, verbose_name="Date de la journée")
     ca = models.FloatField()
     costs = models.FloatField()
+    tva = models.FloatField()
     result = models.FloatField()
 
 

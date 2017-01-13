@@ -348,8 +348,13 @@ def newday2(request):
                    'flag_date_selectionnee': flag_date_selectionnee})
 
 def newday3(request):
-    i=0
+    i=j=k=l=m=n=0
     SC=[]
+    SV=[]
+    E=[]
+    O=[]
+    M=[]
+    P=[]
 
     SC_tmp = request.COOKIES.get('nb_SC')
     SV_tmp = request.COOKIES.get('nb_SV')
@@ -358,25 +363,107 @@ def newday3(request):
     M_tmp = request.COOKIES.get('nb_M')
     P_tmp = request.COOKIES.get('nb_P')
 
+
     while i < len(SC_tmp):
-        SC[i]=SC_tmp[i+3*i]
-        i+=1
+        if (i % 4 == 0):
+            SC.append(SC_tmp[i])
+        i += 1
 
-    print(len(SV_tmp))
-    print(SV_tmp)
+    while j < len(SV_tmp):
+        if (j % 4 == 0):
+            SV.append(SV_tmp[j])
+        j += 1
 
-    print(len(E_tmp))
-    print(E_tmp)
+    while k < len(E_tmp):
+        if (k % 4 == 0):
+            E.append(E_tmp[k])
+        k += 1
 
-    #print("SC = ",SC, " SV = ",SV, " E = ",E," O = ",O," M = ",M," P = ",P)
+    while l < len(O_tmp):
+        if (l % 4 == 0):
+            O.append(O_tmp[l])
+        l += 1
 
-    form = New_Day_SC(request.POST or None)
+    while m < len(M_tmp):
+        if (m % 4 == 0):
+            M.append(M_tmp[m])
+        m += 1
 
-    if form.is_valid():
-        nb_SC = form.cleaned_data['nb_SC']
+    while n < len(P_tmp):
+        if (n % 4 == 0):
+            P.append(P_tmp[n])
+        n += 1
 
+    #print(SC_tmp)
+    print("SC = ",SC, "\nSV = ",SV, "\nE = ",E, "\nO = ",O, "\nM = ",M,"\nP = ",P)
 
-        return render(request, 'institut/calcul.html', {'nb_SC': nb_SC})
+    view_soins_corps = Soins_Corps.objects.all()
+    view_soins_visage = Soins_Visages.objects.all()
+    view_epilations = Epilations.objects.all()
+    view_ongles = Ongles.objects.all()
+    view_maquillage = Maquillage.objects.all()
+    view_produits = Produits.objects.all()
+
+    index_SC=0
+    total_SC=0
+    for soins_corps in view_soins_corps:
+        print(soins_corps.price)
+        total_SC+=(float(soins_corps.price) * float(SC[index_SC]))
+        index_SC+=1
+
+    print("total_SC = ", total_SC)
+
+    index_SV = 0
+    total_SV = 0
+    for soins_visage in view_soins_visage:
+        print(soins_visage.price)
+        total_SV += (float(soins_visage.price) * float(SV[index_SV]))
+        index_SV += 1
+
+    print("total_SV = ", total_SV)
+
+    index_E = 0
+    total_E = 0
+    for epilation in view_epilations:
+        print(epilation.price)
+        total_E += (float(epilation.price) * float(E[index_E]))
+        index_E += 1
+
+    print("total_E = ", total_E)
+
+    index_O = 0
+    total_O = 0
+    for ongle in view_ongles:
+        print(ongle.price)
+        total_O += (float(ongle.price) * float(O[index_O]))
+        index_O += 1
+
+    print("total_O = ", total_O)
+
+    index_M = 0
+    total_M = 0
+    for maquillage in view_maquillage:
+        print(maquillage.price)
+        total_M += (float(maquillage.price) * float(M[index_M]))
+        index_M += 1
+
+    print("total_M = ", total_M)
+
+    index_P = 0
+    total_P = 0
+    for produit in view_produits:
+        print(produit.price)
+        total_P += (float(produit.price) * float(P[index_P]))
+        index_P += 1
+
+    print("total_P = ", total_P)
+    print("total total = ", total_SC + total_SV + total_E + total_O + total_M + total_P)
+
+    return render(request, 'institut/calcul.html',
+                {'tous_soins_corps': view_soins_corps, 'tous_soins_visages': view_soins_visage,
+                 'tous_epilations': view_epilations, 'tous_ongles': view_ongles,
+                 'tous_maquillages': view_maquillage, 'tous_produits': view_produits,
+                 'SV_ND':SV, 'SC_ND':SC, 'E_ND':E, 'O_ND':O, 'M_ND':M, 'P_ND':P})
 
 def test(request):
     return render(request, 'institut/test.html')
