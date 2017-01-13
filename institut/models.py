@@ -116,7 +116,7 @@ class Produits(models.Model):
         return test.id
 
 class Soins_Corps(models.Model):
-    id = models.IntegerField(auto_created=True, primary_key=True)
+    id = models.IntegerField(primary_key=True,auto_created=True)
     name = models.CharField(max_length=42)
     price = models.FloatField()
     cost = models.FloatField()

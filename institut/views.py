@@ -1,7 +1,7 @@
 from django.http import HttpResponse, Http404
 from django.shortcuts import render
 from datetime import datetime
-from institut.models import Epilations, Charges, Ongles, Soins_Corps, Soins_Visages, Maquillage, Produits, Journees
+from institut.models import *
 from .forms import *
 from sys import getsizeof
 
@@ -356,6 +356,11 @@ def newday3(request):
     M=[]
     P=[]
 
+    Tot_Nom=[]
+    Tot_Prix=[]
+    Tot_Cout=[]
+    Tot_qte=[]
+
     SC_tmp = request.COOKIES.get('nb_SC')
     SV_tmp = request.COOKIES.get('nb_SV')
     E_tmp = request.COOKIES.get('nb_E')
@@ -403,12 +408,18 @@ def newday3(request):
     view_ongles = Ongles.objects.all()
     view_maquillage = Maquillage.objects.all()
     view_produits = Produits.objects.all()
+    view_charges = Charges.objects.all()
 
     index_SC=0
     total_SC=0
     for soins_corps in view_soins_corps:
         print(soins_corps.price)
         total_SC+=(float(soins_corps.price) * float(SC[index_SC]))
+        if(int(SC[index_SC]) != 0):
+            Tot_Nom.append(soins_corps.name)
+            Tot_Prix.append(soins_corps.price)
+            Tot_Cout.append(soins_corps.cost)
+            Tot_qte.append(SC[index_SC])
         index_SC+=1
 
     print("total_SC = ", total_SC)
@@ -418,6 +429,11 @@ def newday3(request):
     for soins_visage in view_soins_visage:
         print(soins_visage.price)
         total_SV += (float(soins_visage.price) * float(SV[index_SV]))
+        if(int(SV[index_SV]) != 0):
+            Tot_Nom.append(soins_visage.name)
+            Tot_Prix.append(soins_visage.price)
+            Tot_Cout.append(soins_visage.cost)
+            Tot_qte.append(SV[index_SV])
         index_SV += 1
 
     print("total_SV = ", total_SV)
@@ -427,6 +443,11 @@ def newday3(request):
     for epilation in view_epilations:
         print(epilation.price)
         total_E += (float(epilation.price) * float(E[index_E]))
+        if(int(E[index_E]) != 0):
+            Tot_Nom.append(epilation.name)
+            Tot_Prix.append(epilation.price)
+            Tot_Cout.append(epilation.cost)
+            Tot_qte.append(E[index_E])
         index_E += 1
 
     print("total_E = ", total_E)
@@ -436,6 +457,11 @@ def newday3(request):
     for ongle in view_ongles:
         print(ongle.price)
         total_O += (float(ongle.price) * float(O[index_O]))
+        if(int(O[index_O]) != 0):
+            Tot_Nom.append(ongle.name)
+            Tot_Prix.append(ongle.price)
+            Tot_Cout.append(ongle.cost)
+            Tot_qte.append(O[index_O])
         index_O += 1
 
     print("total_O = ", total_O)
@@ -445,6 +471,11 @@ def newday3(request):
     for maquillage in view_maquillage:
         print(maquillage.price)
         total_M += (float(maquillage.price) * float(M[index_M]))
+        if(int(M[index_M]) != 0):
+            Tot_Nom.append(maquillage.name)
+            Tot_Prix.append(maquillage.price)
+            Tot_Cout.append(maquillage.cost)
+            Tot_qte.append(M[index_M])
         index_M += 1
 
     print("total_M = ", total_M)
@@ -454,16 +485,36 @@ def newday3(request):
     for produit in view_produits:
         print(produit.price)
         total_P += (float(produit.price) * float(P[index_P]))
+        if(int(P[index_P]) != 0):
+            Tot_Nom.append(produit.name)
+            Tot_Prix.append(produit.price)
+            Tot_Cout.append(produit.cost)
+            Tot_qte.append(P[index_P])
         index_P += 1
 
     print("total_P = ", total_P)
-    print("total total = ", total_SC + total_SV + total_E + total_O + total_M + total_P)
+    ca = float(total_SC + total_SV + total_E + total_O + total_M + total_P)
+    print("total total = ", ca)
 
-    return render(request, 'institut/calcul.html',
-                {'tous_soins_corps': view_soins_corps, 'tous_soins_visages': view_soins_visage,
-                 'tous_epilations': view_epilations, 'tous_ongles': view_ongles,
-                 'tous_maquillages': view_maquillage, 'tous_produits': view_produits,
-                 'SV_ND':SV, 'SC_ND':SC, 'E_ND':E, 'O_ND':O, 'M_ND':M, 'P_ND':P})
+    total_charges=0
+    for charges in view_charges:
+        total_charges += float(charges.cost)/25
+
+    print("Total charges journalières = ", total_charges)
+
+    tva = ca * 0.2
+    print("tva = ",tva)
+
+    result = ca - total_charges - tva
+    print("Resultat net : ", result, "€")
+
+    print("\n\nTableaux : ")
+    print(Tot_Nom)
+    print(Tot_Prix)
+    print(Tot_Cout)
+    print(Tot_qte)
+
+    return render(request, 'institut/calcul.html',{'TN':Tot_Nom, 'TP':Tot_Prix, 'TC':Tot_Cout, 'TQ':Tot_qte})
 
 def test(request):
     return render(request, 'institut/test.html')

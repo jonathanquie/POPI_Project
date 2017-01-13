@@ -5,7 +5,27 @@
     <h1><font color="#2F2F2F">-</font></h1>
     <h1>Bienvenue sur mon site</h1>
 
+    <table class="table table-bordered table-inverse">
+        <caption>
+            <h2>Journée</h2>
+        </caption>
+        <thead>
+            <tr class="">
+                <th style="width:20%;">Nom du service</th>
+                <th style="width:20%;">Prix de vente</th>
+                <th style="width:20%;">Coût de revient</th>
+                <th style="width:20%;">Quantité</th>
+            </tr>
+        </thead>
+    <tbody>
+        {% for test in TN %}
+            <tr>
+                <td>{{ test }}</td>
+            </tr>
+        {% endfor %}
 
+    </tbody>
+    </table>
 
 
 {% endblock %}
