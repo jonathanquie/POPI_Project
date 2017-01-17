@@ -7,12 +7,12 @@
     <p>Page pour ajouter une nouvelle journée</p>
 
 
-    <form action="{% url "newday2" %}" method="post">
+    <form action="{% url "newday2" %}" method="post" id="myFormDate">
     {% csrf_token %}
 
         <p><label for="datepicker">Date : </label>
         <font color="black"><input type="text" name="datepicker" id="datepicker" value="{{ date }}"/></font></p>
-        <input type="submit" value="Sélectionner" class="btn btn-primary pull-left"/>
+        <input type="submit" value="Sélectionner" class="btn btn-primary pull-left" onclick="myFunctionDate()"/>
     </form>
 
     <font color =#2F2F2F><h1>-</h1></font>
@@ -199,7 +199,7 @@
                 for (var i = 0, len = $select.length; i < len; i++) {
                     nb_SC[i] = parseInt($select.eq(i).val());
                 }
-                $('#nb_SC').text('nb_SC1 = ' + nb_SC[0] + ' nb_SC2 = ' + nb_SC[1]);
+                //$('#nb_SC').text('nb_SC1 = ' + nb_SC[0] + ' nb_SC2 = ' + nb_SC[1]);
                 return nb_SC;
 
             }).eq(0).trigger('change');
@@ -213,7 +213,7 @@
                 for (var i = 0, len = $select.length; i < len; i++) {
                     nb_SV[i] = parseInt($select.eq(i).val());
                 }
-                $('#nb_SV').text('nb_SV1 = ' + nb_SV[0] + ' nb_SV2 = ' + nb_SV[1]);
+                //$('#nb_SV').text('nb_SV1 = ' + nb_SV[0] + ' nb_SV2 = ' + nb_SV[1]);
 
             }).eq(0).trigger('change');
         });
@@ -227,7 +227,7 @@
                 for (var i = 0, len = $select.length; i < len; i++) {
                     nb_E[i] = parseInt($select.eq(i).val());
                 }
-                $('#nb_E').text('nb_E1 = ' + nb_E[0] + ' nb_E2 = ' + nb_E[1] + ' nb_E3 = ' + nb_E[2] + ' nb_E4 = ' + nb_E[3] + ' nb_E5 = ' + nb_E[4] + ' nb_E6 = ' + nb_E[5]);
+                //$('#nb_E').text('nb_E1 = ' + nb_E[0] + ' nb_E2 = ' + nb_E[1] + ' nb_E3 = ' + nb_E[2] + ' nb_E4 = ' + nb_E[3] + ' nb_E5 = ' + nb_E[4] + ' nb_E6 = ' + nb_E[5]);
 
             }).eq(0).trigger('change');
         });
@@ -240,7 +240,7 @@
                 for (var i = 0, len = $select.length; i < len; i++) {
                     nb_O[i] = parseInt($select.eq(i).val());
                 }
-                $('#nb_O').text('nb_O1 = ' + nb_O[0] + ' nb_O2 = ' + nb_O[1]);
+                //$('#nb_O').text('nb_O1 = ' + nb_O[0] + ' nb_O2 = ' + nb_O[1]);
 
             }).eq(0).trigger('change');
         });
@@ -253,7 +253,7 @@
                 for (var i = 0, len = $select.length; i < len; i++) {
                     nb_M[i] = parseInt($select.eq(i).val());
                 }
-                $('#nb_M').text('nb_M1 = ' + nb_M[0] + ' nb_M2 = ' + nb_M[1] + ' nb_M3 = ' + nb_M[2]);
+                //$('#nb_M').text('nb_M1 = ' + nb_M[0] + ' nb_M2 = ' + nb_M[1] + ' nb_M3 = ' + nb_M[2]);
 
             }).eq(0).trigger('change');
         });
@@ -266,15 +266,15 @@
                 for (var i = 0, len = $select.length; i < len; i++) {
                     nb_P[i] = parseInt($select.eq(i).val());
                 }
-                $('#nb_P').text('nb_P1 = ' + nb_P[0] + ' nb_P2 = ' + nb_P[1] + ' nb_P3 = ' + nb_P[2]);
+                //$('#nb_P').text('nb_P1 = ' + nb_P[0] + ' nb_P2 = ' + nb_P[1] + ' nb_P3 = ' + nb_P[2]);
 
             }).eq(0).trigger('change');
         });
         function myFunction() {
             var myForm = document.getElementById('myForm').submit();
-            alert("Formulaire bien envoyé !");
+            //alert("Formulaire bien envoyé !");
 
-            alert("nb_SC = " + nb_SC + "\nnb_SV = " + nb_SV + "\nnb_E = " + nb_E + "\nnb_O = " + nb_O + "\nnb_M = " + nb_M + "\nnb_P = " + nb_P);
+            //alert("nb_SC = " + nb_SC + "\nnb_SV = " + nb_SV + "\nnb_E = " + nb_E + "\nnb_O = " + nb_O + "\nnb_M = " + nb_M + "\nnb_P = " + nb_P);
 
             setCookie("nb_SC", nb_SC);
             setCookie("nb_SV", nb_SV);
@@ -282,6 +282,15 @@
             setCookie("nb_O", nb_O);
             setCookie("nb_M", nb_M);
             setCookie("nb_P", nb_P);
+        }
+
+        function myFunctionDate() {
+            var myForm = document.getElementById('myFormDate').submit();
+
+            //alert("nb_SC = " + nb_SC + "\nnb_SV = " + nb_SV + "\nnb_E = " + nb_E + "\nnb_O = " + nb_O + "\nnb_M = " + nb_M + "\nnb_P = " + nb_P);
+
+            setCookie("date", datepicker);
+            //alert("Date ok !");
         }
 
         function setCookie(sName, sValue) {

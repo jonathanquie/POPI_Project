@@ -3,7 +3,12 @@ from django.shortcuts import render
 from datetime import datetime
 from institut.models import *
 from .forms import *
-from sys import getsizeof
+
+total_charges=0
+ca=0
+tva=0
+result=0
+date=0
 
 def home(request):
     return render(request, 'institut/accueil.html')
@@ -16,7 +21,7 @@ def view_table(request, id_article):
     view_ongles = Ongles.objects.all()
     view_maquillage = Maquillage.objects.all()
     view_produits = Produits.objects.all()
-    view_journees = Journees.objects.all()
+    view_journees = Journees.objects.all().order_by('id').reverse()
 
 
     if int(id_article) < 9:
@@ -60,7 +65,7 @@ def view(request):
     view_ongles = Ongles.objects.all()
     view_maquillage = Maquillage.objects.all()
     view_produits = Produits.objects.all()
-    view_journees = Journees.objects.all()
+    view_journees = Journees.objects.all().order_by('id').reverse()
     return render(request, 'institut/view.html',
                   {'tous_soins_corps': view_soins_corps, 'tous_soins_visages': view_soins_visage,
                    'tous_epilations': view_epilations, 'tous_charges': view_charges, 'tous_ongles': view_ongles,
@@ -314,11 +319,11 @@ def delete_journee(request):
     Visu_journee = Journees.objects.all()
 
     if form.is_valid():
-         del_journee_name = form.cleaned_data['del_journee_name']
+         del_journee_jour = form.cleaned_data['del_journee_jour']
 
-         id = Journees.get_id(del_journee_name)
+         print("youpi : ",del_journee_jour)
 
-         Journees(id=id).delete()
+         Journees(id=del_journee_jour).delete()
 
          return render(request, 'institut/accueil.html')
 
@@ -330,6 +335,8 @@ def newday(request):
     return render(request, 'institut/new_day.html', {'date': datetime.now().date()})
 
 def newday2(request):
+    global date
+
     flag_date_selectionnee = True
 
     view_soins_corps = Soins_Corps.objects.all()
@@ -341,6 +348,12 @@ def newday2(request):
     view_produits = Produits.objects.all()
     view_journees = Journees.objects.all()
 
+    form = New_Day(request.POST or None)
+
+    if form.is_valid():
+        date = form.cleaned_data['datepicker']
+        print("datepicker = ", date)
+
     return render(request, 'institut/new_day.html',
                   {'tous_soins_corps': view_soins_corps, 'tous_soins_visages': view_soins_visage,
                    'tous_epilations': view_epilations, 'tous_charges': view_charges, 'tous_ongles': view_ongles,
@@ -348,6 +361,11 @@ def newday2(request):
                    'flag_date_selectionnee': flag_date_selectionnee})
 
 def newday3(request):
+    global total_charges
+    global ca
+    global tva
+    global result
+
     i=j=k=l=m=n=0
     SC=[]
     SV=[]
@@ -356,10 +374,7 @@ def newday3(request):
     M=[]
     P=[]
 
-    Tot_Nom=[]
-    Tot_Prix=[]
-    Tot_Cout=[]
-    Tot_qte=[]
+    Tot=[]
 
     SC_tmp = request.COOKIES.get('nb_SC')
     SV_tmp = request.COOKIES.get('nb_SV')
@@ -400,7 +415,7 @@ def newday3(request):
         n += 1
 
     #print(SC_tmp)
-    print("SC = ",SC, "\nSV = ",SV, "\nE = ",E, "\nO = ",O, "\nM = ",M,"\nP = ",P)
+    #print("SC = ",SC, "\nSV = ",SV, "\nE = ",E, "\nO = ",O, "\nM = ",M,"\nP = ",P)
 
     view_soins_corps = Soins_Corps.objects.all()
     view_soins_visage = Soins_Visages.objects.all()
@@ -413,110 +428,152 @@ def newday3(request):
     index_SC=0
     total_SC=0
     for soins_corps in view_soins_corps:
-        print(soins_corps.price)
+        #print(soins_corps.price)
         total_SC+=(float(soins_corps.price) * float(SC[index_SC]))
         if(int(SC[index_SC]) != 0):
-            Tot_Nom.append(soins_corps.name)
-            Tot_Prix.append(soins_corps.price)
-            Tot_Cout.append(soins_corps.cost)
-            Tot_qte.append(SC[index_SC])
+            Tot.append(soins_corps.name)
+            Tot.append(soins_corps.price)
+            Tot.append(soins_corps.cost)
+            Tot.append(SC[index_SC])
         index_SC+=1
 
-    print("total_SC = ", total_SC)
+    #print("total_SC = ", total_SC)
 
     index_SV = 0
     total_SV = 0
     for soins_visage in view_soins_visage:
-        print(soins_visage.price)
+        #print(soins_visage.price)
         total_SV += (float(soins_visage.price) * float(SV[index_SV]))
         if(int(SV[index_SV]) != 0):
-            Tot_Nom.append(soins_visage.name)
-            Tot_Prix.append(soins_visage.price)
-            Tot_Cout.append(soins_visage.cost)
-            Tot_qte.append(SV[index_SV])
+            Tot.append(soins_visage.name)
+            Tot.append(soins_visage.price)
+            Tot.append(soins_visage.cost)
+            Tot.append(SV[index_SV])
         index_SV += 1
 
-    print("total_SV = ", total_SV)
+    #print("total_SV = ", total_SV)
 
     index_E = 0
     total_E = 0
     for epilation in view_epilations:
-        print(epilation.price)
+        #print(epilation.price)
         total_E += (float(epilation.price) * float(E[index_E]))
         if(int(E[index_E]) != 0):
-            Tot_Nom.append(epilation.name)
-            Tot_Prix.append(epilation.price)
-            Tot_Cout.append(epilation.cost)
-            Tot_qte.append(E[index_E])
+            Tot.append(epilation.name)
+            Tot.append(epilation.price)
+            Tot.append(epilation.cost)
+            Tot.append(E[index_E])
         index_E += 1
 
-    print("total_E = ", total_E)
+    #print("total_E = ", total_E)
 
     index_O = 0
     total_O = 0
     for ongle in view_ongles:
-        print(ongle.price)
+        #print(ongle.price)
         total_O += (float(ongle.price) * float(O[index_O]))
         if(int(O[index_O]) != 0):
-            Tot_Nom.append(ongle.name)
-            Tot_Prix.append(ongle.price)
-            Tot_Cout.append(ongle.cost)
-            Tot_qte.append(O[index_O])
+            Tot.append(ongle.name)
+            Tot.append(ongle.price)
+            Tot.append(ongle.cost)
+            Tot.append(O[index_O])
         index_O += 1
 
-    print("total_O = ", total_O)
+    #print("total_O = ", total_O)
 
     index_M = 0
     total_M = 0
     for maquillage in view_maquillage:
-        print(maquillage.price)
+        #print(maquillage.price)
         total_M += (float(maquillage.price) * float(M[index_M]))
         if(int(M[index_M]) != 0):
-            Tot_Nom.append(maquillage.name)
-            Tot_Prix.append(maquillage.price)
-            Tot_Cout.append(maquillage.cost)
-            Tot_qte.append(M[index_M])
+            Tot.append(maquillage.name)
+            Tot.append(maquillage.price)
+            Tot.append(maquillage.cost)
+            Tot.append(M[index_M])
         index_M += 1
 
-    print("total_M = ", total_M)
+    #print("total_M = ", total_M)
 
     index_P = 0
     total_P = 0
     for produit in view_produits:
-        print(produit.price)
+        #print(produit.price)
         total_P += (float(produit.price) * float(P[index_P]))
         if(int(P[index_P]) != 0):
-            Tot_Nom.append(produit.name)
-            Tot_Prix.append(produit.price)
-            Tot_Cout.append(produit.cost)
-            Tot_qte.append(P[index_P])
+            Tot.append(produit.name)
+            Tot.append(produit.price)
+            Tot.append(produit.cost)
+            Tot.append(P[index_P])
         index_P += 1
 
-    print("total_P = ", total_P)
+    #print("total_P = ", total_P)
     ca = float(total_SC + total_SV + total_E + total_O + total_M + total_P)
-    print("total total = ", ca)
+    #print("total total = ", ca)
 
     total_charges=0
+
     for charges in view_charges:
         total_charges += float(charges.cost)/25
 
-    print("Total charges journalières = ", total_charges)
+    #print("Total charges journalières = ", total_charges)
 
     tva = ca * 0.2
-    print("tva = ",tva)
+    #print("tva = ",tva)
 
     result = ca - total_charges - tva
-    print("Resultat net : ", result, "€")
+    #print("Resultat net : ", result, "€")
 
-    print("\n\nTableaux : ")
-    print(Tot_Nom)
-    print(Tot_Prix)
-    print(Tot_Cout)
-    print(Tot_qte)
+    #print("\n\nTableau : ")
+    #print(Tot)
 
-    return render(request, 'institut/calcul.html',{'TN':Tot_Nom, 'TP':Tot_Prix, 'TC':Tot_Cout, 'TQ':Tot_qte})
+    test_index=0
+
+    print("date = ", date)
+
+    month=date[5:7]
+
+    if(int(month) == 1):
+        month = 'Janvier'
+    elif(int(month) == 2):
+        month = 'Février'
+    elif(int(month) == 3):
+        month = 'Mars'
+    elif(int(month) == 4):
+        month = 'Avril'
+    elif(int(month) == 5):
+        month = 'Mai'
+    elif(int(month) == 6):
+        month = 'Juin'
+    elif(int(month) == 7):
+        month = 'Juillet'
+    elif(int(month) == 8):
+        month = 'Août'
+    elif(int(month) == 9):
+        month = 'Septembre'
+    elif(int(month) == 10):
+        month = 'Octobre'
+    elif(int(month) == 11):
+        month = 'Novembre'
+    else:
+        month = 'Décembre'
+
+    date_conv = date[8:10] + " " +  month + " " + date[0:4]
+
+    print("date convertie = ", date_conv)
+
+    return render(request, 'institut/calcul.html',{'T':Tot, 'i':test_index, 'date': date_conv,
+                                                   'ca':ca, 'charges':total_charges, 'tva':tva, 'result':result})
 
 def test(request):
     return render(request, 'institut/test.html')
+
+def saveday(request):
+
+    Journees(jour=date, id=int(date[0:4]+date[5:7]+date[8:10]) , ca=ca, costs=total_charges, tva=tva, result=result).save()
+
+    #print(date,ca,total_charges,tva,result)
+
+    return render(request, 'institut/view.html')
 
 

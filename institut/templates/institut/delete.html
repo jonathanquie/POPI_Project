@@ -258,8 +258,8 @@
 
                     {% for Visu_journee in delete_J %}
                         <div class="funkyradio-default">
-                            <input type="radio" name="del_journee_name" id="del_journee_name" value="{{ Visu_journee.name }}"/>
-                           <label for="del_journee_name">{{ Visu_journee.name }}</label>
+                            <input type="radio" name="del_journee_jour" id="del_journee_jour" value="{{ Visu_journee.id }}"/>
+                           <label for="del_journee_jour">{{ Visu_journee.jour }} - ({{ Visu_journee.result }} €)</label>
                         </div>
                     {% empty %}
                         <tr class = "danger">

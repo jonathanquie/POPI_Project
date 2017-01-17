@@ -34,6 +34,12 @@ class New_charge(forms.Form):
     charge_name = forms.CharField(label="Nom de la charge", max_length=100)
     charge_cost = forms.CharField(label="Coût de la charge")
 
+class New_day(forms.Form):
+    day_ca = forms.CharField(label="CA de la journee")
+    day_costs = forms.CharField(label="CA de la journee")
+    day_tva = forms.CharField(label="CA de la journee")
+    day_result = forms.CharField(label="CA de la journee")
+
 class Delete_soin_corps(forms.Form):
     del_soins_corps_name = forms.CharField(label="Nom du soin", max_length=100)
 
@@ -56,7 +62,7 @@ class Delete_charge(forms.Form):
     del_charge_name = forms.CharField(label="Nom du soin", max_length=100)
 
 class Delete_journee(forms.Form):
-    del_journee_name = forms.CharField(label="Nom du soin", max_length=100)
+    del_journee_jour = forms.CharField(label="Nom du soin", max_length=100)
 
 class New_Day(forms.Form):
     datepicker = forms.CharField(label="Nouvelle journée")

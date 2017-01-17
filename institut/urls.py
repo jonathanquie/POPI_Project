@@ -28,5 +28,6 @@ urlpatterns = [
     url(r'^newday2$', views.newday2, name='newday2'),
     url(r'^newday3$', views.newday3, name='newday3'),
     url(r'^test$', views.test, name='test'),
+    url(r'^saveday$', views.saveday, name='saveday'),
 
 ]

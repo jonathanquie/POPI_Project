@@ -162,8 +162,8 @@ class Soins_Visages(models.Model):
         return test.id
 
 class Journees(models.Model):
-    id = models.IntegerField(auto_created=True, primary_key=True)
-    jour = models.DateTimeField(auto_now_add=True, auto_now=False, verbose_name="Date de la journée")
+    jour = models.DateField(primary_key=True)
+    id = models.IntegerField(auto_created=True)
     ca = models.FloatField()
     costs = models.FloatField()
     tva = models.FloatField()
@@ -178,10 +178,10 @@ class Journees(models.Model):
         """
         return self.jour
 
-    def get_id(name):
+    def get_id(jour):
 
-        test = Journees.objects.get(name=name)
+        test = Journees.objects.get(jour=jour)
 
-        print(test.name, test.id)
+        print(test.jour, test.id)
 
         return test.id

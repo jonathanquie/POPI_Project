@@ -3,12 +3,13 @@
 
 {% block content %}
     <h1><font color="#2F2F2F">-</font></h1>
-    <h1>Bienvenue sur mon site</h1>
+    <h1>{{date}}</h1>
 
     <table class="table table-bordered table-inverse">
         <caption>
-            <h2>Journée</h2>
+            <h2>Récapitulatif de la journée</h2>
         </caption>
+
         <thead>
             <tr class="">
                 <th style="width:20%;">Nom du service</th>
@@ -17,15 +18,58 @@
                 <th style="width:20%;">Quantité</th>
             </tr>
         </thead>
+
     <tbody>
-        {% for test in TN %}
-            <tr>
-                <td>{{ test }}</td>
-            </tr>
+        <tr>
+        {% for TOT in T %}
+                <td>{{ TOT }}</td>
+
+                {% if forloop.counter|divisibleby:4 %}
+        </tr>
+        <tr>
+                {% endif %}
+
+
         {% endfor %}
+        </tr>
 
     </tbody>
     </table>
+
+
+    <form action="{% url "saveday" %}" method="post">
+    {% csrf_token %}
+
+    <table class="table table-bordered table-inverse">
+
+        <thead>
+            <tr class="">
+                <th style="width:20%;">Chiffre d'affaire</th>
+                <th style="width:20%;">Charges journalières</th>
+                <th style="width:20%;">TVA (20%)</th>
+                <th style="width:20%;">Résultat net</th>
+            </tr>
+        </thead>
+
+    <tbody>
+        <tr class="">
+                <th style="width:20%;">+ {{ ca }} €</th>
+                <th style="width:20%;">- {{ charges }} €</th>
+                <th style="width:20%;">- {{ tva }} €</th>
+                {% if result > 0 %}
+                    <th style="width:20%;"><font color =#2BA951>+ {{ result }} €</font></th>
+                {% elif result < 0 %}
+                    <th style="width:20%;"><font color =#A92B2B>{{ result }} €</font></th>
+                {% else %}
+                    <th style="width:20%;">0 €</th>
+                {% endif %}
+            </tr>
+    </tbody>
+    </table>
+        <input type="submit" value="Confirmer" class="btn btn-primary pull-left"/>
+        <a href="/institut/newday2" class="btn btn-primary pull-left">Annuler</a>
+
+    </form>
 
 
 {% endblock %}

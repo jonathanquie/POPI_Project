@@ -24,7 +24,7 @@
 
     <script>
     $( function() {
-    $( "#datepicker" ).datepicker({ dateFormat: 'dd-mm-yy' });
+    $( "#datepicker" ).datepicker({ dateFormat: 'yy-mm-dd' });
     } );
     </script>
 
@@ -637,7 +637,10 @@
    <section id="content">
        {% block content %}{% endblock %}
    </section>
-<footer>&copy; POPI</footer>
+<footer>
+    <h1><font color="#2F2F2F">-</font></h1>
+    &copy; POPI
+</footer>
 </body>
 
 </html>
