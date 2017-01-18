@@ -1,6 +1,5 @@
 from django.conf.urls import url
 from . import views
-
 urlpatterns = [
     url(r'^accueil$', views.home, name='accueil'),
     url(r'^view/(\d+)$', views.view_table),
@@ -29,5 +28,9 @@ urlpatterns = [
     url(r'^newday3$', views.newday3, name='newday3'),
     url(r'^test$', views.test, name='test'),
     url(r'^saveday$', views.saveday, name='saveday'),
-
+    url(r'^one_week$', views.one_week, name='one_week'),
+    url(r'^one_month$', views.one_month, name='one_month'),
+    url(r'^one_year$', views.one_year, name='one_year'),
+    url(r'^as_you_want$', views.as_you_want, name='as_you_want'),
 ]
+

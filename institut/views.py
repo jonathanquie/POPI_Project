@@ -577,3 +577,24 @@ def saveday(request):
     return render(request, 'institut/view.html')
 
 
+def one_week(request):
+
+    return HttpResponse("1 week")
+
+
+def one_month(request):
+
+    return HttpResponse("1 month")
+
+
+
+def one_year(request):
+
+    return HttpResponse("1 year")
+
+
+
+def as_you_want(request):
+    flag_as_you_want = 1
+
+    return render(request, 'institut/view_table.html', {'flag_as_you_want': flag_as_you_want})

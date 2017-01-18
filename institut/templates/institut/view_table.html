@@ -224,9 +224,45 @@
 
 
     {% else %}
+        <h3>-</h3>
+        <h4><font color="#2F2F2F">-</font></h4>
+         <div class="dropdown">
+              <button class="btn btn-default dropdown-toggle" type="button" id="dropdownMenu1" data-toggle="dropdown" aria-haspopup="true"
+                      aria-expanded="true">
+                Trier
+                <span class="caret"></span>
+              </button>
+              <ul class="dropdown-menu" aria-labelledby="dropdownMenu1">
+                <li><a href="/institut/one_week">1 semaine</a></li>
+                <li><a href="/institut/one_month">1 mois</a></li>
+                <li><a href="/institut/one_year">1 an</a></li>
+                  <li role="separator" class="divider"></li>
+                <li><a href="/institut/as_you_want">Durée personnalisé</a></li>
+              </ul>
+        </div>
+
+        <h4><font color="#2F2F2F">-</font></h4>
+
+        {% if flag_as_you_want %}
+
+            <form action="{% url "newday2" %}" method="post" id="myFormDate">
+            {% csrf_token %}
+
+                <p><label for="depuis">Depuis : </label>
+                <font color="black"><input type="text" name="depuis" id="depuis" value="{{ date }}"/></font>
+
+                <label for="jusque"> jusque : </label>
+                <font color="black"><input type="text" name="jusque" id="jusque" value="{{ date }}"/></font>
+
+                <input type="submit" value="Sélectionner" class="btn btn-primary" onclick="myFunctionDate()"/></p>
+            </form>
+
+        {% endif %}
+
+
+
         <table class="table table-bordered table-inverse">
             <caption>
-                <h3>-</h3>
                 <h2>Journées éffectuées</h2>
             </caption>
             <thead>
