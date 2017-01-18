@@ -1,8 +1,9 @@
 from django.http import HttpResponse, Http404
-from django.shortcuts import render
-from datetime import datetime
+from django.shortcuts import render, render_to_response
+from datetime import *
 from institut.models import *
 from .forms import *
+from chartit import *
 
 total_charges=0
 ca=0
@@ -579,22 +580,77 @@ def saveday(request):
 
 def one_week(request):
 
-    return HttpResponse("1 week")
+
+    #Step 1: Create a DataPool with the data we want to retrieve.
+    weatherdata = \
+        DataPool(
+           series=
+            [{'options': {
+               'source': Journees.objects.all().filter(jour__range=[datetime.now()- timedelta(weeks=1), datetime.now()])},
+              'terms': [
+                'jour',
+                'ca']}
+             ])
+
+    #Step 2: Create the Chart object
+    cht = Chart(
+            datasource = weatherdata,
+            series_options =
+              [{'options':{
+                  'type': 'line',
+                  'stacking': False},
+                'terms':{
+                  'jour': [
+                    'ca']
+                  }}],
+            chart_options =
+              {'title': {
+                   'text': 'test'},
+               'xAxis': {
+                    'title': {
+                       'text': 'Month number'}}})
+
+    #Step 3: Send the chart object to the template.
+    #return render_to_response('domotics/weather.html', {'weatherchart': cht})
+    flag_chart = 1
+
+
+    view_journees = Journees.objects.all().filter(jour__range=[datetime.now()- timedelta(weeks=1), datetime.now()])
+
+    return render(request, 'institut/view_table.html', {'visu8': view_journees, 'weatherchart': cht, 'flag_chart' : flag_chart})
 
 
 def one_month(request):
 
-    return HttpResponse("1 month")
+    view_journees = Journees.objects.all().filter(jour__range=[datetime.now()- timedelta(days=31), datetime.now()])
+
+    return render(request, 'institut/view_table.html', {'visu8': view_journees})
 
 
 
 def one_year(request):
 
-    return HttpResponse("1 year")
+    view_journees = Journees.objects.all().filter(jour__range=[datetime.now()- timedelta(weeks=52), datetime.now()])
+
+    return render(request, 'institut/view_table.html', {'visu8': view_journees})
 
 
 
 def as_you_want(request):
     flag_as_you_want = 1
 
+
     return render(request, 'institut/view_table.html', {'flag_as_you_want': flag_as_you_want})
+
+def as_you_want_2(request):
+    flag_as_you_want = 1
+    form = Tri_Journees_Personnalise(request.POST or None)
+
+    if form.is_valid():
+        Start_date = form.cleaned_data['Start_date']
+        End_date = form.cleaned_data['End_date']
+
+        view_journees = Journees.objects.all().filter(jour__range=[Start_date,End_date])
+
+        return render_to_response('institut/view_table.html', {'visu8': view_journees, 'flag_as_you_want': flag_as_you_want,
+                                                            'Start_date' : Start_date, 'End_date' : End_date})

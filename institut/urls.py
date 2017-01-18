@@ -32,5 +32,6 @@ urlpatterns = [
     url(r'^one_month$', views.one_month, name='one_month'),
     url(r'^one_year$', views.one_year, name='one_year'),
     url(r'^as_you_want$', views.as_you_want, name='as_you_want'),
+    url(r'^as_you_want_2$', views.as_you_want_2, name='as_you_want_2'),
 ]
 

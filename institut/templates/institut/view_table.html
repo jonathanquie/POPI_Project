@@ -245,16 +245,16 @@
 
         {% if flag_as_you_want %}
 
-            <form action="{% url "newday2" %}" method="post" id="myFormDate">
+            <form action="{% url "as_you_want_2" %}" method="post">
             {% csrf_token %}
 
-                <p><label for="depuis">Depuis : </label>
-                <font color="black"><input type="text" name="depuis" id="depuis" value="{{ date }}"/></font>
+                <p><label for="Start_date">Depuis : </label>
+                <font color="black"><input type="text" name="Start_date" id="Start_date" value="{{ Start_date }}"/></font>
 
-                <label for="jusque"> jusque : </label>
-                <font color="black"><input type="text" name="jusque" id="jusque" value="{{ date }}"/></font>
+                <label for="End_date"> jusque : </label>
+                <font color="black"><input type="text" name="End_date" id="End_date" value="{{ End_date }}"/></font>
 
-                <input type="submit" value="Sélectionner" class="btn btn-primary" onclick="myFunctionDate()"/></p>
+                <input type="submit" value="Sélectionner" class="btn btn-primary"/></p>
             </form>
 
         {% endif %}
@@ -289,6 +289,8 @@
                     <td>0 €</td>
                 {% endif %}
             </tr>
+
+
             {% empty %}
             <tr class = "">
                 <td><i><font color =#b52222>Aucune journée disponible.</font></i></td>
@@ -299,6 +301,14 @@
             </tr>
 
             {% endfor %}
+
+            <!--{% if flag_chart %}-->
+                {% load chartit %}
+                {{ weatherchart|load_charts:"cht" }}
+
+                <div id="cht"></div>
+            <!--{% endif %}-->
+
         </tbody>
         </table>
     {% endif %}

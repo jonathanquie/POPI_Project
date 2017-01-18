@@ -69,3 +69,7 @@ class New_Day(forms.Form):
 
 class New_Day_SC(forms.Form):
     nb_SC = forms.IntegerField()
+
+class Tri_Journees_Personnalise(forms.Form):
+    Start_date = forms.DateField()
+    End_date = forms.DateField()
