@@ -35,6 +35,8 @@
     } );
     </script>
 
+    {% load chartit %}
+    {{ weatherchart|load_charts:"container" }}
 
     <title>{% block title %}POPI's Website{% endblock %}</title>
 </head>
