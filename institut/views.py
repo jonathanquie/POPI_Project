@@ -586,13 +586,13 @@ def one_week(request):
         DataPool(
            series=
             [{'options': {
-               'source': Journees.objects.all().filter(jour__range=[datetime.now()- timedelta(weeks=1), datetime.now()])},
+               'source': Journees.objects.all()},
               'terms': [
                 'jour',
-                'ca']}
+                'ca',
+                'result']}
              ])
 
-    #Step 2: Create the Chart object
     cht = Chart(
             datasource = weatherdata,
             series_options =
@@ -601,23 +601,25 @@ def one_week(request):
                   'stacking': False},
                 'terms':{
                   'jour': [
-                    'ca']
+                    'ca',
+                    'result']
                   }}],
             chart_options =
-              {'title': {
+            {'chart':{
+                'backgroundColor': '#2f2f2f',
+                'title': {
                    'text': 'test'},
-               'xAxis': {
+                'xAxis': {
                     'title': {
-                       'text': 'Month number'}}})
+                       'text': 'Month number'}}}
+            })
 
-    #Step 3: Send the chart object to the template.
-    #return render_to_response('domotics/weather.html', {'weatherchart': cht})
     flag_chart = 1
 
 
     view_journees = Journees.objects.all().filter(jour__range=[datetime.now()- timedelta(weeks=1), datetime.now()])
 
-    return render(request, 'institut/view_table.html', {'visu8': view_journees, 'weatherchart': cht, 'flag_chart' : flag_chart})
+    return render(request, 'institut/view_table_test.html', {'visu8': view_journees, 'weatherchart': cht, 'flag_chart' : flag_chart})
 
 
 def one_month(request):

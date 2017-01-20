@@ -1,4 +1,5 @@
 {% load staticfiles %}
+
 <!DOCTYPE html>
 <html lang="fr">
 <head>
@@ -7,9 +8,9 @@
     <!--<link rel="stylesheet" href="{% static 'js/bootstrap-datetimepicker.min.js' %}">-->
     <!--<link rel="stylesheet" href="{% static 'js/bootstrap-datetimepicker.js' %}">-->
     <link rel="stylesheet" href="{% static 'js/bootstrap.js' %}">
-    <link rel="stylesheet" href="{% static 'js/chartit.js' %}">
     <link rel="stylesheet" href="{% static 'css/font-awesome.min.css' %}">
     <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.1.1/jquery.min.js"></script>
+    <link rel="stylesheet" href="{% static 'js/highcharts.js' %}">
     <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js"></script>
     <link rel="stylesheet" href="{% static 'css/bootstrap.css' %}" media="screen">
 
@@ -23,6 +24,9 @@
     <!--<script src="../static/js/jquery-ui.js"></script>-->
     <script src="https://code.jquery.com/ui/1.12.1/jquery-ui.js"></script>
 
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/2.2.0/jquery.min.js"></script>
+    <script src="http://code.highcharts.com/highcharts.js"></script>
+
     <script>
     $( function() {
     $( "#datepicker" ).datepicker({ dateFormat: 'yy-mm-dd' });
@@ -34,9 +38,8 @@
     $( "#End_date" ).datepicker({ dateFormat: 'yy-mm-dd' });
     } );
     </script>
+    {% block head %} {% endblock %}
 
-    {% load chartit %}
-    {{ weatherchart|load_charts:"container" }}
 
     <title>{% block title %}POPI's Website{% endblock %}</title>
 </head>
