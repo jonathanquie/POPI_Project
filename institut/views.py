@@ -586,14 +586,14 @@ def one_week(request):
         DataPool(
            series=
             [{'options': {
-               'source': Journees.objects.all()},
+               'source': Journees.objects.all().filter(jour__range=[datetime.now()- timedelta(weeks=1), datetime.now()])},
               'terms': [
                 'jour',
                 'ca',
                 'result']}
              ])
 
-    cht = Chart(
+    cht_w = Chart(
             datasource = weatherdata,
             series_options =
               [{'options':{
@@ -605,36 +605,168 @@ def one_week(request):
                     'result']
                   }}],
             chart_options =
-            {'chart':{
-                'backgroundColor': '#2f2f2f',
-                'title': {
-                   'text': 'test'},
-                'xAxis': {
-                    'title': {
-                       'text': 'Month number'}}}
-            })
+                {'chart':
+                    {
+                        'backgroundColor':'#2f2f2f'
+                    },
+                    'title':
+                    {
+                        'text': 'Chiffre d\'affaire et résultat net'
+                    },
+                    'xAxis':
+                    {
+                        'title':
+                        {
+                           'text': 'Jour'
+                        }
+                    },
+                    'yAxis':
+                    {
+                        'gridLineColor': '#707073',
+                        'labels': {
+                        'style': {
+                            'color': '#E0E0E3'
+                        }
+                    },
+                        'title': {
+                           'text': 'CA & Résultat net'}
+                    }
+                }
+            )
 
-    flag_chart = 1
 
 
     view_journees = Journees.objects.all().filter(jour__range=[datetime.now()- timedelta(weeks=1), datetime.now()])
 
-    return render(request, 'institut/view_table_test.html', {'visu8': view_journees, 'weatherchart': cht, 'flag_chart' : flag_chart})
+    return render(request, 'institut/view_table_week.html', {'visu8': view_journees, 'weatherchart': cht_w})
 
 
 def one_month(request):
 
+    #Step 1: Create a DataPool with the data we want to retrieve.
+    weatherdata = \
+        DataPool(
+           series=
+            [{'options': {
+               'source': Journees.objects.all().filter(jour__range=[datetime.now()- timedelta(days=31), datetime.now()])},
+              'terms': [
+                'jour',
+                'ca',
+                'result']}
+             ])
+
+    cht_m = Chart(
+            datasource = weatherdata,
+            series_options =
+              [{'options':{
+                  'type': 'line',
+                  'stacking': False},
+                'terms':{
+                  'jour': [
+                    'ca',
+                    'result']
+                  }}],
+            chart_options =
+                {'chart':
+                    {
+                        'backgroundColor':'#2f2f2f'
+                    },
+                    'title':
+                    {
+                        'text': 'Chiffre d\'affaire et résultat net'
+                    },
+                    'xAxis':
+                    {
+                        'title':
+                        {
+                           'text': 'Jour'
+                        }
+                    },
+                    'yAxis':
+                    {
+                        'gridLineColor': '#707073',
+                        'labels': {
+                        'style': {
+                            'color': '#E0E0E3'
+                        }
+                    },
+                        'title': {
+                           'text': 'CA & Résultat net'}
+                    }
+                }
+            )
+
     view_journees = Journees.objects.all().filter(jour__range=[datetime.now()- timedelta(days=31), datetime.now()])
 
-    return render(request, 'institut/view_table.html', {'visu8': view_journees})
+    return render(request, 'institut/view_table_month.html', {'visu8': view_journees, 'weatherchart': cht_m})
 
 
 
 def one_year(request):
 
+    #Step 1: Create a DataPool with the data we want to retrieve.
+    weatherdata = \
+        DataPool(
+           series=
+            [{'options': {
+               'source': Journees.objects.all().filter(jour__range=[datetime.now()- timedelta(weeks=52), datetime.now()])},
+              'terms': [
+                'jour',
+                'ca',
+                'result']}
+             ])
+
+    cht_y = Chart(
+            datasource = weatherdata,
+            series_options =
+              [{'options':{
+                  'type': 'line',
+                  'stacking': False},
+                'terms':{
+                  'jour': [
+                    'ca',
+                    'result']
+                  }}],
+            chart_options =
+                {'chart':
+                    {
+                        'backgroundColor':'#2f2f2f'
+                    },
+                    'title':
+                    {
+                        'text': 'Chiffre d\'affaire et résultat net'
+                    },
+                    'xAxis':
+                    {
+                        'gridLineColor': '#707073',
+                        'labels': {
+                        'style': {
+                            'color': '#E0E0E3'
+                        }
+                    },
+                        'title':
+                        {
+                           'text': 'Jour'
+                        }
+                    },
+                    'yAxis':
+                    {
+                        'gridLineColor': '#707073',
+                        'labels': {
+                        'style': {
+                            'color': '#E0E0E3'
+                        }
+                    },
+                        'title': {
+                           'text': 'CA & Résultat net'}
+                    }
+                }
+            )
+
+
     view_journees = Journees.objects.all().filter(jour__range=[datetime.now()- timedelta(weeks=52), datetime.now()])
 
-    return render(request, 'institut/view_table.html', {'visu8': view_journees})
+    return render(request, 'institut/view_table_month.html', {'visu8': view_journees, 'weatherchart': cht_y})
 
 
 
