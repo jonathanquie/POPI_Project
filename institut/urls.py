@@ -11,7 +11,7 @@ urlpatterns = [
     url(r'^add6$', views.new_produit, name='new_produit'),
     url(r'^add7$', views.new_charge, name='new_charge'),
     url(r'^date$', views.date_actuelle),
-    url(r'^View$', views.view),
+    url(r'^View$', views.view, name='View'),
     url(r'^about$', views.about),
     url(r'^contact$', views.contact),
     url(r'^delete$', views.delete),
@@ -33,5 +33,6 @@ urlpatterns = [
     url(r'^one_year$', views.one_year, name='one_year'),
     url(r'^as_you_want$', views.as_you_want, name='as_you_want'),
     url(r'^as_you_want_2$', views.as_you_want_2, name='as_you_want_2'),
+    url(r'^all$', views.all, name='all'),
 ]
 

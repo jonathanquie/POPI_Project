@@ -1,0 +1,108 @@
+{% extends "base.html" %}
+{% block title %}POPI's Website{% endblock %}
+
+
+{% load chartit %}
+
+
+
+
+    {% block content %}
+
+        {% block javascript %}
+        <script src="https://ajax.googleapis.com/ajax/libs/jquery/2.2.0/jquery.min.js"></script>
+        <script src="http://code.highcharts.com/highcharts.js"></script>
+        {% endblock %}
+
+        <h3>-</h3>
+        <h4><font color="#2F2F2F">-</font></h4>
+         <div class="dropdown">
+              <button class="btn btn-default dropdown-toggle" type="button" id="dropdownMenu1" data-toggle="dropdown" aria-haspopup="true"
+                      aria-expanded="true">
+                Trier
+                <span class="caret"></span>
+              </button>
+              <ul class="dropdown-menu" aria-labelledby="dropdownMenu1">
+                <li><a href="/institut/one_week">1 semaine</a></li>
+                <li><a href="/institut/one_month">1 mois</a></li>
+                <li><a href="/institut/one_year">1 an</a></li>
+                  <li role="separator" class="divider"></li>
+                <li><a href="/institut/as_you_want">Durée personnalisé</a></li>
+                  <li role="separator" class="divider"></li>
+                <li><a href="/institut/all">Total</a></li>
+              </ul>
+        </div>
+
+        <h4><font color="#2F2F2F">-</font></h4>
+
+        {% if flag_as_you_want %}
+
+            <form action="{% url "as_you_want_2" %}" method="post">
+            {% csrf_token %}
+
+                <p><label for="Start_date">Depuis : </label>
+                <font color="black"><input type="text" name="Start_date" id="Start_date" value="{{ Start_date }}"/></font>
+
+                <label for="End_date"> jusque : </label>
+                <font color="black"><input type="text" name="End_date" id="End_date" value="{{ End_date }}"/></font>
+
+                <input type="submit" value="Sélectionner" class="btn btn-primary"/></p>
+            </form>
+
+        {% endif %}
+
+
+
+        <table class="table table-bordered table-inverse">
+            <caption>
+                <h2>Journées éffectuées</h2>
+            </caption>
+            <thead>
+                <tr class="">
+                    <th style="width:20%;">Date</th>
+                    <th style="width:20%;">Chiffre d'affaire</th>
+                    <th style="width:20%;">Charges</th>
+                    <th style="width:20%;">TVA (20%)</th>
+                    <th style="width:20%;">Résultat net</th>
+                </tr>
+            </thead>
+        <tbody>
+            {% for view_journees in visu8 %}
+            <tr class="">
+                <td>{{ view_journees.jour }}</td>
+                <td>{{ view_journees.ca }} €</td>
+                <td>- {{ view_journees.costs }} €</td>
+                <td>- {{ view_journees.tva }} €</td>
+                {% if view_journees.result > 0 %}
+                    <td><font color =#2BA951>+ {{ view_journees.result }} €</font></td>
+                {% elif view_journees.result < 0 %}
+                    <td><font color =#A92B2B>{{ view_journees.result }} €</font></td>
+                {% else %}
+                    <td>0 €</td>
+                {% endif %}
+            </tr>
+
+
+            {% empty %}
+            <tr class = "">
+                <td><i><font color =#b52222>Aucune journée disponible.</font></i></td>
+                <td><font color =#b52222>-</font></td>
+                <td><font color =#b52222>-</font></td>
+                <td><font color =#b52222>-</font></td>
+                <td><font color =#b52222>-</font></td>
+            </tr>
+
+            {% endfor %}
+
+
+
+        </tbody>
+        </table>
+
+        <div id="cht_y">{{ weatherchart|load_charts:"cht_y" }}</div>
+
+{% endblock %}
+
+
+
+

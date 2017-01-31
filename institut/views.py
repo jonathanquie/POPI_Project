@@ -98,7 +98,7 @@ def new_soin_corps(request):
 
         Soins_Corps(name=soin_corps_name, price=soin_corps_price, cost=soin_corps_cost).save()
 
-    return render(request, 'institut/add_soin_corps.html', locals())
+    return render(request, 'institut/view.html', locals())
 
 
 def new_soin_visage(request):
@@ -114,7 +114,7 @@ def new_soin_visage(request):
 
         Soins_Visages(name=soin_visage_name, price=soin_visage_price, cost=soin_visage_cost).save()
 
-        return render(request, 'institut/add_soin_visage.html', locals())
+        return render(request, 'institut/view.html', locals())
 
 
 def new_epilation(request):
@@ -129,7 +129,7 @@ def new_epilation(request):
 
         Epilations(name=epilation_name, price=epilation_price, cost=epilation_cost).save()
 
-    return render(request, 'institut/add_epilation.html', locals())
+    return render(request, 'institut/view.html', locals())
 
 
 def new_ongles(request):
@@ -144,7 +144,7 @@ def new_ongles(request):
 
         Ongles(name=ongles_name, price=ongles_price, cost=ongles_cost).save()
 
-    return render(request, 'institut/add_ongles.html', locals())
+    return render(request, 'institut/view.html', locals())
 
 
 def new_maquillage(request):
@@ -159,7 +159,7 @@ def new_maquillage(request):
 
         Maquillage(name=maquillage_name, price=maquillage_price, cost=maquillage_cost).save()
 
-    return render(request, 'institut/add_maquillage.html', locals())
+    return render(request, 'institut/view.html', locals())
 
 
 def new_produit(request):
@@ -174,7 +174,7 @@ def new_produit(request):
 
         Produits(name=produit_name, price=produit_price, cost=produit_cost).save()
 
-    return render(request, 'institut/add_produit.html', locals())
+    return render(request, 'institut/view.html', locals())
 
 def new_charge(request):
     form = New_charge(request.POST or None)
@@ -187,7 +187,7 @@ def new_charge(request):
 
         Charges(name=charge_name, cost=charge_cost).save()
 
-    return render(request, 'institut/add_charge.html', locals())
+    return render(request, 'institut/view.html', locals())
 
 def delete_soin_corps(request):
     form = Delete_soin_corps(request.POST or None)
@@ -784,7 +784,129 @@ def as_you_want_2(request):
         Start_date = form.cleaned_data['Start_date']
         End_date = form.cleaned_data['End_date']
 
+        weatherdata = \
+            DataPool(
+                series=
+                [{'options': {
+                    'source': Journees.objects.all().filter(jour__range=[Start_date,End_date])},
+                    'terms': [
+                        'jour',
+                        'ca',
+                        'result']}
+                ])
+
+        cht_ayw = Chart(
+            datasource=weatherdata,
+            series_options=
+            [{'options': {
+                'type': 'line',
+                'stacking': False},
+                'terms': {
+                    'jour': [
+                        'ca',
+                        'result']
+                }}],
+            chart_options=
+            {'chart':
+                {
+                    'backgroundColor': '#2f2f2f'
+                },
+                'title':
+                    {
+                        'text': 'Chiffre d\'affaire et résultat net'
+                    },
+                'xAxis':
+                    {
+                        'gridLineColor': '#707073',
+                        'labels': {
+                            'style': {
+                                'color': '#E0E0E3'
+                            }
+                        },
+                        'title':
+                            {
+                                'text': 'Jour'
+                            }
+                    },
+                'yAxis':
+                    {
+                        'gridLineColor': '#707073',
+                        'labels': {
+                            'style': {
+                                'color': '#E0E0E3'
+                            }
+                        },
+                        'title': {
+                            'text': 'CA & Résultat net'}
+                    }
+            }
+        )
+
         view_journees = Journees.objects.all().filter(jour__range=[Start_date,End_date])
 
-        return render_to_response('institut/view_table.html', {'visu8': view_journees, 'flag_as_you_want': flag_as_you_want,
-                                                            'Start_date' : Start_date, 'End_date' : End_date})
+        return render_to_response('institut/view_table_as_you_want.html', {'visu8': view_journees, 'flag_as_you_want': flag_as_you_want,
+                                                            'Start_date' : Start_date, 'End_date' : End_date, 'weatherchart': cht_ayw})
+
+def all(request):
+    # Step 1: Create a DataPool with the data we want to retrieve.
+    weatherdata = \
+        DataPool(
+            series=
+            [{'options': {
+                'source': Journees.objects.all()},
+                'terms': [
+                    'jour',
+                    'ca',
+                    'result']}
+            ])
+
+    cht_a = Chart(
+        datasource=weatherdata,
+        series_options=
+        [{'options': {
+            'type': 'line',
+            'stacking': False},
+            'terms': {
+                'jour': [
+                    'ca',
+                    'result']
+            }}],
+        chart_options=
+        {'chart':
+            {
+                'backgroundColor': '#2f2f2f'
+            },
+            'title':
+                {
+                    'text': 'Chiffre d\'affaire et résultat net'
+                },
+            'xAxis':
+                {
+                    'gridLineColor': '#707073',
+                    'labels': {
+                        'style': {
+                            'color': '#E0E0E3'
+                        }
+                    },
+                    'title':
+                        {
+                            'text': 'Jour'
+                        }
+                },
+            'yAxis':
+                {
+                    'gridLineColor': '#707073',
+                    'labels': {
+                        'style': {
+                            'color': '#E0E0E3'
+                        }
+                    },
+                    'title': {
+                        'text': 'CA & Résultat net'}
+                }
+        }
+    )
+
+    view_journees = Journees.objects.all()
+
+    return render(request, 'institut/view_table_all.html', {'visu8': view_journees, 'weatherchart': cht_a})
