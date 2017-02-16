@@ -638,7 +638,16 @@ def one_week(request):
 
     view_journees = Journees.objects.all().filter(jour__range=[datetime.now()- timedelta(weeks=1), datetime.now()])
 
-    return render(request, 'institut/view_table_week.html', {'visu8': view_journees, 'weatherchart': cht_w})
+    total_journee_ca = 0
+    total_journee_result = 0
+
+    for journee in view_journees:
+        total_journee_ca += journee.ca
+        total_journee_result += journee.result
+
+    #print("CA global = ", total_journee_ca, "et result global = ", total_journee_result)
+
+    return render(request, 'institut/view_table_week.html', {'visu8': view_journees, 'weatherchart': cht_w, 'ca_week': total_journee_ca, 'result_week': total_journee_result})
 
 
 def one_month(request):
@@ -698,7 +707,16 @@ def one_month(request):
 
     view_journees = Journees.objects.all().filter(jour__range=[datetime.now()- timedelta(days=31), datetime.now()])
 
-    return render(request, 'institut/view_table_month.html', {'visu8': view_journees, 'weatherchart': cht_m})
+    total_journee_ca = 0
+    total_journee_result = 0
+
+    for journee in view_journees:
+        total_journee_ca += journee.ca
+        total_journee_result += journee.result
+
+        # print("CA global = ", total_journee_ca, "et result global = ", total_journee_result)
+
+    return render(request, 'institut/view_table_month.html', {'visu8': view_journees, 'weatherchart': cht_m, 'ca_month': total_journee_ca, 'result_month': total_journee_result})
 
 
 
@@ -766,7 +784,16 @@ def one_year(request):
 
     view_journees = Journees.objects.all().filter(jour__range=[datetime.now()- timedelta(weeks=52), datetime.now()])
 
-    return render(request, 'institut/view_table_month.html', {'visu8': view_journees, 'weatherchart': cht_y})
+    total_journee_ca = 0
+    total_journee_result = 0
+
+    for journee in view_journees:
+        total_journee_ca += journee.ca
+        total_journee_result += journee.result
+
+        # print("CA global = ", total_journee_ca, "et result global = ", total_journee_result)
+
+    return render(request, 'institut/view_table_year.html', {'visu8': view_journees, 'weatherchart': cht_y, 'ca_year': total_journee_ca, 'result_year': total_journee_result})
 
 
 
@@ -844,8 +871,18 @@ def as_you_want_2(request):
 
         view_journees = Journees.objects.all().filter(jour__range=[Start_date,End_date])
 
+        total_journee_ca = 0
+        total_journee_result = 0
+
+        for journee in view_journees:
+            total_journee_ca += journee.ca
+            total_journee_result += journee.result
+
+            # print("CA global = ", total_journee_ca, "et result global = ", total_journee_result)
+
         return render_to_response('institut/view_table_as_you_want.html', {'visu8': view_journees, 'flag_as_you_want': flag_as_you_want,
-                                                            'Start_date' : Start_date, 'End_date' : End_date, 'weatherchart': cht_ayw})
+                                                            'Start_date' : Start_date, 'End_date' : End_date, 'weatherchart': cht_ayw,
+                                                            'ca_ayw': total_journee_ca, 'result_ayw': total_journee_result})
 
 def all(request):
     # Step 1: Create a DataPool with the data we want to retrieve.

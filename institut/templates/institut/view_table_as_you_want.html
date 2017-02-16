@@ -99,7 +99,35 @@
         </tbody>
         </table>
 
+
         <div id="cht_ayw">{{ weatherchart|load_charts:"cht_ayw" }}</div>
+
+
+        <table class="table table-bordered table-inverse">
+            <caption>
+                <h2>Total entre {{ Start_date }} et {{ End_date }}</h2>
+            </caption>
+            <thead>
+                <tr class="">
+                    <th style="width:20%;">Chiffre d'affaire global</th>
+                    <th style="width:20%;">Résultat net global</th>
+                </tr>
+            </thead>
+        <tbody>
+            <tr class="">
+                <td>{{ ca_ayw }} €</td>
+                {% if result_ayw > 0 %}
+                    <td><font color =#2BA951>+ {{ result_ayw }} €</font></td>
+                {% elif result_ayw < 0 %}
+                    <td><font color =#A92B2B>- {{ result_ayw }} €</font></td>
+                {% else %}
+                    <td>0 €</td>
+                {% endif %}
+            </tr>
+        </tbody>
+        </table>
+
+
 
 {% endblock %}
 

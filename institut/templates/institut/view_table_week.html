@@ -92,6 +92,7 @@
                 <td><font color =#b52222>-</font></td>
             </tr>
 
+            <a href='javascript:somme_ca(visu8.ca)'> ... </a>
             {% endfor %}
 
 
@@ -100,6 +101,30 @@
         </table>
 
         <div id="cht_w">{{ weatherchart|load_charts:"cht_w" }}</div>
+
+        <table class="table table-bordered table-inverse">
+            <caption>
+                <h2>Total semaine</h2>
+            </caption>
+            <thead>
+                <tr class="">
+                    <th style="width:20%;">Chiffre d'affaire global de la semaine</th>
+                    <th style="width:20%;">Résultat net global de la semaine</th>
+                </tr>
+            </thead>
+        <tbody>
+            <tr class="">
+                <td>{{ ca_week }} €</td>
+                {% if result_week > 0 %}
+                    <td><font color =#2BA951>+ {{ result_week }} €</font></td>
+                {% elif result_week < 0 %}
+                    <td><font color =#A92B2B>- {{ result_week }} €</font></td>
+                {% else %}
+                    <td>0 €</td>
+                {% endif %}
+            </tr>
+        </tbody>
+        </table>
 
 {% endblock %}
 
