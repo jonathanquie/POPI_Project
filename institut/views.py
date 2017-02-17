@@ -947,3 +947,8 @@ def all(request):
     view_journees = Journees.objects.all()
 
     return render(request, 'institut/view_table_all.html', {'visu8': view_journees, 'weatherchart': cht_a})
+
+
+def rdv(request):
+
+    return render(request, 'institut/rdv.html')

@@ -20,5 +20,6 @@ from django.conf.urls import url, include
 urlpatterns = [
     url(r'^institut/', include('institut.urls')),
     url(r'^admin/', include(admin.site.urls)),
+    url(r'^calendar/', include('calendarium.urls')),
 ]
 

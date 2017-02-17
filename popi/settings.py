@@ -39,6 +39,10 @@ INSTALLED_APPS = [
     'django.contrib.staticfiles',
     'institut',
     'chartit',
+    'filer',
+    'mptt',
+    'easy_thumbnails',
+    'calendarium',
 ]
 
 MIDDLEWARE = [
@@ -68,6 +72,7 @@ TEMPLATES = [
         },
     },
 ]
+
 
 WSGI_APPLICATION = 'popi.wsgi.application'
 

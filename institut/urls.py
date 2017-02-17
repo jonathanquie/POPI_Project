@@ -34,5 +34,6 @@ urlpatterns = [
     url(r'^as_you_want$', views.as_you_want, name='as_you_want'),
     url(r'^as_you_want_2$', views.as_you_want_2, name='as_you_want_2'),
     url(r'^all$', views.all, name='all'),
+    url(r'^rdv$', views.rdv, name='rdv'),
 ]
 
