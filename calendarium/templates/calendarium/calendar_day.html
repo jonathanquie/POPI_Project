@@ -2,22 +2,21 @@
 {% load i18n %}
 
 {% block main %}
-<h1>{% trans "Occurrences" %}</h1>
+<font color="#2F2F2F"><h2>-</h2></font>
+<h1>{{ date|date:'D d/m' }}</h1>
 {% include "calendarium/partials/category_list.html" %}
 <form action="." method="post">
     {% csrf_token %}
-    <input type="submit" name="previous" value="{% trans "Previous" %}" />
-    <input type="submit" name="next" value="{% trans "Next" %}" />
-    <input type="submit" name="today" value="{% trans "Today" %}" />
+    <font color="#2F2F2F"><input type="submit" name="previous" value="{% trans "Précédent" %}" /></font>
+    <font color="#2F2F2F"><input type="submit" name="next" value="{% trans "Prochain" %}" /></font>
+    <font color="#2F2F2F"><input type="submit" name="today" value="{% trans "Aujourd'hui" %}" /></font>
 </form>
 <table class="table">
     <tr>
-        <th>{{ date|date:'D m/d' }}</th>
+        <h1><th>{{ date|date:'D d/m' }}</th></h1>
     </tr>
-    <tr>
         {% for occurrence in occurrences %}
-            <td><p>{{ occurrence }}</p></td>
+            <tr><td>{{ occurrence }}</td></tr>
         {% endfor %}
-    </tr>
 </table>
 {% endblock %}

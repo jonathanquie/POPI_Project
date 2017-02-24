@@ -1,0 +1,7 @@
+{% load i18n %}
+
+<ul>
+    {% for category in categories %}
+        <option name="description">{{ category.name }}</option>
+    {% endfor %}
+</ul>

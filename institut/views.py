@@ -952,3 +952,26 @@ def all(request):
 def rdv(request):
 
     return render(request, 'institut/rdv.html')
+
+def saverdv(request):
+    form = New_RDV(request.POST or None)
+
+    if form.is_valid():
+        print("coucou")
+        datepickerrdv = form.cleaned_data['datepickerrdv']
+        heure_start = form.cleaned_data['heure_start']
+        heure_end = form.cleaned_data['heure_end']
+
+
+        start = form.cleaned_data['start']
+        end = form.cleaned_data['end']
+        creation_date = datetime.now()
+        description = form.cleaned_data['description']
+        title = form.cleaned_data['title']
+
+        envoi = True
+
+        Soins_Corps(name=soin_corps_name, price=soin_corps_price, cost=soin_corps_cost).save()
+
+
+    return render(request, 'institut/view.html')

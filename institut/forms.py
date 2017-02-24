@@ -73,3 +73,10 @@ class New_Day_SC(forms.Form):
 class Tri_Journees_Personnalise(forms.Form):
     Start_date = forms.DateField()
     End_date = forms.DateField()
+
+class New_RDV(forms.Form):
+    start = forms.DateField()
+    end = forms.DateField()
+    creation_date = forms.DateField()
+    description = forms.CharField(label="Nom du soin", max_length=100)
+    title = forms.CharField(label="Nom du soin", max_length=100)

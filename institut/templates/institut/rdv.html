@@ -1,8 +1,6 @@
 {% extends "base.html" %}
 
 {% block content %}
-    <h4><font color="#2F2F2F">-</font></h4>
-    <h1>coucou</h1>
     {% url "calendar_current_month" %}
     {% load calendarium_tags %}
     {% render_upcoming_events 1000 %}

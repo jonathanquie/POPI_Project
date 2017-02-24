@@ -2,31 +2,32 @@
 {% load i18n %}
 
 {% block main %}
+<font color="#2F2F2F"><h2>-</h2></font>
 <h1>{% trans "Occurrences" %}</h1>
 {% include "calendarium/partials/category_list.html" %}
 <form action="." method="post">
     {% csrf_token %}
-    <input type="submit" name="previous" value="{% trans "Previous" %}" />
-    <input type="submit" name="next" value="{% trans "Next" %}" />
-    <input type="submit" name="today" value="{% trans "Today" %}" />
+    <font color="#2F2F2F"><input type="submit" name="previous" value="{% trans "Précédent" %}" /></font>
+    <font color="#2F2F2F"><input type="submit" name="next" value="{% trans "Prochain" %}" /></font>
+    <font color="#2F2F2F"><input type="submit" name="today" value="{% trans "Aujourd'hui" %}" /></font>
 </form>
 <table class="table" id="calendar-week">
     <tr>
         {% for date, occurrences, current in week %}
-            <th><a href="{% url "calendar_day" year=date|date:'Y' month=date|date:'m' day=date|date:'d' %}">{{ date|date:'D m/d' }}</a></th>
+            <th><a href="{% url "calendar_day" year=date|date:'Y' month=date|date:'m' day=date|date:'d' %}">{{ date|date:'D d/m' }}</a></th>
         {% endfor %}
     </tr>
     <tr>
         {% for date, occurrences, current in week %}
             <td class="{% if current %}calendarium-current{% endif %}">
                 <div class="calendarium-relative">
-                    <span class="calendarium-day-dame">{{ date|date:'D m/d' }}</span>
+                    <span class="calendarium-day-dame">{{ date|date:'D d/m' }}</span>
                     {% for occurrence in occurrences %}
                         <p class="alert">
                             <a href="{% url "calendar_occurrence_detail" pk=occurrence.event.pk year=occurrence.start.year month=occurrence.start.month day=occurrence.start.day %}">{{ occurrence|truncatechars:22 }}</a>
                         </p>
                     {% endfor %}
-                    <a class="calendarium-day-link" href="{% url "calendar_day" year=date|date:'Y' month=date|date:'m' day=date|date:'d' %}">{% trans "View calendar day" %}</a>
+                    <a class="calendarium-day-link" href="{% url "calendar_day" year=date|date:'Y' month=date|date:'m' day=date|date:'d' %}">{% trans "Voir journée" %}</a>
                 </div>
             </td>
         {% endfor %}

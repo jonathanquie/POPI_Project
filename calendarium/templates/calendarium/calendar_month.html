@@ -1,19 +1,29 @@
 {% extends "base.html" %}
 {% load i18n calendarium_tags %}
 
+
 {% block main %}
 
+<font color="#2F2F2F"><h2>-</h2></font>
 <h1>{{ date|date:"F Y" }}</h1>
 {% include "calendarium/partials/category_list.html" %}
 <form action="." method="post">
     {% csrf_token %}
-    <input class="btn btn-default" type="submit" name="previous" value="{% trans "Previous" %}" />
-    <input class="btn btn-default" type="submit" name="next" value="{% trans "Next" %}" />
-    <input class="btn btn-default" type="submit" name="today" value="{% trans "Today" %}" />
+    <font color="#2F2F2F"><input class="btn btn-default" type="submit" name="previous" value="{% trans "Précédent" %}" /></font>
+    <font color="#2F2F2F"><input class="btn btn-default" type="submit" name="next" value="{% trans "Prochain" %}" /></font>
+    <font color="#2F2F2F"><input class="btn btn-default" type="submit" name="today" value="{% trans "Aujourd'hui" %}" /></font>
     {% if request.user.is_staff %}
         <a href="{% url "calendar_event_create" %}">{% trans "Create new event" %}</a>
     {% endif %}
 </form>
+<br>
+
+
+<button type="button" class="btn btn-info btn-lg" data-toggle="modal" data-target="#id-popuprdv">
+    <span class="glyphicon glyphicon-plus" aria-hidden="true"></span> Nouveau RDV
+</button>
+
+
 <table class="table" id="calendar-month">
     <tr>
         <th></th>
@@ -24,7 +34,7 @@
     {% for week in month %}
         {% if week %}
             <tr>
-                <td class="calendarium-week-link"><a href="{{ date|get_week_URL:week.0.0 }}">{% trans "View" %}</a></td>
+                <td class="calendarium-week-link"><a href="{{ date|get_week_URL:week.0.0 }}">{% trans "Voir semaine" %}</a></td>
                 {% for day, occurrences, current in week %}
                     <td class="{% if day == 0 %}calendarium-empty{% elif current %}calendarium-current{% else %}calendarium-day{% endif %}">
                         <div class="calendarium-relative">
@@ -43,5 +53,175 @@
         {% endif %}
     {% endfor %}
 </table>
+
+
+<div class="modal fade" id="id-popuprdv" tabindex="-1" role="dialog" aria-labelledby="titrePopUp" aria-hidden="true">
+
+      <div class="modal-dialog">
+
+        <div class="modal-content">
+
+          <!-- le titre de la popup -->
+          <div class="modal-header">
+          <font color ='black'><h2 class="modal-title" id="titrePopUp">Nouveau RDV</font>
+          <!-- lla croix de fermeture de la popup -->
+          <button type="button" class="close" data-dismiss="modal" aria-hidden="true">&times;</button> </h2>
+          </div>
+            <form action="{% url "saverdv" %}" method="post">
+                {% csrf_token %}
+                <font color="black">
+                <div class="modal-body">
+                    <div class="container-fluid">
+                        <div class="row">
+                            <div class="col-md-4"><h4>Nom du client</h4></div>
+                            <div class="col-md-4">
+                                <input type="text" class="form-control" name="title" id="title">
+                            </div>
+                        </div>
+
+
+                        <div class="row">
+                            <div class="col-md-4"><h4>Jour</h4></div>
+                            <div class="col-md-4">
+                                <input type="text" name="datepickerrdv" id="datepickerrdv" class="form-control" value=""/>
+                                <script language="javascript">
+                                today = new Date();
+                                if(today.getDate() < 10)
+                                {
+                                    if(today.getMonth() < 10)
+                                    {
+                                        document.getElementById('datepickerrdv').value = "0"+today.getDate()+"/"+"0"+(today.getMonth()+1)+"/"+(today.getYear()+1900);
+                                    }
+                                    else
+                                    {
+
+                                        document.getElementById('datepickerrdv').value = "0"+today.getDate()+"/"+(today.getMonth()+1)+"/"+(today.getYear()+1900);
+                                    }
+                                }
+                                else if(today.getMonth() < 10)
+                                {
+                                    document.getElementById('datepickerrdv').value = today.getDate()+"/"+"0"+(today.getMonth()+1)+"/"+(today.getYear()+1900);
+                                }
+                                else
+                                {
+                                    document.getElementById('datepickerrdv').value = today.getDate()+"/"+(today.getMonth()+1)+"/"+(today.getYear()+1900);
+                                }
+                                </script>
+                            </div>
+                        </div>
+
+
+                        <div class="row">
+                            <div class="col-md-4"><h4>Heure de début</h4></div>
+                            <div class="col-md-4">
+                                <input type="text" class="form-control" id = "input-a" name="heure_start" value="">
+                                <script language="javascript">
+                                today = new Date();
+                                if(today.getHours() < 10)
+                                {
+                                    if(today.getMinutes() < 10)
+                                    {
+                                        document.getElementById('input-a').value = "0"+today.getHours()+":0"+today.getMinutes();
+                                    }
+                                    else
+                                    {
+                                        document.getElementById('input-a').value = "0"+today.getHours()+":"+today.getMinutes();
+                                    }
+                                }
+                                else if(today.getMinutes() < 10)
+                                {
+                                    document.getElementById('input-a').value = today.getHours()+":0"+today.getMinutes();
+                                }
+                                else
+                                {
+                                    document.getElementById('input-a').value = today.getHours()+":"+today.getMinutes();
+                                }
+                                </script>
+                            </div>
+                        </div>
+
+
+                        <div class="row">
+                            <div class="col-md-4"><h4>Heure de fin</h4></div>
+                            <div class="col-md-4">
+                                <input type="text" class="form-control" id = "input-b" name="heure_end" value="">
+                                <script language="javascript">
+                                today = new Date();
+                                if((today.getHours()+1) < 10)
+                                {
+                                    if(today.getMinutes() < 10)
+                                    {
+                                        document.getElementById('input-b').value = "0"+(today.getHours()+1)+":0"+today.getMinutes();
+                                    }
+                                    else
+                                    {
+                                        document.getElementById('input-b').value = "0"+(today.getHours()+1)+":"+today.getMinutes();
+                                    }
+                                }
+                                else if(today.getMinutes() < 10)
+                                {
+                                    document.getElementById('input-b').value = (today.getHours()+1)+":0"+today.getMinutes();
+                                }
+                                else
+                                {
+                                    document.getElementById('input-b').value = (today.getHours()+1)+":"+today.getMinutes();
+                                }
+                                </script>
+                            </div>
+                        </div>
+
+
+
+
+                        <script>
+                        var input_s = $('#input-a');
+                        input_s.clockpicker({
+                            autoclose: true
+                        });
+                        var input_e = $('#input-b');
+                        input_e.clockpicker({
+                            autoclose: true
+                        });
+                        </script>
+
+                        <div class="row">
+                            <div class="col-md-4"><h4>Catégorie</h4></div>
+                            <div class="col-md-4">
+                                <select class="selectpicker" data-live-search="true">
+                                    {% include "calendarium/partials/category_list2.html" %}
+                                </select>
+                            </div>
+                        </div>
+
+
+
+
+                    </div>
+                </div>
+                </font>
+
+            <div class="modal-footer">
+                <input type="submit" value="Enregistrer" class="btn btn-success pull-left"/>
+                <a href="/calendar/" class="btn btn-danger pull-left">Annuler</a>
+            </div>
+            </form>
+
+
+            </div>
+        </div>
+    </div>
+
+
+
+
+
+
+
+
+
+
+
+
+
 {% render_upcoming_events 5 current_category %}
 {% endblock %}
