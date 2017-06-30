@@ -302,6 +302,13 @@ class EventCategory(models.Model):
             self.slug = slugify(self.name)
         return super(EventCategory, self).save(*args, **kwargs)
 
+    def get_id(name):
+        test = EventCategory.objects.get(name=name)
+
+        print(test.name, test.id)
+
+        return test.id
+
 
 @python_2_unicode_compatible
 class EventRelation(models.Model):

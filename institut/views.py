@@ -4,6 +4,7 @@ from datetime import *
 from institut.models import *
 from .forms import *
 from chartit import *
+from calendarium.models import *
 
 total_charges=0
 ca=0
@@ -571,7 +572,14 @@ def test(request):
 
 def saveday(request):
 
-    Journees(jour=date, id=int(date[0:4]+date[5:7]+date[8:10]) , ca=ca, costs=total_charges, tva=tva, result=result).save()
+    form = Save_Day(request.POST or None)
+
+    if form.is_valid():
+        remise = form.cleaned_data['remise']
+        print("remise = ", remise)
+
+
+    Journees(jour=date, id=int(date[0:4]+date[5:7]+date[8:10]) , ca=(ca-int(remise)), costs=total_charges, tva=tva-(int(remise)*0.2), result=(ca-int(remise))-(ca-int(remise))*0.2).save()
 
     #print(date,ca,total_charges,tva,result)
 
@@ -957,21 +965,15 @@ def saverdv(request):
     form = New_RDV(request.POST or None)
 
     if form.is_valid():
-        print("coucou")
         datepickerrdv = form.cleaned_data['datepickerrdv']
+        description = form.cleaned_data['description']
+        title = form.cleaned_data['title']
         heure_start = form.cleaned_data['heure_start']
         heure_end = form.cleaned_data['heure_end']
 
+        start = datepickerrdv + " " + heure_start + ":00"
+        end = datepickerrdv + " " + heure_end + ":00"
 
-        start = form.cleaned_data['start']
-        end = form.cleaned_data['end']
-        creation_date = datetime.now()
-        description = form.cleaned_data['description']
-        title = form.cleaned_data['title']
+        Event(start=start, end=end, creation_date=datetime.now(), description=description, title=title, category_id=EventCategory.get_id(description)).save()
 
-        envoi = True
-
-        Soins_Corps(name=soin_corps_name, price=soin_corps_price, cost=soin_corps_cost).save()
-
-
-    return render(request, 'institut/view.html')
+        return render(request, 'institut/view.html')

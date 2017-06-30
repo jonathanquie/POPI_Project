@@ -1,7 +1,14 @@
-{% extends "base.html" %}
+{% extends "base.html" %}#}
+{% load staticfiles %}
 {% block title %}Ma page d'accueil{% endblock %}
 
 {% block content %}
+
+{#    <script src="{% static 'js/jquery-1.7.2.min.js' %}"></script>#}
+{#    <script src="{% static 'js/jquery-3.1.1.js' %}"></script>#}
+{#    <script src="{% static 'js/jquery-1.7.2.js' %}"></script>#}
+
+
     <h1><font color="#2F2F2F">-</font></h1>
     <h1>Bienvenue sur mon site</h1>
     <p>Page pour ajouter une nouvelle journée</p>
@@ -11,34 +18,65 @@
     {% csrf_token %}
 
         <p><label for="datepicker">Date : </label>
-        <font color="black"><input type="text" name="datepicker" id="datepicker" value="{{ date }}"/></font></p>
+        <div class="col-xs-2">
+            <font color="black"><input type="text" name="datepicker" class="form-control" id="datepicker"/></font></p>
+        </div>
+
+
+        <script language="javascript">
+        today = new Date();
+        if(today.getDate() < 10)
+        {
+            if(today.getMonth() < 10)
+            {
+                document.getElementById('datepicker').value = (today.getYear()+1900)+"-"+"0"+(today.getMonth()+1)+"-"+"0"+today.getDate();
+            }
+            else
+            {
+
+                document.getElementById('datepicker').value = (today.getYear()+1900)+"-"+(today.getMonth()+1)+"-"+"0"+today.getDate();
+            }
+        }
+        else if(today.getMonth() < 10)
+        {
+            document.getElementById('datepicker').value = (today.getYear()+1900)+"-"+"0"+(today.getMonth()+1)+"-"+today.getDate();
+        }
+        else
+        {
+            document.getElementById('datepicker').value = (today.getYear()+1900)+"-"+(today.getMonth()+1)+"-"+today.getDate();
+        }
+        </script>
+
         <input type="submit" value="Sélectionner" class="btn btn-primary pull-left" onclick="myFunctionDate()"/>
     </form>
 
     <font color =#2F2F2F><h1>-</h1></font>
 
     {% if flag_date_selectionnee %}
+
     <form action="{% url "newday3" %}" method="post" id="myForm">
     {% csrf_token %}
 
         <h1>Soins du corps</h1>
         {% for view_soins_corps in tous_soins_corps %}
         <div>
-            <label>{{ view_soins_corps.name }} : </label>
-            <font color="black"><select name="nb_SC">
-                <option id="0">0</option>
-                <option id="1">1</option>
-                <option id="2">2</option>
-                <option id="3">3</option>
-                <option id="4">4</option>
-                <option id="5">5</option>
-                <option id="6">6</option>
-                <option id="7">7</option>
-                <option id="8">8</option>
-                <option id="9">9</option>
-            </select></font>
-
+            <div class="col-xs-2">
+                <label>{{ view_soins_corps.name }} : </label>
+                <font color="black"><select name="nb_SC" class="form-control">
+                    <option id="0">0</option>
+                    <option id="1">1</option>
+                    <option id="2">2</option>
+                    <option id="3">3</option>
+                    <option id="4">4</option>
+                    <option id="5">5</option>
+                    <option id="6">6</option>
+                    <option id="7">7</option>
+                    <option id="8">8</option>
+                    <option id="9">9</option>
+                </select></font>
+            </div>
         </div>
+
 
         {% empty %}
             <tr class = "danger">
@@ -47,23 +85,26 @@
         {% endfor %}
         <div id="nb_SC"></div>
 
+        <div class="row"></div>
 
         <h1>Soins du visage</h1>
         {% for view_soins_visage in tous_soins_visages %}
         <div>
-            <label>{{ view_soins_visage.name }} : </label>
-            <font color="black"><select name="nb_SV">
-                <option>0</option>
-                <option>1</option>
-                <option>2</option>
-                <option>3</option>
-                <option>4</option>
-                <option>5</option>
-                <option>6</option>
-                <option>7</option>
-                <option>8</option>
-                <option>9</option>
-            </select></font>
+            <div class="col-xs-2">
+                <label>{{ view_soins_visage.name }} : </label>
+                <font color="black"><select name="nb_SV" class="form-control">
+                    <option>0</option>
+                    <option>1</option>
+                    <option>2</option>
+                    <option>3</option>
+                    <option>4</option>
+                    <option>5</option>
+                    <option>6</option>
+                    <option>7</option>
+                    <option>8</option>
+                    <option>9</option>
+                </select></font>
+            </div>
         </div>
         {% empty %}
             <tr class = "danger">
@@ -72,23 +113,26 @@
         {% endfor %}
         <div id="nb_SV"></div>
 
+        <div class="row"></div>
 
         <h1>Épilations</h1>
         {% for view_epilations in tous_epilations %}
         <div>
-            <label>{{ view_epilations.name }} : </label>
-            <font color="black"><select name="nb_E">
-                <option>0</option>
-                <option>1</option>
-                <option>2</option>
-                <option>3</option>
-                <option>4</option>
-                <option>5</option>
-                <option>6</option>
-                <option>7</option>
-                <option>8</option>
-                <option>9</option>
-            </select></font>
+            <div class="col-xs-2">
+                <label>{{ view_epilations.name }} : </label>
+                <font color="black"><select name="nb_E" class="form-control">
+                    <option>0</option>
+                    <option>1</option>
+                    <option>2</option>
+                    <option>3</option>
+                    <option>4</option>
+                    <option>5</option>
+                    <option>6</option>
+                    <option>7</option>
+                    <option>8</option>
+                    <option>9</option>
+                </select></font>
+            </div>
         </div>
         {% empty %}
             <tr class = "danger">
@@ -97,23 +141,26 @@
         {% endfor %}
         <div id="nb_E"></div>
 
+        <div class="row"></div>
 
         <h1>Ongles</h1>
         {% for view_ongles in tous_ongles %}
         <div>
-            <label>{{ view_ongles.name }} : </label>
-            <font color="black"><select name="nb_O">
-                <option>0</option>
-                <option>1</option>
-                <option>2</option>
-                <option>3</option>
-                <option>4</option>
-                <option>5</option>
-                <option>6</option>
-                <option>7</option>
-                <option>8</option>
-                <option>9</option>
-            </select></font>
+            <div class="col-xs-2">
+                <label>{{ view_ongles.name }} : </label>
+                <font color="black"><select name="nb_O" class="form-control">
+                    <option>0</option>
+                    <option>1</option>
+                    <option>2</option>
+                    <option>3</option>
+                    <option>4</option>
+                    <option>5</option>
+                    <option>6</option>
+                    <option>7</option>
+                    <option>8</option>
+                    <option>9</option>
+                </select></font>
+            </div>
         </div>
         {% empty %}
             <tr class = "danger">
@@ -122,23 +169,26 @@
         {% endfor %}
         <div id="nb_O"></div>
 
+        <div class="row"></div>
 
         <h1>Maquillage</h1>
         {% for view_maquillage in tous_maquillages %}
         <div>
-            <label>{{ view_maquillage.name }} : </label>
-            <font color="black"><select name="nb_M">
-                <option>0</option>
-                <option>1</option>
-                <option>2</option>
-                <option>3</option>
-                <option>4</option>
-                <option>5</option>
-                <option>6</option>
-                <option>7</option>
-                <option>8</option>
-                <option>9</option>
-            </select></font>
+            <div class="col-xs-2">
+                <label>{{ view_maquillage.name }} : </label>
+                <font color="black"><select name="nb_M" class="form-control">
+                    <option>0</option>
+                    <option>1</option>
+                    <option>2</option>
+                    <option>3</option>
+                    <option>4</option>
+                    <option>5</option>
+                    <option>6</option>
+                    <option>7</option>
+                    <option>8</option>
+                    <option>9</option>
+                </select></font>
+            </div>
         </div>
         {% empty %}
             <tr class = "danger">
@@ -147,24 +197,26 @@
         {% endfor %}
         <div id="nb_M"></div>
 
-
+        <div class="row"></div>
 
         <h1>Produits</h1>
         {% for view_produits in tous_produits %}
         <div>
-            <label>{{ view_produits.name }} : </label>
-            <font color="black"><select name="nb_P">
-                <option>0</option>
-                <option>1</option>
-                <option>2</option>
-                <option>3</option>
-                <option>4</option>
-                <option>5</option>
-                <option>6</option>
-                <option>7</option>
-                <option>8</option>
-                <option>9</option>
-            </select></font>
+            <div class="col-xs-2">
+                <label>{{ view_produits.name }} : </label>
+                <font color="black"><select name="nb_P" class="form-control">
+                    <option>0</option>
+                    <option>1</option>
+                    <option>2</option>
+                    <option>3</option>
+                    <option>4</option>
+                    <option>5</option>
+                    <option>6</option>
+                    <option>7</option>
+                    <option>8</option>
+                    <option>9</option>
+                </select></font>
+            </div>
         </div>
         {% empty %}
             <tr class = "danger">
@@ -173,8 +225,14 @@
         {% endfor %}
         <div id="nb_P"></div>
 
+        <div class="row"></div>
+
     <font color =#2F2F2F><h4>-</h4></font>
-    <input type="button" onclick="myFunction()" value="Sélectionner" class="btn btn-primary pull-left"/>
+    <div>
+        <div class="col-xs-2">
+            <input type="button" onclick="myFunction()" value="Valider" class="btn btn-success pull-left"/>
+        </div>
+    </div>
     </form>
     {% endif %}
 
@@ -194,12 +252,13 @@
 
         $(function () {
             var $select = $('[name="nb_SC"]');
-
             $select.on('change', function () {
+
                 for (var i = 0, len = $select.length; i < len; i++) {
                     nb_SC[i] = parseInt($select.eq(i).val());
                 }
                 //$('#nb_SC').text('nb_SC1 = ' + nb_SC[0] + ' nb_SC2 = ' + nb_SC[1]);
+                //alert("nb_SC1 = " + nb_SC[0] + "nb_SC2 = "+ nb_SC[1]);
                 return nb_SC;
 
             }).eq(0).trigger('change');
@@ -274,7 +333,7 @@
             var myForm = document.getElementById('myForm').submit();
             //alert("Formulaire bien envoyé !");
 
-            //alert("nb_SC = " + nb_SC + "\nnb_SV = " + nb_SV + "\nnb_E = " + nb_E + "\nnb_O = " + nb_O + "\nnb_M = " + nb_M + "\nnb_P = " + nb_P);
+            alert("nb_SC = " + nb_SC + "\nnb_SV = " + nb_SV + "\nnb_E = " + nb_E + "\nnb_O = " + nb_O + "\nnb_M = " + nb_M + "\nnb_P = " + nb_P);
 
             setCookie("nb_SC", nb_SC);
             setCookie("nb_SV", nb_SV);
@@ -287,10 +346,10 @@
         function myFunctionDate() {
             var myForm = document.getElementById('myFormDate').submit();
 
-            //alert("nb_SC = " + nb_SC + "\nnb_SV = " + nb_SV + "\nnb_E = " + nb_E + "\nnb_O = " + nb_O + "\nnb_M = " + nb_M + "\nnb_P = " + nb_P);
+            alert("date =  " + date);
 
             setCookie("date", datepicker);
-            //alert("Date ok !");
+            alert("Date ok !");
         }
 
         function setCookie(sName, sValue) {

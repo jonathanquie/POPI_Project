@@ -2,28 +2,29 @@
 {% load i18n %}
 
 {% block main %}
+<h1><font color="#2F2F2F">-</font></h1>
 <h1>{{ object }}</h1>
 <table>
     <tr>
-        <th>{% trans "Start" %}</th>
+        <th>{% trans "Heure de début" %}</th>
         <td>{{ object.start }}</td>
     </tr>
     <tr>
-        <th>{% trans "End" %}</th>
+        <th>{% trans "Heure de fin" %}</th>
         <td>{{ object.end }}</td>
     </tr>
     <tr>
-        <th>{% trans "Category" %}</th>
+        <th>{% trans "Type de soin" %}</th>
         <td>{{ object.category }}</td>
     </tr>
     <tr>
-        <th>{% trans "Description" %}</th>
-        <td>{{ object.description }}</td>
+        <th>{% trans "Nom du client" %}</th>
+        <td>{{ object.title }}</td>
     </tr>
 </table>
-<a href="javascript:history.back();">{% trans "back" %}</a>
+<a href="javascript:history.back();">{% trans "Retour" %}</a>
 {% if request.user.is_staff %}
-    <a href="{% url "calendar_event_update" pk=object.pk %}">{% trans "Edit" %}</a>
-    <a href="{% url "calendar_event_delete" pk=object.pk %}">{% trans "Delete" %}</a>
+    <a href="{% url "calendar_event_update" pk=object.pk %}">{% trans "Editer" %}</a>
+    <a href="{% url "calendar_event_delete" pk=object.pk %}">{% trans "Supprimer" %}</a>
 {% endif %}
 {% endblock %}

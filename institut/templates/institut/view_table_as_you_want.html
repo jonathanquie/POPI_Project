@@ -16,6 +16,7 @@
 
         <h3>-</h3>
         <h4><font color="#2F2F2F">-</font></h4>
+        <div class="col-xs-5">
          <div class="dropdown">
               <button class="btn btn-default dropdown-toggle" type="button" id="dropdownMenu1" data-toggle="dropdown" aria-haspopup="true"
                       aria-expanded="true">
@@ -32,6 +33,9 @@
                 <li><a href="/institut/all">Total</a></li>
               </ul>
         </div>
+        </div>
+
+        <div class="row"></div>
 
         <h4><font color="#2F2F2F">-</font></h4>
 
@@ -52,81 +56,85 @@
         {% endif %}
 
 
-
-        <table class="table table-bordered table-inverse">
-            <caption>
-                <h2>Journées éffectuées</h2>
-            </caption>
-            <thead>
+        <div class="col-xs-7">
+            <table class="table table-bordered table-inverse">
+                <caption>
+                    <h2>Journées éffectuées</h2>
+                </caption>
+                <thead>
+                    <tr class="">
+                        <th style="width:20%;">Date</th>
+                        <th style="width:20%;">Chiffre d'affaire</th>
+                        <th style="width:20%;">Charges</th>
+                        <th style="width:20%;">TVA (20%)</th>
+                        <th style="width:20%;">Résultat net</th>
+                    </tr>
+                </thead>
+            <tbody>
+                {% for view_journees in visu8 %}
                 <tr class="">
-                    <th style="width:20%;">Date</th>
-                    <th style="width:20%;">Chiffre d'affaire</th>
-                    <th style="width:20%;">Charges</th>
-                    <th style="width:20%;">TVA (20%)</th>
-                    <th style="width:20%;">Résultat net</th>
+                    <td>{{ view_journees.jour }}</td>
+                    <td>{{ view_journees.ca }} €</td>
+                    <td>- {{ view_journees.costs }} €</td>
+                    <td>- {{ view_journees.tva }} €</td>
+                    {% if view_journees.result > 0 %}
+                        <td><font color =#2BA951>+ {{ view_journees.result }} €</font></td>
+                    {% elif view_journees.result < 0 %}
+                        <td><font color =#A92B2B>{{ view_journees.result }} €</font></td>
+                    {% else %}
+                        <td>0 €</td>
+                    {% endif %}
                 </tr>
-            </thead>
-        <tbody>
-            {% for view_journees in visu8 %}
-            <tr class="">
-                <td>{{ view_journees.jour }}</td>
-                <td>{{ view_journees.ca }} €</td>
-                <td>- {{ view_journees.costs }} €</td>
-                <td>- {{ view_journees.tva }} €</td>
-                {% if view_journees.result > 0 %}
-                    <td><font color =#2BA951>+ {{ view_journees.result }} €</font></td>
-                {% elif view_journees.result < 0 %}
-                    <td><font color =#A92B2B>{{ view_journees.result }} €</font></td>
-                {% else %}
-                    <td>0 €</td>
-                {% endif %}
-            </tr>
 
 
-            {% empty %}
-            <tr class = "">
-                <td><i><font color =#b52222>Aucune journée disponible.</font></i></td>
-                <td><font color =#b52222>-</font></td>
-                <td><font color =#b52222>-</font></td>
-                <td><font color =#b52222>-</font></td>
-                <td><font color =#b52222>-</font></td>
-            </tr>
+                {% empty %}
+                <tr class = "">
+                    <td><i><font color =#b52222>Aucune journée disponible.</font></i></td>
+                    <td><font color =#b52222>-</font></td>
+                    <td><font color =#b52222>-</font></td>
+                    <td><font color =#b52222>-</font></td>
+                    <td><font color =#b52222>-</font></td>
+                </tr>
 
-            {% endfor %}
+                {% endfor %}
 
 
 
-        </tbody>
-        </table>
+            </tbody>
+            </table>
+        </div>
 
+        <div class="col-xs-9">
+            <div id="cht_ayw">{{ weatherchart|load_charts:"cht_ayw" }}</div>
+        </div>
 
-        <div id="cht_ayw">{{ weatherchart|load_charts:"cht_ayw" }}</div>
-
-
-        <table class="table table-bordered table-inverse">
-            <caption>
-                <h2>Total entre {{ Start_date }} et {{ End_date }}</h2>
-            </caption>
-            <thead>
+        <div class="col-xs-5">
+            <table class="table table-bordered table-inverse">
+                <caption>
+                    <h2>Total entre {{ Start_date }} et {{ End_date }}</h2>
+                </caption>
+                <thead>
+                    <tr class="">
+                        <th style="width:20%;">Chiffre d'affaire global</th>
+                        <th style="width:20%;">Résultat net global</th>
+                    </tr>
+                </thead>
+            <tbody>
                 <tr class="">
-                    <th style="width:20%;">Chiffre d'affaire global</th>
-                    <th style="width:20%;">Résultat net global</th>
+                    <td>{{ ca_ayw }} €</td>
+                    {% if result_ayw > 0 %}
+                        <td><font color =#2BA951>+ {{ result_ayw }} €</font></td>
+                    {% elif result_ayw < 0 %}
+                        <td><font color =#A92B2B>- {{ result_ayw }} €</font></td>
+                    {% else %}
+                        <td>0 €</td>
+                    {% endif %}
                 </tr>
-            </thead>
-        <tbody>
-            <tr class="">
-                <td>{{ ca_ayw }} €</td>
-                {% if result_ayw > 0 %}
-                    <td><font color =#2BA951>+ {{ result_ayw }} €</font></td>
-                {% elif result_ayw < 0 %}
-                    <td><font color =#A92B2B>- {{ result_ayw }} €</font></td>
-                {% else %}
-                    <td>0 €</td>
-                {% endif %}
-            </tr>
-        </tbody>
-        </table>
+            </tbody>
+            </table>
+        </div>
 
+        <div class="row"></div>
 
 
 {% endblock %}

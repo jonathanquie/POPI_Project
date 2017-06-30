@@ -22,12 +22,13 @@
             <td class="{% if current %}calendarium-current{% endif %}">
                 <div class="calendarium-relative">
                     <span class="calendarium-day-dame">{{ date|date:'D d/m' }}</span>
+                    <a class="calendarium-day-link" href="{% url "calendar_day" year=date|date:'Y' month=date|date:'m' day=date|date:'d' %}">{% trans "Voir journée" %}</a>
+                    <br>
                     {% for occurrence in occurrences %}
-                        <p class="alert">
+                        <p>
                             <a href="{% url "calendar_occurrence_detail" pk=occurrence.event.pk year=occurrence.start.year month=occurrence.start.month day=occurrence.start.day %}">{{ occurrence|truncatechars:22 }}</a>
                         </p>
                     {% endfor %}
-                    <a class="calendarium-day-link" href="{% url "calendar_day" year=date|date:'Y' month=date|date:'m' day=date|date:'d' %}">{% trans "Voir journée" %}</a>
                 </div>
             </td>
         {% endfor %}

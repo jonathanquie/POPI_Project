@@ -75,8 +75,11 @@ class Tri_Journees_Personnalise(forms.Form):
     End_date = forms.DateField()
 
 class New_RDV(forms.Form):
-    start = forms.DateField()
-    end = forms.DateField()
-    creation_date = forms.DateField()
-    description = forms.CharField(label="Nom du soin", max_length=100)
-    title = forms.CharField(label="Nom du soin", max_length=100)
+    datepickerrdv = forms.CharField(label="jour", max_length=100)
+    description = forms.CharField(label="categorie", max_length=100)
+    title = forms.CharField(label="client", max_length=100)
+    heure_start = forms.CharField(label="heure de debut", max_length=100)
+    heure_end = forms.CharField(label="heure de fin", max_length=100)
+
+class Save_Day(forms.Form):
+    remise = forms.CharField(label="jour", max_length=100)

@@ -7,25 +7,29 @@
     <list default="true" id="86eeda41-1b92-44c6-bff4-1c724cb299b7" name="Default" comment="">
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/db.sqlite3" afterPath="$PROJECT_DIR$/db.sqlite3" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/.idea/workspace.xml" afterPath="$PROJECT_DIR$/.idea/workspace.xml" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/calendarium/templates/calendarium/calendar_day.html" afterPath="$PROJECT_DIR$/calendarium/templates/calendarium/calendar_day.html" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/calendarium/models.py" afterPath="$PROJECT_DIR$/calendarium/models.py" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/calendarium/static/calendarium/css/calendar.css" afterPath="$PROJECT_DIR$/calendarium/static/calendarium/css/calendar.css" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/calendarium/static/calendarium/css/calendar.less" afterPath="$PROJECT_DIR$/calendarium/static/calendarium/css/calendar.less" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/calendarium/templates/calendarium/calendar_month.html" afterPath="$PROJECT_DIR$/calendarium/templates/calendarium/calendar_month.html" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/calendarium/templates/calendarium/calendar_week.html" afterPath="$PROJECT_DIR$/calendarium/templates/calendarium/calendar_week.html" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/calendarium/templates/calendarium/partials/category_list.html" afterPath="$PROJECT_DIR$/calendarium/templates/calendarium/partials/category_list.html" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/calendarium/templates/calendarium/event_detail.html" afterPath="$PROJECT_DIR$/calendarium/templates/calendarium/event_detail.html" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/calendarium/templates/calendarium/occurrence_detail.html" afterPath="$PROJECT_DIR$/calendarium/templates/calendarium/occurrence_detail.html" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/institut/forms.py" afterPath="$PROJECT_DIR$/institut/forms.py" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/institut/static/institut/css/bootstrap.css" afterPath="$PROJECT_DIR$/institut/static/institut/css/bootstrap.css" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/institut/static/institut/css/bootstrap.css.map" afterPath="$PROJECT_DIR$/institut/static/institut/css/bootstrap.css.map" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/institut/static/institut/css/bootstrap.min.css" afterPath="$PROJECT_DIR$/institut/static/institut/css/bootstrap.min.css" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/institut/static/institut/css/bootstrap.min.css.map" afterPath="$PROJECT_DIR$/institut/static/institut/css/bootstrap.min.css.map" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/institut/static/institut/js/bootstrap.js" afterPath="$PROJECT_DIR$/institut/static/institut/js/bootstrap.js" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/institut/templates/institut/rdv.html" afterPath="$PROJECT_DIR$/institut/templates/institut/rdv.html" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/institut/templates/institut/accueil.html" afterPath="$PROJECT_DIR$/institut/templates/institut/accueil.html" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/institut/templates/institut/calcul.html" afterPath="$PROJECT_DIR$/institut/templates/institut/calcul.html" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/institut/templates/institut/delete.html" afterPath="$PROJECT_DIR$/institut/templates/institut/delete.html" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/institut/templates/institut/new_day.html" afterPath="$PROJECT_DIR$/institut/templates/institut/new_day.html" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/institut/templates/institut/view.html" afterPath="$PROJECT_DIR$/institut/templates/institut/view.html" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/institut/templates/institut/view_table.html" afterPath="$PROJECT_DIR$/institut/templates/institut/view_table.html" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/institut/templates/institut/view_table_all.html" afterPath="$PROJECT_DIR$/institut/templates/institut/view_table_all.html" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/institut/templates/institut/view_table_as_you_want.html" afterPath="$PROJECT_DIR$/institut/templates/institut/view_table_as_you_want.html" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/institut/templates/institut/view_table_month.html" afterPath="$PROJECT_DIR$/institut/templates/institut/view_table_month.html" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/institut/templates/institut/view_table_week.html" afterPath="$PROJECT_DIR$/institut/templates/institut/view_table_week.html" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/institut/templates/institut/view_table_year.html" afterPath="$PROJECT_DIR$/institut/templates/institut/view_table_year.html" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/institut/urls.py" afterPath="$PROJECT_DIR$/institut/urls.py" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/institut/views.py" afterPath="$PROJECT_DIR$/institut/views.py" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/static/css/bootstrap.css" afterPath="$PROJECT_DIR$/static/css/bootstrap.css" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/static/css/bootstrap.css.map" afterPath="$PROJECT_DIR$/static/css/bootstrap.css.map" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/static/css/bootstrap.min.css" afterPath="$PROJECT_DIR$/static/css/bootstrap.min.css" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/static/css/bootstrap.min.css.map" afterPath="$PROJECT_DIR$/static/css/bootstrap.min.css.map" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/static/js/bootstrap.js" afterPath="$PROJECT_DIR$/static/js/bootstrap.js" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/static/js/bootstrap.min.js" afterPath="$PROJECT_DIR$/static/js/bootstrap.min.js" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/templates/base.html" afterPath="$PROJECT_DIR$/templates/base.html" />
     </list>
     <option name="EXCLUDED_CONVERTED_TO_IGNORED" value="true" />
@@ -44,31 +48,21 @@
   </component>
   <component name="FileEditorManager">
     <leaf SIDE_TABS_SIZE_LIMIT_KEY="300">
-      <file leaf-file-name="calendar_month.html" pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/calendarium/templates/calendarium/calendar_month.html">
+      <file leaf-file-name="views.py" pinned="false" current-in-tab="true">
+        <entry file="file://$PROJECT_DIR$/institut/views.py">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="420">
-              <caret line="116" column="104" lean-forward="false" selection-start-line="116" selection-start-column="93" selection-end-line="116" selection-end-column="104" />
+            <state relative-caret-position="17">
+              <caret line="577" column="44" lean-forward="false" selection-start-line="577" selection-start-column="44" selection-end-line="577" selection-end-column="44" />
               <folding />
             </state>
           </provider>
         </entry>
       </file>
-      <file leaf-file-name="category_list2.html" pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/calendarium/templates/calendarium/partials/category_list2.html">
+      <file leaf-file-name="forms.py" pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/institut/forms.py">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="102">
-              <caret line="6" column="5" lean-forward="true" selection-start-line="6" selection-start-column="5" selection-end-line="6" selection-end-column="5" />
-              <folding />
-            </state>
-          </provider>
-        </entry>
-      </file>
-      <file leaf-file-name="base.html" pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/templates/base.html">
-          <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="129">
-              <caret line="146" column="31" lean-forward="false" selection-start-line="146" selection-start-column="21" selection-end-line="146" selection-end-column="31" />
+            <state relative-caret-position="1428">
+              <caret line="84" column="37" lean-forward="false" selection-start-line="84" selection-start-column="36" selection-end-line="84" selection-end-column="37" />
               <folding />
             </state>
           </provider>
@@ -77,30 +71,40 @@
       <file leaf-file-name="urls.py" pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/institut/urls.py">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="612">
-              <caret line="37" column="47" lean-forward="false" selection-start-line="37" selection-start-column="47" selection-end-line="37" selection-end-column="47" />
-              <folding />
-            </state>
-          </provider>
-        </entry>
-      </file>
-      <file leaf-file-name="views.py" pinned="false" current-in-tab="true">
-        <entry file="file://$PROJECT_DIR$/institut/views.py">
-          <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="500">
-              <caret line="959" column="14" lean-forward="false" selection-start-line="959" selection-start-column="14" selection-end-line="959" selection-end-column="14" />
+            <state relative-caret-position="0">
+              <caret line="0" column="0" lean-forward="false" selection-start-line="0" selection-start-column="0" selection-end-line="0" selection-end-column="0" />
               <folding>
-                <element signature="e#0#45#0" expanded="true" />
+                <element signature="e#0#32#0" expanded="true" />
               </folding>
             </state>
           </provider>
         </entry>
       </file>
-      <file leaf-file-name="forms.py" pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/institut/forms.py">
+      <file leaf-file-name="calcul.html" pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/institut/templates/institut/calcul.html">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="789">
-              <caret line="81" column="63" lean-forward="false" selection-start-line="81" selection-start-column="63" selection-end-line="81" selection-end-column="63" />
+            <state relative-caret-position="1156">
+              <caret line="68" column="12" lean-forward="false" selection-start-line="68" selection-start-column="12" selection-end-line="68" selection-end-column="12" />
+              <folding />
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file leaf-file-name="base.html" pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/templates/base.html">
+          <provider selected="true" editor-type-id="text-editor">
+            <state relative-caret-position="3672">
+              <caret line="216" column="112" lean-forward="false" selection-start-line="216" selection-start-column="28" selection-end-line="216" selection-end-column="112" />
+              <folding />
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file leaf-file-name="new_day.html" pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/institut/templates/institut/new_day.html">
+          <provider selected="true" editor-type-id="text-editor">
+            <state relative-caret-position="2992">
+              <caret line="176" column="34" lean-forward="false" selection-start-line="176" selection-start-column="34" selection-end-line="176" selection-end-column="34" />
               <folding />
             </state>
           </provider>
@@ -110,36 +114,36 @@
   </component>
   <component name="FindInProjectRecents">
     <findStrings>
-      <find>popup2</find>
-      <find>new_soin_visage</find>
-      <find>new_</find>
-      <find>CalendariumRedirectView</find>
-      <find>MonthView</find>
-      <find>All events</find>
-      <find>glyphicon-calendar</find>
-      <find>glyphicon</find>
-      <find>font-face</find>
-      <find>glyphicon-plus</find>
-      <find>button</find>
-      <find>btn-default</find>
-      <find>clockpicker</find>
-      <find>show</find>
+      <find>datepicker =</find>
+      <find>myFormDate</find>
+      <find>width</find>
+      <find>date</find>
+      <find>avril</find>
+      <find>margin</find>
+      <find>border</find>
+      <find>data-animation</find>
+      <find>d</find>
+      <find>dl-submenu</find>
+      <find>margin-top</find>
+      <find>color</find>
       <find>body {</find>
-      <find>autoclose</find>
-      <find>.popover.clockpicker-popover{</find>
-      <find>clockpicker-popover</find>
-      <find>.clockpicker-popover</find>
-      <find>.popover</find>
-      <find>z-index</find>
-      <find>inde</find>
-      <find>text-align</find>
-      <find>calendar_mo</find>
-      <find>calendar_curre</find>
-      <find>search</find>
+      <find>pt-page-1</find>
+      <find>@font-face</find>
+      <find>iterateEffects</find>
+      <find>pt-message</find>
+      <find>body</find>
+      <find>pt-main</find>
+      <find>static</find>
+      <find>script</find>
+      <find>js</find>
+      <find>select</find>
       <find>selectpicker</find>
-      <find>toke</find>
-      <find>calendar_curr</find>
-      <find>datet</find>
+      <find>form-control</find>
+      <find>pull-</find>
+      <find>saveday</find>
+      <find>savedya</find>
+      <find>J</find>
+      <find>saved</find>
     </findStrings>
   </component>
   <component name="Git.Settings">
@@ -148,43 +152,17 @@
   <component name="IdeDocumentHistory">
     <option name="CHANGED_PATHS">
       <list>
-        <option value="$PROJECT_DIR$/institut/templates/institut/add_epilation.html" />
-        <option value="$PROJECT_DIR$/institut/templates/institut/add_ongles.html" />
-        <option value="$PROJECT_DIR$/institut/templates/institut/add_maquillage.html" />
-        <option value="$PROJECT_DIR$/institut/templates/institut/add_produit.html" />
-        <option value="$PROJECT_DIR$/institut/templates/institut/add_charge.html" />
-        <option value="$PROJECT_DIR$/institut/templates/institut/contact.html" />
-        <option value="$PROJECT_DIR$/static/js/bootstrap-datetimepicker.js" />
-        <option value="$PROJECT_DIR$/static/css/jquery-ui.css" />
-        <option value="$PROJECT_DIR$/static/css/bootstrap.css" />
-        <option value="$PROJECT_DIR$/static/js/bootstrap.js" />
-        <option value="$PROJECT_DIR$/institut/templates/institut/test.html" />
-        <option value="$PROJECT_DIR$/institut/templates/institut/calcul.html" />
-        <option value="$PROJECT_DIR$/institut/templates/institut/new_day.html" />
-        <option value="$PROJECT_DIR$/institut/modelsold.py" />
-        <option value="$PROJECT_DIR$/institut/admin.py" />
         <option value="$PROJECT_DIR$/institut/apps.py" />
         <option value="$PROJECT_DIR$/institut/models.py" />
-        <option value="$PROJECT_DIR$/institut/templates/institut/view.html" />
-        <option value="$PROJECT_DIR$/institut/templates/institut/delete.html" />
         <option value="$PROJECT_DIR$/institut/templates/institut/view_table_test.html" />
         <option value="$PROJECT_DIR$/static/js/highcharts.js" />
         <option value="$PROJECT_DIR$/institut/static/institut/js/highcharts.js" />
-        <option value="$PROJECT_DIR$/institut/templates/institut/view_table_all.html" />
-        <option value="$PROJECT_DIR$/institut/templates/institut/view_table.html" />
-        <option value="$PROJECT_DIR$/institut/templates/institut/accueil.html" />
         <option value="$PROJECT_DIR$/institut/templates/institut/date.html" />
-        <option value="$PROJECT_DIR$/institut/templates/institut/view_table_week.html" />
-        <option value="$PROJECT_DIR$/institut/templates/institut/view_table_month.html" />
-        <option value="$PROJECT_DIR$/institut/templates/institut/view_table_year.html" />
-        <option value="$PROJECT_DIR$/institut/templates/institut/view_table_as_you_want.html" />
         <option value="$PROJECT_DIR$/popi/urls.py" />
         <option value="$PROJECT_DIR$/popi/settings.py" />
         <option value="$PROJECT_DIR$/calendarium/templates/calendarium/partials/calendar_month.html" />
         <option value="$PROJECT_DIR$/calendarium/templates/calendarium/partials/category_list.html" />
-        <option value="$PROJECT_DIR$/calendarium/templates/calendarium/calendar_week.html" />
         <option value="$PROJECT_DIR$/calendarium/templates/calendarium/calendar_day.html" />
-        <option value="$PROJECT_DIR$/institut/static/institut/css/bootstrap.css" />
         <option value="$PROJECT_DIR$/institut/static/institut/js/clockpicker.js" />
         <option value="$PROJECT_DIR$/static/css/jquery-clockpicker.css" />
         <option value="$PROJECT_DIR$/static/css/clockpicker.css" />
@@ -193,11 +171,37 @@
         <option value="$PROJECT_DIR$/institut/static/institut/css/jquery-clockpicker.css" />
         <option value="$PROJECT_DIR$/institut/templates/institut/rdv.html" />
         <option value="$PROJECT_DIR$/institut/static/institut/js/bootstrap-select.js" />
-        <option value="$PROJECT_DIR$/templates/base.html" />
-        <option value="$PROJECT_DIR$/institut/urls.py" />
-        <option value="$PROJECT_DIR$/institut/forms.py" />
-        <option value="$PROJECT_DIR$/calendarium/templates/calendarium/calendar_month.html" />
         <option value="$PROJECT_DIR$/calendarium/templates/calendarium/partials/category_list2.html" />
+        <option value="$PROJECT_DIR$/calendarium/models.py" />
+        <option value="$PROJECT_DIR$/institut/urls.py" />
+        <option value="$PROJECT_DIR$/calendarium/templates/calendarium/event_detail.html" />
+        <option value="$PROJECT_DIR$/calendarium/templates/calendarium/occurrence_detail.html" />
+        <option value="$PROJECT_DIR$/calendarium/templates/calendarium/calendar_week.html" />
+        <option value="$PROJECT_DIR$/institut/static/institut/css/calendar.css" />
+        <option value="$PROJECT_DIR$/calendarium/templates/calendarium/upcoming_events.html" />
+        <option value="$PROJECT_DIR$/calendarium/templates/calendarium/partials/upcoming_events.html" />
+        <option value="$PROJECT_DIR$/calendarium/templates/calendarium/calendar_month.html" />
+        <option value="$PROJECT_DIR$/institut/templates/institut/contact.html" />
+        <option value="$PROJECT_DIR$/calendarium/static/calendarium/css/calendar.css" />
+        <option value="$PROJECT_DIR$/calendarium/static/calendarium/css/calendar.less" />
+        <option value="$PROJECT_DIR$/institut/static/institut/css/component.css" />
+        <option value="$PROJECT_DIR$/static/css/component.css" />
+        <option value="$PROJECT_DIR$/institut/static/institut/css/default.css" />
+        <option value="$PROJECT_DIR$/institut/static/institut/css/bootstrap.css" />
+        <option value="$PROJECT_DIR$/static/css/bootstrap.css" />
+        <option value="$PROJECT_DIR$/templates/base.html" />
+        <option value="$PROJECT_DIR$/institut/templates/institut/accueil.html" />
+        <option value="$PROJECT_DIR$/institut/templates/institut/delete.html" />
+        <option value="$PROJECT_DIR$/institut/templates/institut/new_day.html" />
+        <option value="$PROJECT_DIR$/institut/templates/institut/view.html" />
+        <option value="$PROJECT_DIR$/institut/templates/institut/view_table.html" />
+        <option value="$PROJECT_DIR$/institut/templates/institut/view_table_all.html" />
+        <option value="$PROJECT_DIR$/institut/templates/institut/view_table_as_you_want.html" />
+        <option value="$PROJECT_DIR$/institut/templates/institut/view_table_month.html" />
+        <option value="$PROJECT_DIR$/institut/templates/institut/view_table_week.html" />
+        <option value="$PROJECT_DIR$/institut/templates/institut/view_table_year.html" />
+        <option value="$PROJECT_DIR$/institut/templates/institut/calcul.html" />
+        <option value="$PROJECT_DIR$/institut/forms.py" />
         <option value="$PROJECT_DIR$/institut/views.py" />
       </list>
     </option>
@@ -209,10 +213,10 @@
     <sorting>DEFINITION_ORDER</sorting>
   </component>
   <component name="ProjectFrameBounds">
-    <option name="x" value="-1608" />
+    <option name="x" value="-8" />
     <option name="y" value="-8" />
-    <option name="width" value="1616" />
-    <option name="height" value="916" />
+    <option name="width" value="1696" />
+    <option name="height" value="1004" />
   </component>
   <component name="ProjectInspectionProfilesVisibleTreeState">
     <entry key="Project Default">
@@ -251,6 +255,8 @@
       <foldersAlwaysOnTop value="true" />
     </navigator>
     <panes>
+      <pane id="Scope" />
+      <pane id="Scratches" />
       <pane id="ProjectPane">
         <subPane>
           <PATH>
@@ -362,161 +368,9 @@
               <option name="myItemId" value="institut" />
               <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
             </PATH_ELEMENT>
-            <PATH_ELEMENT>
-              <option name="myItemId" value="js" />
-              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
-            </PATH_ELEMENT>
-          </PATH>
-          <PATH>
-            <PATH_ELEMENT>
-              <option name="myItemId" value="POPI_Project" />
-              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.ProjectViewProjectNode" />
-            </PATH_ELEMENT>
-            <PATH_ELEMENT>
-              <option name="myItemId" value="POPI_Project" />
-              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
-            </PATH_ELEMENT>
-            <PATH_ELEMENT>
-              <option name="myItemId" value="institut" />
-              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
-            </PATH_ELEMENT>
-            <PATH_ELEMENT>
-              <option name="myItemId" value="static" />
-              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
-            </PATH_ELEMENT>
-            <PATH_ELEMENT>
-              <option name="myItemId" value="institut" />
-              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
-            </PATH_ELEMENT>
-          </PATH>
-          <PATH>
-            <PATH_ELEMENT>
-              <option name="myItemId" value="POPI_Project" />
-              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.ProjectViewProjectNode" />
-            </PATH_ELEMENT>
-            <PATH_ELEMENT>
-              <option name="myItemId" value="POPI_Project" />
-              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
-            </PATH_ELEMENT>
-            <PATH_ELEMENT>
-              <option name="myItemId" value="institut" />
-              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
-            </PATH_ELEMENT>
-            <PATH_ELEMENT>
-              <option name="myItemId" value="static" />
-              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
-            </PATH_ELEMENT>
-            <PATH_ELEMENT>
-              <option name="myItemId" value="institut" />
-              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
-            </PATH_ELEMENT>
-            <PATH_ELEMENT>
-              <option name="myItemId" value="css" />
-              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
-            </PATH_ELEMENT>
-          </PATH>
-          <PATH>
-            <PATH_ELEMENT>
-              <option name="myItemId" value="POPI_Project" />
-              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.ProjectViewProjectNode" />
-            </PATH_ELEMENT>
-            <PATH_ELEMENT>
-              <option name="myItemId" value="POPI_Project" />
-              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
-            </PATH_ELEMENT>
-            <PATH_ELEMENT>
-              <option name="myItemId" value="institut" />
-              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
-            </PATH_ELEMENT>
-            <PATH_ELEMENT>
-              <option name="myItemId" value="migrations" />
-              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
-            </PATH_ELEMENT>
-          </PATH>
-          <PATH>
-            <PATH_ELEMENT>
-              <option name="myItemId" value="POPI_Project" />
-              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.ProjectViewProjectNode" />
-            </PATH_ELEMENT>
-            <PATH_ELEMENT>
-              <option name="myItemId" value="POPI_Project" />
-              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
-            </PATH_ELEMENT>
-            <PATH_ELEMENT>
-              <option name="myItemId" value="calendarium" />
-              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
-            </PATH_ELEMENT>
-          </PATH>
-          <PATH>
-            <PATH_ELEMENT>
-              <option name="myItemId" value="POPI_Project" />
-              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.ProjectViewProjectNode" />
-            </PATH_ELEMENT>
-            <PATH_ELEMENT>
-              <option name="myItemId" value="POPI_Project" />
-              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
-            </PATH_ELEMENT>
-            <PATH_ELEMENT>
-              <option name="myItemId" value="calendarium" />
-              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
-            </PATH_ELEMENT>
-            <PATH_ELEMENT>
-              <option name="myItemId" value="templates" />
-              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
-            </PATH_ELEMENT>
-          </PATH>
-          <PATH>
-            <PATH_ELEMENT>
-              <option name="myItemId" value="POPI_Project" />
-              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.ProjectViewProjectNode" />
-            </PATH_ELEMENT>
-            <PATH_ELEMENT>
-              <option name="myItemId" value="POPI_Project" />
-              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
-            </PATH_ELEMENT>
-            <PATH_ELEMENT>
-              <option name="myItemId" value="calendarium" />
-              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
-            </PATH_ELEMENT>
-            <PATH_ELEMENT>
-              <option name="myItemId" value="templates" />
-              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
-            </PATH_ELEMENT>
-            <PATH_ELEMENT>
-              <option name="myItemId" value="calendarium" />
-              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
-            </PATH_ELEMENT>
-          </PATH>
-          <PATH>
-            <PATH_ELEMENT>
-              <option name="myItemId" value="POPI_Project" />
-              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.ProjectViewProjectNode" />
-            </PATH_ELEMENT>
-            <PATH_ELEMENT>
-              <option name="myItemId" value="POPI_Project" />
-              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
-            </PATH_ELEMENT>
-            <PATH_ELEMENT>
-              <option name="myItemId" value="calendarium" />
-              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
-            </PATH_ELEMENT>
-            <PATH_ELEMENT>
-              <option name="myItemId" value="templates" />
-              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
-            </PATH_ELEMENT>
-            <PATH_ELEMENT>
-              <option name="myItemId" value="calendarium" />
-              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
-            </PATH_ELEMENT>
-            <PATH_ELEMENT>
-              <option name="myItemId" value="partials" />
-              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
-            </PATH_ELEMENT>
           </PATH>
         </subPane>
       </pane>
-      <pane id="Scope" />
-      <pane id="Scratches" />
     </panes>
   </component>
   <component name="PropertiesComponent">
@@ -526,6 +380,8 @@
     <property name="recentsLimit" value="5" />
     <property name="settings.editor.selected.configurable" value="com.jetbrains.python.configuration.PyActiveSdkModuleConfigurable" />
     <property name="settings.editor.splitter.proportion" value="0.2" />
+    <property name="nodejs_interpreter_path" value="C:/Program Files/nodejs/node" />
+    <property name="js-jscs-nodeInterpreter" value="C:\Program Files\nodejs\node.exe" />
   </component>
   <component name="RunManager">
     <configuration default="true" type="DjangoTestsConfigurationType" factoryName="Django tests">
@@ -831,12 +687,12 @@
     <servers />
   </component>
   <component name="ToolWindowManager">
-    <frame x="-1608" y="-8" width="1616" height="916" extended-state="6" />
-    <editor active="true" />
+    <frame x="-8" y="-8" width="1696" height="1004" extended-state="6" />
+    <editor active="false" />
     <layout>
-      <window_info id="Project" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="true" show_stripe_button="true" weight="0.2575" sideWeight="0.5" order="0" side_tool="false" content_ui="combo" />
+      <window_info id="Project" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="true" show_stripe_button="true" weight="0.31547618" sideWeight="0.5" order="0" side_tool="false" content_ui="combo" />
       <window_info id="TODO" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="6" side_tool="false" content_ui="tabs" />
-      <window_info id="Event Log" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.32952693" sideWeight="0.5" order="8" side_tool="true" content_ui="tabs" />
+      <window_info id="Event Log" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.47932962" sideWeight="0.5" order="8" side_tool="true" content_ui="tabs" />
       <window_info id="Database" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="3" side_tool="false" content_ui="tabs" />
       <window_info id="Version Control" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="13" side_tool="false" content_ui="tabs" />
       <window_info id="Python Console" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="11" side_tool="false" content_ui="tabs" />
@@ -851,8 +707,8 @@
       <window_info id="Inspection" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.4" sideWeight="0.5" order="5" side_tool="false" content_ui="tabs" />
       <window_info id="Run" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="2" side_tool="false" content_ui="tabs" />
       <window_info id="Hierarchy" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.25" sideWeight="0.5" order="2" side_tool="false" content_ui="combo" />
-      <window_info id="Inspection Results" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="true" show_stripe_button="true" weight="0.3291536" sideWeight="0.5" order="10" side_tool="false" content_ui="tabs" />
-      <window_info id="Find" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="1" side_tool="false" content_ui="tabs" />
+      <window_info id="Inspection Results" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="true" show_stripe_button="true" weight="0.024581006" sideWeight="0.5" order="10" side_tool="false" content_ui="tabs" />
+      <window_info id="Find" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.32961586" sideWeight="0.5" order="1" side_tool="false" content_ui="tabs" />
       <window_info id="Ant Build" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.25" sideWeight="0.5" order="1" side_tool="false" content_ui="tabs" />
       <window_info id="Debug" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.4" sideWeight="0.5" order="3" side_tool="false" content_ui="tabs" />
     </layout>
@@ -891,413 +747,368 @@
     <watches-manager />
   </component>
   <component name="editorHistoryManager">
-    <entry file="file://$PROJECT_DIR$/institut/templates/institut/add_soin_corps.html">
+    <entry file="file://$PROJECT_DIR$/calendarium/views.py">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="187">
-          <caret line="11" column="41" lean-forward="false" selection-start-line="11" selection-start-column="35" selection-end-line="11" selection-end-column="41" />
-          <folding />
+        <state relative-caret-position="3094">
+          <caret line="206" column="53" lean-forward="false" selection-start-line="206" selection-start-column="49" selection-end-line="206" selection-end-column="53" />
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/institut/templates/institut/accueil.html">
+    <entry file="file://$PROJECT_DIR$/calendarium/static/calendarium/css/colorpicker.css">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="272">
-          <caret line="16" column="4" lean-forward="false" selection-start-line="16" selection-start-column="4" selection-end-line="30" selection-end-column="11" />
-          <folding />
+        <state relative-caret-position="51">
+          <caret line="3" column="10" lean-forward="false" selection-start-line="3" selection-start-column="4" selection-end-line="3" selection-end-column="10" />
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/institut/templates/institut/view_table.html">
+    <entry file="file://$PROJECT_DIR$/calendarium/static/calendarium/css/calendar.less">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="4216">
-          <caret line="248" column="33" lean-forward="false" selection-start-line="248" selection-start-column="33" selection-end-line="248" selection-end-column="33" />
-          <folding />
+        <state relative-caret-position="340">
+          <caret line="114" column="18" lean-forward="false" selection-start-line="114" selection-start-column="8" selection-end-line="114" selection-end-column="18" />
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/institut/templates/institut/view_table_month.html">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="2108">
-          <caret line="124" column="17" lean-forward="false" selection-start-line="124" selection-start-column="17" selection-end-line="124" selection-end-column="17" />
-          <folding />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/institut/templates/institut/view_table_year.html">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="1717">
-          <caret line="101" column="57" lean-forward="false" selection-start-line="101" selection-start-column="57" selection-end-line="101" selection-end-column="57" />
-          <folding />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/institut/templates/institut/view_table_week.html">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="2142">
-          <caret line="126" column="16" lean-forward="false" selection-start-line="104" selection-start-column="8" selection-end-line="126" selection-end-column="16" />
-          <folding />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/institut/templates/institut/view_table_as_you_want.html">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="289">
-          <caret line="17" column="47" lean-forward="false" selection-start-line="17" selection-start-column="8" selection-end-line="17" selection-end-column="47" />
-          <folding />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/popi/urls.py">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="272">
-          <caret line="16" column="0" lean-forward="true" selection-start-line="16" selection-start-column="0" selection-end-line="16" selection-end-column="0" />
-          <folding />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/manage.py">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="17">
-          <caret line="1" column="0" lean-forward="false" selection-start-line="1" selection-start-column="0" selection-end-line="1" selection-end-column="0" />
-          <folding />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/calendarium/templates/base.html">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="187">
-          <caret line="11" column="78" lean-forward="false" selection-start-line="11" selection-start-column="3" selection-end-line="11" selection-end-column="78" />
-          <folding />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/calendarium/templates/calendarium/partials/calendar_month.html">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="85">
-          <caret line="5" column="0" lean-forward="false" selection-start-line="5" selection-start-column="0" selection-end-line="5" selection-end-column="0" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/calendarium/templates/calendarium/partials/calendar_week.html">
+    <entry file="file://$PROJECT_DIR$/calendarium/static/calendarium/js/layout.js">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="0">
           <caret line="0" column="0" lean-forward="false" selection-start-line="0" selection-start-column="0" selection-end-line="0" selection-end-column="0" />
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/calendarium/templates/calendarium/partials/upcoming_events.html">
+    <entry file="file://$PROJECT_DIR$/institut/static/institut/css/calendar.less">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="0">
           <caret line="0" column="0" lean-forward="false" selection-start-line="0" selection-start-column="0" selection-end-line="0" selection-end-column="0" />
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/calendarium/templates/calendarium/upcoming_events.html">
+    <entry file="file://$PROJECT_DIR$/institut/static/institut/css/calendar.css">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="0">
-          <caret line="0" column="0" lean-forward="false" selection-start-line="0" selection-start-column="0" selection-end-line="0" selection-end-column="0" />
+        <state relative-caret-position="333">
+          <caret line="139" column="14" lean-forward="false" selection-start-line="139" selection-start-column="4" selection-end-line="139" selection-end-column="14" />
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/calendarium/templates/calendarium/event_detail.html">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="0">
-          <caret line="0" column="0" lean-forward="false" selection-start-line="0" selection-start-column="0" selection-end-line="0" selection-end-column="0" />
-          <folding />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/calendarium/templates/calendarium/calendar_week.html">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="68">
-          <caret line="4" column="39" lean-forward="false" selection-start-line="4" selection-start-column="39" selection-end-line="4" selection-end-column="39" />
-          <folding />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/institut/templates/institut/view.html">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="269">
-          <caret line="235" column="9" lean-forward="false" selection-start-line="235" selection-start-column="9" selection-end-line="235" selection-end-column="9" />
-          <folding />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/institut/static/institut/css/bootstrap.min.css.map">
-      <provider editor-type-id="sourcemapFileViewerProvider">
-        <state />
-      </provider>
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="222">
-          <caret line="0" column="221146" lean-forward="false" selection-start-line="0" selection-start-column="221137" selection-end-line="0" selection-end-column="221146" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/institut/static/institut/css/bootstrap.min.css">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="232">
-          <caret line="4" column="3745" lean-forward="false" selection-start-line="4" selection-start-column="3731" selection-end-line="4" selection-end-column="3745" />
-          <folding />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/calendarium/templates/calendarium/partials/calendar_day.html">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="0">
-          <caret line="0" column="0" lean-forward="false" selection-start-line="0" selection-start-column="0" selection-end-line="0" selection-end-column="0" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/popi/settings.py">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="344">
-          <caret line="112" column="23" lean-forward="true" selection-start-line="112" selection-start-column="23" selection-end-line="112" selection-end-column="23" />
-          <folding />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/calendarium/templates/calendarium/calendar_day.html">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="204">
-          <caret line="12" column="7" lean-forward="false" selection-start-line="12" selection-start-column="7" selection-end-line="12" selection-end-column="7" />
-          <folding />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/institut/static/institut/css/colorpicker.css">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="0">
-          <caret line="0" column="0" lean-forward="false" selection-start-line="0" selection-start-column="0" selection-end-line="0" selection-end-column="0" />
-          <folding />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/institut/static/institut/js/clockpicker.js">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="90">
-          <caret line="322" column="49" lean-forward="true" selection-start-line="322" selection-start-column="49" selection-end-line="322" selection-end-column="49" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/institut/static/institut/js/bootstrap-clockpicker.js">
+    <entry file="file://$PROJECT_DIR$/institut/static/institut/js/jquery.dlmenu.js">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="250">
-          <caret line="420" column="19" lean-forward="false" selection-start-line="420" selection-start-column="15" selection-end-line="420" selection-end-column="19" />
+          <caret line="131" column="60" lean-forward="false" selection-start-line="131" selection-start-column="50" selection-end-line="131" selection-end-column="60" />
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/static/css/jquery-clockpicker.css">
+    <entry file="file://$PROJECT_DIR$/institut/templates/institut/contact.html">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="561">
-          <caret line="33" column="1" lean-forward="false" selection-start-line="33" selection-start-column="1" selection-end-line="33" selection-end-column="1" />
-          <folding />
+        <state relative-caret-position="340">
+          <caret line="20" column="36" lean-forward="false" selection-start-line="20" selection-start-column="36" selection-end-line="20" selection-end-column="36" />
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/static/css/clockpicker.css">
+    <entry file="file://$PROJECT_DIR$/calendarium/static/calendarium/css/calendar.css">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="782">
-          <caret line="46" column="8" lean-forward="false" selection-start-line="46" selection-start-column="0" selection-end-line="46" selection-end-column="8" />
-          <folding />
+        <state relative-caret-position="34">
+          <caret line="2" column="12" lean-forward="false" selection-start-line="2" selection-start-column="2" selection-end-line="2" selection-end-column="12" />
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/institut/static/institut/css/clockpicker.css">
+    <entry file="file://$PROJECT_DIR$/institut/static/institut/js/modernizr.custom.js">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="71">
-          <caret line="41" column="0" lean-forward="true" selection-start-line="41" selection-start-column="0" selection-end-line="41" selection-end-column="0" />
-          <folding />
+        <state relative-caret-position="17">
+          <caret line="3" column="3917" lean-forward="false" selection-start-line="3" selection-start-column="3912" selection-end-line="3" selection-end-column="3917" />
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/institut/static/institut/css/jquery-clockpicker.min.css">
+    <entry file="file://$PROJECT_DIR$/institut/static/institut/css/multilevelmenu.css">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="136">
-          <caret line="8" column="849" lean-forward="false" selection-start-line="8" selection-start-column="845" selection-end-line="8" selection-end-column="849" />
-          <folding />
+        <state relative-caret-position="-5491">
+          <caret line="564" column="30" lean-forward="false" selection-start-line="564" selection-start-column="30" selection-end-line="564" selection-end-column="30" />
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/institut/static/institut/css/jquery-clockpicker.css">
+    <entry file="file://$PROJECT_DIR$/institut/static/institut/css/animations.css">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="37">
-          <caret line="16" column="18" lean-forward="true" selection-start-line="16" selection-start-column="18" selection-end-line="16" selection-end-column="18" />
-          <folding />
+        <state relative-caret-position="617">
+          <caret line="398" column="43" lean-forward="true" selection-start-line="398" selection-start-column="43" selection-end-line="398" selection-end-column="43" />
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/institut/templates/institut/add_soin_visage.html">
+    <entry file="file://$PROJECT_DIR$/institut/static/institut/css/component.css">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="1275">
+          <caret line="75" column="12" lean-forward="true" selection-start-line="75" selection-start-column="12" selection-end-line="75" selection-end-column="12" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/institut/static/institut/js/pagetransitions.js">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="-238">
+          <caret line="4" column="38" lean-forward="false" selection-start-line="4" selection-start-column="24" selection-end-line="4" selection-end-column="38" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/institut/static/institut/css/default.css">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="51">
+          <caret line="3" column="0" lean-forward="false" selection-start-line="3" selection-start-column="0" selection-end-line="12" selection-end-column="1" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/static/css/animations.css">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="-29">
+          <caret line="0" column="0" lean-forward="false" selection-start-line="0" selection-start-column="0" selection-end-line="0" selection-end-column="0" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/static/js/jquery.dlmenu.js">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="-29">
+          <caret line="0" column="0" lean-forward="false" selection-start-line="0" selection-start-column="0" selection-end-line="0" selection-end-column="0" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/static/js/jquery191.min.js">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="-29">
+          <caret line="0" column="0" lean-forward="false" selection-start-line="0" selection-start-column="0" selection-end-line="0" selection-end-column="0" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/static/js/modernizr.custom.js">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="0">
           <caret line="0" column="0" lean-forward="false" selection-start-line="0" selection-start-column="0" selection-end-line="0" selection-end-column="0" />
-          <folding />
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/institut/templates/institut/date.html">
+    <entry file="file://$PROJECT_DIR$/static/css/multilevelmenu.css">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="102">
-          <caret line="6" column="36" lean-forward="false" selection-start-line="6" selection-start-column="36" selection-end-line="6" selection-end-column="36" />
-          <folding />
+        <state relative-caret-position="-29">
+          <caret line="0" column="0" lean-forward="false" selection-start-line="0" selection-start-column="0" selection-end-line="0" selection-end-column="0" />
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/institut/templates/institut/add_charge.html">
+    <entry file="file://$PROJECT_DIR$/static/css/component.css">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="241">
+          <caret line="159" column="11" lean-forward="false" selection-start-line="159" selection-start-column="1" selection-end-line="159" selection-end-column="11" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/static/css/default.css">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="0">
           <caret line="0" column="0" lean-forward="false" selection-start-line="0" selection-start-column="0" selection-end-line="0" selection-end-column="0" />
-          <folding />
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/institut/templates/institut/about.html">
+    <entry file="file://$PROJECT_DIR$/static/css/bootstrap.css">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="270">
+          <caret line="1079" column="4" lean-forward="false" selection-start-line="1079" selection-start-column="0" selection-end-line="1079" selection-end-column="4" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/static/js/pagetransitions.js">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="34">
+          <caret line="2" column="28" lean-forward="false" selection-start-line="2" selection-start-column="21" selection-end-line="2" selection-end-column="28" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/institut/static/institut/js/jquery.min.js">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="0">
           <caret line="0" column="0" lean-forward="false" selection-start-line="0" selection-start-column="0" selection-end-line="0" selection-end-column="0" />
-          <folding />
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/institut/templates/institut/new_day.html">
+    <entry file="file://$PROJECT_DIR$/institut/static/institut/js/jquery-1.7.2.js">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="4624">
-          <caret line="272" column="31" lean-forward="false" selection-start-line="272" selection-start-column="8" selection-end-line="272" selection-end-column="31" />
-          <folding />
+        <state relative-caret-position="617">
+          <caret line="52" column="15" lean-forward="true" selection-start-line="52" selection-start-column="15" selection-end-line="52" selection-end-column="15" />
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/calendarium/templatetags/calendarium_tags.py">
+    <entry file="file://$PROJECT_DIR$/institut/static/institut/js/jquery-3.1.1.min.js">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="-93">
-          <caret line="0" column="32" lean-forward="false" selection-start-line="0" selection-start-column="26" selection-end-line="0" selection-end-column="32" />
-          <folding />
+        <state relative-caret-position="1360">
+          <caret line="1" column="10123" lean-forward="false" selection-start-line="1" selection-start-column="10123" selection-end-line="1" selection-end-column="10123" />
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/institut/templates/institut/rdv.html">
+    <entry file="file://$PROJECT_DIR$/institut/static/institut/js/jquery-1.7.2.min.js">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="102">
-          <caret line="6" column="14" lean-forward="true" selection-start-line="6" selection-start-column="14" selection-end-line="6" selection-end-column="14" />
-          <folding />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/calendarium/urls.py">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="570">
-          <caret line="58" column="28" lean-forward="false" selection-start-line="58" selection-start-column="14" selection-end-line="58" selection-end-column="28" />
-          <folding />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/calendarium/templates/calendarium/partials/category_list.html">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="68">
-          <caret line="4" column="10" lean-forward="true" selection-start-line="4" selection-start-column="10" selection-end-line="4" selection-end-column="10" />
-          <folding />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/institut/static/institut/css/bootstrap.css">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="4486">
-          <caret line="3694" column="2" lean-forward="false" selection-start-line="3694" selection-start-column="2" selection-end-line="3694" selection-end-column="2" />
-          <folding>
-            <marker date="1487936881959" expanded="true" signature="141316:141371" ph="{...}" />
-            <marker date="1487936881959" expanded="true" signature="141334:141369" ph="{...}" />
-          </folding>
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/institut/templates/institut/delete.html">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="68">
-          <caret line="4" column="0" lean-forward="true" selection-start-line="4" selection-start-column="0" selection-end-line="4" selection-end-column="0" />
-          <folding />
+        <state relative-caret-position="0">
+          <caret line="0" column="0" lean-forward="false" selection-start-line="0" selection-start-column="0" selection-end-line="0" selection-end-column="0" />
         </state>
       </provider>
     </entry>
     <entry file="file://$PROJECT_DIR$/institut/static/institut/js/bootstrap-select.js">
       <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="279">
+          <caret line="77" column="18" lean-forward="false" selection-start-line="77" selection-start-column="6" selection-end-line="77" selection-end-column="18" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/institut/static/institut/js/jquery-3.1.1.js">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="279">
+          <caret line="93" column="25" lean-forward="false" selection-start-line="93" selection-start-column="23" selection-end-line="93" selection-end-column="25" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/institut/static/institut/js/bootstrap.js">
+      <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="250">
-          <caret line="225" column="54" lean-forward="false" selection-start-line="225" selection-start-column="42" selection-end-line="225" selection-end-column="54" />
-          <folding>
-            <element signature="n#!!doc" expanded="true" />
-          </folding>
+          <caret line="104" column="14" lean-forward="false" selection-start-line="104" selection-start-column="8" selection-end-line="104" selection-end-column="14" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/institut/static/institut/css/bootstrap.css">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="270">
+          <caret line="2533" column="13" lean-forward="false" selection-start-line="2533" selection-start-column="1" selection-end-line="2533" selection-end-column="13" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/institut/templates/institut/rdv.html">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="0">
+          <caret line="0" column="0" lean-forward="false" selection-start-line="0" selection-start-column="0" selection-end-line="0" selection-end-column="0" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/institut/static/institut/css/font-awesome.min.css">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="51">
+          <caret line="3" column="1103" lean-forward="false" selection-start-line="3" selection-start-column="1098" selection-end-line="3" selection-end-column="1103" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/calendarium/templates/calendarium/calendar_month.html">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="1292">
+          <caret line="76" column="41" lean-forward="false" selection-start-line="76" selection-start-column="41" selection-end-line="76" selection-end-column="41" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/institut/templates/institut/delete.html">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="246">
+          <caret line="276" column="31" lean-forward="true" selection-start-line="276" selection-start-column="31" selection-end-line="276" selection-end-column="31" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/institut/templates/institut/view_table_all.html">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="986">
+          <caret line="58" column="28" lean-forward="false" selection-start-line="58" selection-start-column="28" selection-end-line="58" selection-end-column="28" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/institut/templates/institut/view_table_as_you_want.html">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="986">
+          <caret line="58" column="28" lean-forward="false" selection-start-line="58" selection-start-column="28" selection-end-line="58" selection-end-column="28" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/institut/templates/institut/view_table_month.html">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="986">
+          <caret line="58" column="28" lean-forward="false" selection-start-line="58" selection-start-column="28" selection-end-line="58" selection-end-column="28" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/institut/templates/institut/view_table_year.html">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="17">
+          <caret line="58" column="28" lean-forward="false" selection-start-line="58" selection-start-column="28" selection-end-line="58" selection-end-column="28" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/institut/templates/institut/view_table_week.html">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="17">
+          <caret line="58" column="28" lean-forward="false" selection-start-line="58" selection-start-column="28" selection-end-line="58" selection-end-column="28" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/institut/templates/institut/view_table.html">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="17">
+          <caret line="254" column="30" lean-forward="false" selection-start-line="254" selection-start-column="8" selection-end-line="254" selection-end-column="30" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/institut/templates/institut/view.html">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="17">
+          <caret line="5" column="4" lean-forward="false" selection-start-line="5" selection-start-column="4" selection-end-line="5" selection-end-column="26" />
         </state>
       </provider>
     </entry>
     <entry file="file://$PROJECT_DIR$/institut/urls.py">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="612">
-          <caret line="37" column="47" lean-forward="false" selection-start-line="37" selection-start-column="47" selection-end-line="37" selection-end-column="47" />
-          <folding />
+        <state relative-caret-position="0">
+          <caret line="0" column="0" lean-forward="false" selection-start-line="0" selection-start-column="0" selection-end-line="0" selection-end-column="0" />
+          <folding>
+            <element signature="e#0#32#0" expanded="true" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/institut/templates/institut/accueil.html">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="-1751">
+          <caret line="20" column="24" lean-forward="false" selection-start-line="20" selection-start-column="20" selection-end-line="20" selection-end-column="24" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/institut/templates/institut/add_soin_corps.html">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="0">
+          <caret line="0" column="0" lean-forward="false" selection-start-line="0" selection-start-column="0" selection-end-line="0" selection-end-column="0" />
         </state>
       </provider>
     </entry>
     <entry file="file://$PROJECT_DIR$/templates/base.html">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="129">
-          <caret line="146" column="31" lean-forward="false" selection-start-line="146" selection-start-column="21" selection-end-line="146" selection-end-column="31" />
+        <state relative-caret-position="3672">
+          <caret line="216" column="112" lean-forward="false" selection-start-line="216" selection-start-column="28" selection-end-line="216" selection-end-column="112" />
           <folding />
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/calendarium/views.py">
+    <entry file="file://$PROJECT_DIR$/institut/templates/institut/calcul.html">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="3811">
-          <caret line="328" column="37" lean-forward="false" selection-start-line="328" selection-start-column="24" selection-end-line="328" selection-end-column="37" />
-          <folding />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/institut/models.py">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="1306">
-          <caret line="186" column="22" lean-forward="false" selection-start-line="186" selection-start-column="22" selection-end-line="186" selection-end-column="22" />
-          <folding />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/calendarium/models.py">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="-3723">
-          <caret line="0" column="0" lean-forward="false" selection-start-line="0" selection-start-column="0" selection-end-line="0" selection-end-column="0" />
+        <state relative-caret-position="1156">
+          <caret line="68" column="12" lean-forward="false" selection-start-line="68" selection-start-column="12" selection-end-line="68" selection-end-column="12" />
           <folding />
         </state>
       </provider>
     </entry>
     <entry file="file://$PROJECT_DIR$/institut/forms.py">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="789">
-          <caret line="81" column="63" lean-forward="false" selection-start-line="81" selection-start-column="63" selection-end-line="81" selection-end-column="63" />
+        <state relative-caret-position="1428">
+          <caret line="84" column="37" lean-forward="false" selection-start-line="84" selection-start-column="36" selection-end-line="84" selection-end-column="37" />
           <folding />
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/calendarium/templates/calendarium/partials/category_list2.html">
+    <entry file="file://$PROJECT_DIR$/institut/templates/institut/new_day.html">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="102">
-          <caret line="6" column="5" lean-forward="true" selection-start-line="6" selection-start-column="5" selection-end-line="6" selection-end-column="5" />
-          <folding />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/calendarium/templates/calendarium/calendar_month.html">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="420">
-          <caret line="116" column="104" lean-forward="false" selection-start-line="116" selection-start-column="93" selection-end-line="116" selection-end-column="104" />
+        <state relative-caret-position="2992">
+          <caret line="176" column="34" lean-forward="false" selection-start-line="176" selection-start-column="34" selection-end-line="176" selection-end-column="34" />
           <folding />
         </state>
       </provider>
     </entry>
     <entry file="file://$PROJECT_DIR$/institut/views.py">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="500">
-          <caret line="959" column="14" lean-forward="false" selection-start-line="959" selection-start-column="14" selection-end-line="959" selection-end-column="14" />
-          <folding>
-            <element signature="e#0#45#0" expanded="true" />
-          </folding>
+        <state relative-caret-position="17">
+          <caret line="577" column="44" lean-forward="false" selection-start-line="577" selection-start-column="44" selection-end-line="577" selection-end-column="44" />
+          <folding />
         </state>
       </provider>
     </entry>

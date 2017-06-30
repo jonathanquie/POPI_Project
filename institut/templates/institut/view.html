@@ -3,262 +3,283 @@
 
 {% block content %}
     <h1>-</h1>
-    <h1>Bienvenue sur mon site</h1>
-    <p>Page pour voir tous les services et produits</p>
+    <div class="col-xs-5">
+        <h1>Bienvenue sur mon site</h1>
+        <p>Page pour voir tous les services et produits</p>
+    </div>
 
-    <table class="table table-bordered table-inverse">
-        <caption>
-            <h2>Soins du corps</h2>
-        </caption>
-        <thead>
-            <tr class="">
-                <th style="width:20%;">Nom du soin</th>
-                <th style="width:20%;">Prix de vente</th>
-                <th style="width:20%;">Coût de revient</th>
+    <div class="row"></div>
+
+    <div class="col-xs-5">
+        <table class="table table-bordered table-inverse">
+            <caption>
+                <h2>Soins du corps</h2>
+            </caption>
+            <thead>
+                <tr class="">
+                    <th style="width:20%;">Nom du soin</th>
+                    <th style="width:20%;">Prix de vente</th>
+                    <th style="width:20%;">Coût de revient</th>
+                </tr>
+            </thead>
+        <tbody>
+            {% for view_soins_corps in tous_soins_corps %}
+            <tr>
+                <td>{{ view_soins_corps.name }}</td>
+                <td>{{ view_soins_corps.price }}</td>
+                <td>{{ view_soins_corps.cost }}</td>
             </tr>
-        </thead>
-    <tbody>
-        {% for view_soins_corps in tous_soins_corps %}
-        <tr>
-            <td>{{ view_soins_corps.name }}</td>
-            <td>{{ view_soins_corps.price }}</td>
-            <td>{{ view_soins_corps.cost }}</td>
-        </tr>
-        {% empty %}
-            <tr class = "danger">
-            <td><i><font color =#b52222>Aucun soin corps disponible.</font></i></td>
-            <td><font color =#b52222>-</font></td>
-            <td><font color =#b52222>-</font></td>
-        </tr>
-        {% endfor %}
-    </tbody>
-    </table>
-
-
-
-
-    <table class="table table-bordered table-inverse">
-        <caption>
-            <h2>Soins du visage</h2>
-        </caption>
-        <thead>
-            <tr class="">
-                <th style="width:20%;">Nom du soin</th>
-                <th style="width:20%;">Prix de vente</th>
-                <th style="width:20%;">Coût de revient</th>
-            </tr>
-        </thead>
-    <tbody>
-        {% for view_soins_visage in tous_soins_visages %}
-        <tr>
-            <td>{{ view_soins_visage.name }}</td>
-            <td>{{ view_soins_visage.price }}</td>
-            <td>{{ view_soins_visage.cost }}</td>
-        </tr>
-        {% empty %}
-            <tr class = "danger">
-                <td><i><font color =#b52222>Aucun soin visage disponible.</font></i></td>
+            {% empty %}
+                <tr class = "danger">
+                <td><i><font color =#b52222>Aucun soin corps disponible.</font></i></td>
                 <td><font color =#b52222>-</font></td>
                 <td><font color =#b52222>-</font></td>
             </tr>
-        {% endfor %}
-    </tbody>
-    </table>
+            {% endfor %}
+        </tbody>
+        </table>
+    </div>
 
+    <div class="row"></div>
 
-
-
-    <table class="table table-bordered table-inverse">
-        <caption>
-            <h2>Epilations</h2>
-        </caption>
-        <thead>
-            <tr class="">
-                <th style="width:20%;">Nom de l'épilation</th>
-                <th style="width:20%;">Prix de vente</th>
-                <th style="width:20%;">Coût de revient</th>
+    <div class="col-xs-5">
+        <table class="table table-bordered table-inverse">
+            <caption>
+                <h2>Soins du visage</h2>
+            </caption>
+            <thead>
+                <tr class="">
+                    <th style="width:20%;">Nom du soin</th>
+                    <th style="width:20%;">Prix de vente</th>
+                    <th style="width:20%;">Coût de revient</th>
+                </tr>
+            </thead>
+        <tbody>
+            {% for view_soins_visage in tous_soins_visages %}
+            <tr>
+                <td>{{ view_soins_visage.name }}</td>
+                <td>{{ view_soins_visage.price }}</td>
+                <td>{{ view_soins_visage.cost }}</td>
             </tr>
-        </thead>
-    <tbody>
-        {% for view_epilations in tous_epilations %}
-        <tr>
-            <td>{{ view_epilations.name }}</td>
-            <td>{{ view_epilations.price }}</td>
-            <td>{{ view_epilations.cost }}</td>
-        </tr>
-        {% empty %}
-        <tr class = "danger">
-            <td><i><font color =#b52222>Aucune épilation disponible.</font></i></td>
-            <td><font color =#b52222>-</font></td>
-            <td><font color =#b52222>-</font></td>
-        </tr>
+            {% empty %}
+                <tr class = "danger">
+                    <td><i><font color =#b52222>Aucun soin visage disponible.</font></i></td>
+                    <td><font color =#b52222>-</font></td>
+                    <td><font color =#b52222>-</font></td>
+                </tr>
+            {% endfor %}
+        </tbody>
+        </table>
+    </div>
 
-        {% endfor %}
-    </tbody>
-    </table>
+    <div class="row"></div>
 
-
-
-    <table class="table table-bordered table-inverse">
-        <caption>
-            <h2>Ongles</h2>
-        </caption>
-        <thead>
-            <tr class="">
-                <th style="width:20%;">Nom du service</th>
-                <th style="width:20%;">Prix de vente</th>
-                <th style="width:20%;">Coût de revient</th>
+    <div class="col-xs-5">
+        <table class="table table-bordered table-inverse">
+            <caption>
+                <h2>Epilations</h2>
+            </caption>
+            <thead>
+                <tr class="">
+                    <th style="width:20%;">Nom de l'épilation</th>
+                    <th style="width:20%;">Prix de vente</th>
+                    <th style="width:20%;">Coût de revient</th>
+                </tr>
+            </thead>
+        <tbody>
+            {% for view_epilations in tous_epilations %}
+            <tr>
+                <td>{{ view_epilations.name }}</td>
+                <td>{{ view_epilations.price }}</td>
+                <td>{{ view_epilations.cost }}</td>
             </tr>
-        </thead>
-    <tbody>
-        {% for view_ongles in tous_ongles %}
-        <tr>
-            <td>{{ view_ongles.name }}</td>
-            <td>{{ view_ongles.price }}</td>
-            <td>{{ view_ongles.cost }}</td>
-        </tr>
-        {% empty %}
-        <tr class = "danger">
-            <td><i><font color =#b52222>Aucun serices "ongles" disponible.</font></i></td>
-            <td><font color =#b52222>-</font></td>
-            <td><font color =#b52222>-</font></td>
-        </tr>
-
-        {% endfor %}
-    </tbody>
-    </table>
-
-
-
-    <table class="table table-bordered table-inverse">
-        <caption>
-            <h2>Maquillage</h2>
-        </caption>
-        <thead>
-            <tr class="">
-                <th style="width:20%;">Nom du service</th>
-                <th style="width:20%;">Prix de vente</th>
-                <th style="width:20%;">Coût de revient</th>
+            {% empty %}
+            <tr class = "danger">
+                <td><i><font color =#b52222>Aucune épilation disponible.</font></i></td>
+                <td><font color =#b52222>-</font></td>
+                <td><font color =#b52222>-</font></td>
             </tr>
-        </thead>
-    <tbody>
-        {% for view_maquillage in tous_maquillages %}
-        <tr>
-            <td>{{ view_maquillage.name }}</td>
-            <td>{{ view_maquillage.price }}</td>
-            <td>{{ view_maquillage.cost }}</td>
-        </tr>
-        {% empty %}
-        <tr class = "danger">
-            <td><i><font color =#b52222>Aucun serices "maquillage" disponible.</font></i></td>
-            <td><font color =#b52222>-</font></td>
-            <td><font color =#b52222>-</font></td>
-        </tr>
 
-        {% endfor %}
-    </tbody>
-    </table>
+            {% endfor %}
+        </tbody>
+        </table>
+    </div>
 
+    <div class="row"></div>
 
-     <table class="table table-bordered table-inverse">
-        <caption>
-            <h2>Produits</h2>
-        </caption>
-        <thead>
-            <tr class="">
-                <th style="width:20%;">Nom du produit</th>
-                <th style="width:20%;">Prix de vente</th>
-                <th style="width:20%;">Coût de revient</th>
+    <div class="col-xs-5">
+        <table class="table table-bordered table-inverse">
+            <caption>
+                <h2>Ongles</h2>
+            </caption>
+            <thead>
+                <tr class="">
+                    <th style="width:20%;">Nom du service</th>
+                    <th style="width:20%;">Prix de vente</th>
+                    <th style="width:20%;">Coût de revient</th>
+                </tr>
+            </thead>
+        <tbody>
+            {% for view_ongles in tous_ongles %}
+            <tr>
+                <td>{{ view_ongles.name }}</td>
+                <td>{{ view_ongles.price }}</td>
+                <td>{{ view_ongles.cost }}</td>
             </tr>
-        </thead>
-    <tbody>
-        {% for view_produits in tous_produits %}
-        <tr>
-            <td>{{ view_produits.name }}</td>
-            <td>{{ view_produits.price }}</td>
-            <td>{{ view_produits.cost }}</td>
-        </tr>
-        {% empty %}
-        <tr class = "danger">
-            <td><i><font color =#b52222>Aucun produit disponible.</font></i></td>
-            <td><font color =#b52222>-</font></td>
-            <td><font color =#b52222>-</font></td>
-        </tr>
-
-        {% endfor %}
-    </tbody>
-    </table>
-
-
-    <table class="table table-bordered table-inverse">
-        <caption>
-            <h2>Charges</h2>
-        </caption>
-        <thead>
-            <tr class="">
-                <th style="width:20%;">Nom de la charge</th>
-                <th style="width:20%;">Coût de la charge</th>
+            {% empty %}
+            <tr class = "danger">
+                <td><i><font color =#b52222>Aucun serices "ongles" disponible.</font></i></td>
+                <td><font color =#b52222>-</font></td>
+                <td><font color =#b52222>-</font></td>
             </tr>
-        </thead>
-    <tbody>
-        {% for view_charges in tous_charges %}
-        <tr class="">
-            <td>{{ view_charges.name }}</td>
-            <td>{{ view_charges.cost }}</td>
-        </tr>
-        {% empty %}
-        <tr class = "danger">
-            <td><i><font color =#b52222>Aucune charge disponible.</font></i></td>
-            <td><font color =#b52222>-</font></td>
-        </tr>
 
-        {% endfor %}
-    </tbody>
-    </table>
+            {% endfor %}
+        </tbody>
+        </table>
+    </div>
 
+    <div class="row"></div>
 
-
-    <table class="table table-bordered table-inverse">
-        <caption>
-            <h2>Journées éffectuées</h2>
-        </caption>
-        <thead>
-            <tr class="">
-                <th style="width:20%;">Date</th>
-                <th style="width:20%;">Chiffre d'affaire</th>
-                <th style="width:20%;">Charges</th>
-                <th style="width:20%;">TVA</th>
-                <th style="width:20%;">Résultat net</th>
+    <div class="col-xs-5">
+        <table class="table table-bordered table-inverse">
+            <caption>
+                <h2>Maquillage</h2>
+            </caption>
+            <thead>
+                <tr class="">
+                    <th style="width:20%;">Nom du service</th>
+                    <th style="width:20%;">Prix de vente</th>
+                    <th style="width:20%;">Coût de revient</th>
+                </tr>
+            </thead>
+        <tbody>
+            {% for view_maquillage in tous_maquillages %}
+            <tr>
+                <td>{{ view_maquillage.name }}</td>
+                <td>{{ view_maquillage.price }}</td>
+                <td>{{ view_maquillage.cost }}</td>
             </tr>
-        </thead>
-    <tbody>
-        {% for view_journees in tous_journees %}
-        <tr class="">
-            <td>{{ view_journees.jour }}</td>
-            <td>{{ view_journees.ca }} €</td>
-            <td>- {{ view_journees.costs }} €</td>
-            <td>- {{ view_journees.tva }} €</td>
-            {% if view_journees.result > 0 %}
-                <td><font color =#2BA951>+ {{ view_journees.result }} €</font></td>
-            {% elif view_journees.result < 0 %}
-                <td><font color =#A92B2B>{{ view_journees.result }} €</font></td>
-            {% else %}
-                <td>0 €</td>
-            {% endif %}
-        </tr>
-        {% empty %}
-        <tr class = "">
-            <td><i><font color =#b52222>Aucune journée disponible.</i></td>
-            <td><font color =#b52222>-</font></td>
-            <td><font color =#b52222>-</font></td>
-            <td><font color =#b52222>-</font></td>
-            <td><font color =#b52222>-</font></td>
-        </tr>
+            {% empty %}
+            <tr class = "danger">
+                <td><i><font color =#b52222>Aucun serices "maquillage" disponible.</font></i></td>
+                <td><font color =#b52222>-</font></td>
+                <td><font color =#b52222>-</font></td>
+            </tr>
 
-        {% endfor %}
-    </tbody>
-    </table>
+            {% endfor %}
+        </tbody>
+        </table>
+    </div>
 
+    <div class="row"></div>
+
+    <div class="col-xs-5">
+         <table class="table table-bordered table-inverse">
+            <caption>
+                <h2>Produits</h2>
+            </caption>
+            <thead>
+                <tr class="">
+                    <th style="width:20%;">Nom du produit</th>
+                    <th style="width:20%;">Prix de vente</th>
+                    <th style="width:20%;">Coût de revient</th>
+                </tr>
+            </thead>
+        <tbody>
+            {% for view_produits in tous_produits %}
+            <tr>
+                <td>{{ view_produits.name }}</td>
+                <td>{{ view_produits.price }}</td>
+                <td>{{ view_produits.cost }}</td>
+            </tr>
+            {% empty %}
+            <tr class = "danger">
+                <td><i><font color =#b52222>Aucun produit disponible.</font></i></td>
+                <td><font color =#b52222>-</font></td>
+                <td><font color =#b52222>-</font></td>
+            </tr>
+
+            {% endfor %}
+        </tbody>
+        </table>
+    </div>
+
+    <div class="row"></div>
+
+    <div class="col-xs-3">
+        <table class="table table-bordered table-inverse">
+            <caption>
+                <h2>Charges</h2>
+            </caption>
+            <thead>
+                <tr class="">
+                    <th style="width:20%;">Nom de la charge</th>
+                    <th style="width:20%;">Coût de la charge</th>
+                </tr>
+            </thead>
+        <tbody>
+            {% for view_charges in tous_charges %}
+            <tr class="">
+                <td>{{ view_charges.name }}</td>
+                <td>{{ view_charges.cost }}</td>
+            </tr>
+            {% empty %}
+            <tr class = "danger">
+                <td><i><font color =#b52222>Aucune charge disponible.</font></i></td>
+                <td><font color =#b52222>-</font></td>
+            </tr>
+
+            {% endfor %}
+        </tbody>
+        </table>
+    </div>
+
+    <div class="row"></div>
+
+    <div class="col-xs-6">
+        <table class="table table-bordered table-inverse">
+            <caption>
+                <h2>Journées éffectuées</h2>
+            </caption>
+            <thead>
+                <tr class="">
+                    <th style="width:20%;">Date</th>
+                    <th style="width:20%;">Chiffre d'affaire</th>
+                    <th style="width:20%;">Charges</th>
+                    <th style="width:20%;">TVA</th>
+                    <th style="width:20%;">Résultat net</th>
+                </tr>
+            </thead>
+        <tbody>
+            {% for view_journees in tous_journees %}
+            <tr class="">
+                <td>{{ view_journees.jour }}</td>
+                <td>{{ view_journees.ca }} €</td>
+                <td>- {{ view_journees.costs }} €</td>
+                <td>- {{ view_journees.tva }} €</td>
+                {% if view_journees.result > 0 %}
+                    <td><font color =#2BA951>+ {{ view_journees.result }} €</font></td>
+                {% elif view_journees.result < 0 %}
+                    <td><font color =#A92B2B>{{ view_journees.result }} €</font></td>
+                {% else %}
+                    <td>0 €</td>
+                {% endif %}
+            </tr>
+            {% empty %}
+            <tr class = "">
+                <td><i><font color =#b52222>Aucune journée disponible.</i></td>
+                <td><font color =#b52222>-</font></td>
+                <td><font color =#b52222>-</font></td>
+                <td><font color =#b52222>-</font></td>
+                <td><font color =#b52222>-</font></td>
+            </tr>
+
+            {% endfor %}
+        </tbody>
+        </table>
+    </div>
+
+    <div class="row"></div>
 
 
 

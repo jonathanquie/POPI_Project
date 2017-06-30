@@ -41,9 +41,11 @@
                             {% if day != 0 %}
                                 <span class="calendarium-date">{{ day }}</span>
                                 {% for occurrence in occurrences %}
-                                    <p class="alert" style="background-color: #{{ occurrence.event.category.color }}">
+                                    <p class="alert" style="background-color: {{ occurrence.event.category.color }}">
+{#                                    <p>#}
                                         <a title="{{ occurrence }}" href="{% url "calendar_occurrence_detail" pk=occurrence.event.pk year=occurrence.start.year month=occurrence.start.month day=occurrence.start.day %}">{{ occurrence|truncatechars:22 }}</a>
                                     </p>
+{#                                    </p>#}
                                 {% endfor %}
                             {% endif %}
                         </div>
@@ -90,21 +92,21 @@
                                 {
                                     if(today.getMonth() < 10)
                                     {
-                                        document.getElementById('datepickerrdv').value = "0"+today.getDate()+"/"+"0"+(today.getMonth()+1)+"/"+(today.getYear()+1900);
+                                        document.getElementById('datepickerrdv').value = (today.getYear()+1900)+"-"+"0"+(today.getMonth()+1)+"-"+"0"+today.getDate();
                                     }
                                     else
                                     {
 
-                                        document.getElementById('datepickerrdv').value = "0"+today.getDate()+"/"+(today.getMonth()+1)+"/"+(today.getYear()+1900);
+                                        document.getElementById('datepickerrdv').value = (today.getYear()+1900)+"-"+(today.getMonth()+1)+"-"+"0"+today.getDate();
                                     }
                                 }
                                 else if(today.getMonth() < 10)
                                 {
-                                    document.getElementById('datepickerrdv').value = today.getDate()+"/"+"0"+(today.getMonth()+1)+"/"+(today.getYear()+1900);
+                                    document.getElementById('datepickerrdv').value = (today.getYear()+1900)+"-"+"0"+(today.getMonth()+1)+"-"+today.getDate();
                                 }
                                 else
                                 {
-                                    document.getElementById('datepickerrdv').value = today.getDate()+"/"+(today.getMonth()+1)+"/"+(today.getYear()+1900);
+                                    document.getElementById('datepickerrdv').value = (today.getYear()+1900)+"-"+(today.getMonth()+1)+"-"+today.getDate();
                                 }
                                 </script>
                             </div>
@@ -187,7 +189,7 @@
                         <div class="row">
                             <div class="col-md-4"><h4>Catégorie</h4></div>
                             <div class="col-md-4">
-                                <select class="selectpicker" data-live-search="true">
+                                <select class="selectpicker" data-live-search="true" name="description">
                                     {% include "calendarium/partials/category_list2.html" %}
                                 </select>
                             </div>

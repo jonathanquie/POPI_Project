@@ -36,11 +36,11 @@
 #calendar-month tr td,
 #calendar-week tr td {
   border-left: 1px solid #d5d5d5;
-  border-right: none;
+  border-right: 1px solid #d5d5d5;
   line-height: 12px;
   border-top: 1px solid #d5d5d5;
   border-bottom: none;
-  padding: 0;
+  padding: 2px 4px;
   background: url(data:image/svg+xml;base64,PD94bWwgdmVyc2lvbj0iMS4wIiA/Pgo8c3ZnIHhtbG5zPSJodHRwOi8vd3d3LnczLm9yZy8yMDAwL3N2ZyIgd2lkdGg9IjEwMCUiIGhlaWdodD0iMTAwJSIgdmlld0JveD0iMCAwIDEgMSIgcHJlc2VydmVBc3BlY3RSYXRpbz0ibm9uZSI+CiAgPGxpbmVhckdyYWRpZW50IGlkPSJncmFkLXVjZ2ctZ2VuZXJhdGVkIiBncmFkaWVudFVuaXRzPSJ1c2VyU3BhY2VPblVzZSIgeDE9IjAlIiB5MT0iMCUiIHgyPSIwJSIgeTI9IjEwMCUiPgogICAgPHN0b3Agb2Zmc2V0PSIwJSIgc3RvcC1jb2xvcj0iI2ZmZmZmZiIgc3RvcC1vcGFjaXR5PSIwIi8+CiAgICA8c3RvcCBvZmZzZXQ9IjEwMCUiIHN0b3AtY29sb3I9IiNlZmVmZWYiIHN0b3Atb3BhY2l0eT0iMSIvPgogIDwvbGluZWFyR3JhZGllbnQ+CiAgPHJlY3QgeD0iMCIgeT0iMCIgd2lkdGg9IjEiIGhlaWdodD0iMSIgZmlsbD0idXJsKCNncmFkLXVjZ2ctZ2VuZXJhdGVkKSIgLz4KPC9zdmc+);
   background: -moz-linear-gradient(top, rgba(255, 255, 255, 0) 50%, #f8f8f8 100%);
   background: -webkit-gradient(linear, left top, left bottom, color-stop(50%, rgba(255, 255, 255, 0)), color-stop(100%, #f8f8f8));
@@ -52,9 +52,9 @@
 }
 #calendar-month tr td .calendarium-relative,
 #calendar-week tr td .calendarium-relative {
-  position: relative;
-  height: 70px;
-  padding: 8px;
+    position: relative;
+    height: 250px;
+    padding: 2px 4px;
 }
 #calendar-month tr td .calendarium-date,
 #calendar-week tr td .calendarium-date,
@@ -88,7 +88,7 @@
   padding: 2px 4px;
   margin-bottom: 2px;
   margin-right: 17px;
-  height: 12px;
+  height: 18px;
   overflow: hidden;
 }
 #calendar-month tr td .alert a,
