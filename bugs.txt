@@ -1,0 +1,9 @@
+|-----------|
+|	BUGS	|
+|-----------|
+
+08/06/17 : 
+		> jquery-3.1.1.min.js indispensable pour les actions de la navbar mais bloque l'éxécution de jquery-1.7.2.js pour une nouvelle journée
+		> essai de mettre jquery-3.1.1.js pour le new day ==> FAIL
+		> jquery-1.7.2.min.js dans la base.html ne sert strictement à rien
+		> le min.js joue sur l'interface graphique tandis que le js joue sur le fonctionnel
